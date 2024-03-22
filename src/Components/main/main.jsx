@@ -6,7 +6,7 @@ import colaborate2 from "../../assets/colaborate2.png";
 import Fantasminha from "../../assets/fantasminha.png";
 import Dashboard from "../../assets/dashboard.png";
 import DashboardDoodle from "../../assets/dashboardDoddle.png";
-import  circulo from "../../assets/circulo.png";
+import circulo from "../../assets/circulo.png";
 import Ekonavi from "../../assets/ekonavi.png";
 import News from "./hooks/main.news"
 import ScienceDoodle from "../../assets/science.png";

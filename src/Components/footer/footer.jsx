@@ -7,7 +7,7 @@ import {
     SimpleGrid,
     Image
 } from "@chakra-ui/react";
-import LogoProject from "../../assets/LogoProject.png";
+import LogoProject from "../../assets/logoProject.png";
 
 export default function Footer() {
 
