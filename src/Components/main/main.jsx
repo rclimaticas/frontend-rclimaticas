@@ -14,7 +14,7 @@ import Article1 from "../../assets/article1.png";
 import Article2 from "../../assets/article2.png";
 import LogoProject from "../../assets/logoProject.png";
 import Contribution from "./hooks/main.input";
-import Confiadores from "../../assets/confiadores.png";
+import Confiadores from "../../assets/Confiadores.png";
 import Footer from "../footer/footer";
 
 export default function Main() {
