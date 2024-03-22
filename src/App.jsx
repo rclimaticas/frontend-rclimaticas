@@ -1,7 +1,8 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home.jsx";
+import Home from "./Components/Home";
+
 
 const App = () => {
   return (

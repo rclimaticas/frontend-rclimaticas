@@ -10,4 +10,5 @@ body {
   --type-first: "Roboto";
   /*   --type-second: "Spectral", Georgia; */
   font-family: var(--type-first);
+  background-color: black;
 }
