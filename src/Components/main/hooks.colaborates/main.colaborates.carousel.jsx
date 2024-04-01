@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { Box, IconButton, Grid, Flex, Text } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
-const Carousel = ({ images }) => {
+const Carousel = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
   };
 
   return (
-    <Box position="relative">
+    <Box position="relative" bottom={{md: "80px"}}>
       <Grid
         placeItems="center"
         left={{ base: "0px", sm: "0px", md: "0px", lg: "135px", xl: "20px", '2xl': "20px" }}
@@ -25,39 +25,44 @@ const Carousel = ({ images }) => {
       >
         <IconButton
           icon={<ChevronLeftIcon />}
-          bg={"white"}
+          bg={"#7D9270"}
           onClick={handlePrev}
           disabled={currentIndex === 0}
           aria-label="Previous Slide"
           position="absolute"
-          left="0"
-          fontSize={"80px"}
-          top={{lg: "235%", xl: "300%", '2xl': "300%" }}
+          left={{md: "0px"}}
+          fontSize={{md: "35px", lg: "80px", xl: "80px", '2xl': "80px"}}
+          top={{md: "330%", '2xl': "300%" }}
           transform="translateX(-120%)"
-          _hover={{ bg: "white" }}
+          _hover={{ bg: "#7D9270" }}
+      
         />
-        <Box w="0x" h="170px" bg="white" textAlign="center" position="relative">
-          <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} />
+        <Box w="0x" h="170px" textAlign="center" position="relative">
+          <a href={slides[currentIndex].link} target="_blank" rel="noopener noreferrer">
+            <img src={slides[currentIndex].imageUrl} alt={`Slide ${currentIndex + 1}`} />
+          </a>
         </Box>
         <IconButton
           icon={<ChevronRightIcon />}
           onClick={handleNext}
-          disabled={currentIndex === images.length - 1}
+          disabled={currentIndex === slides.length - 1}
           aria-label="Next Slide"
           position="absolute"
-          right="0"
-          bg={"white"}
+          bg={"#7D9270"}
           transform="translateX(120%)"
-          fontSize={"80px"}
-          top={{lg: "235%", xl: "300%", '2xl': "300%" }}
-          _hover={{ bg: "white" }}
+          fontSize={{md: "35px", lg: "80px", xl: "80px", '2xl': "80px"}}
+          top={{md: "330%",'2xl': "300%" }}
+          right={{md: "0px"}}
+          _hover={{ bg: "#7D9270" }}
+        
+          
         />
       </Grid>
       <Flex justifyContent="center" mt={4} position="absolute" 
       left={{lg: "85px", xl: "50px", '2xl': "50px"}} 
-      top={{lg: "650px", xl: "550px", '2xl': "500px"}} 
+      top={{md: "600px"}} 
       width="100%">
-        {images.map((_, index) => (
+        {slides.map((_, index) => (
           <Box
             key={index}
             w="10px"
