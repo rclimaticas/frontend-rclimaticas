@@ -1,362 +1,420 @@
 import React from "react";
-import { Flex, SimpleGrid, Box, Center, Text, Stack, Heading, Image, Button, Grid, GridItem  } from "@chakra-ui/react";
+import { Flex, SimpleGrid, Box, Center, Text, Stack, Heading, Image, Button, Grid, GridItem, Input, InputGroup, InputLeftAddon, InputRightAddon} from "@chakra-ui/react";
 import Carousel from "../main/hooks.colaborates/main.colaborates.carousel";
 import colaborate1 from "../../assets/colaborate1.png";
 import colaborate2 from "../../assets/colaborate2.png";
 import Fantasminha from "../../assets/fantasminha.png";
 import Dashboard from "../../assets/dashboard.png";
-import DashboardDoodle from "../../assets/dashboardDoddle.png";
-import circulo from "../../assets/circulo.png";
 import Ekonavi from "../../assets/ekonavi.png";
-import News from "./hooks/main.news"
-import ScienceDoodle from "../../assets/science.png";
 import Article1 from "../../assets/article1.png";
 import Article2 from "../../assets/article2.png";
-import LogoProject from "../../assets/logoProject.png";
-import Contribution from "./hooks/main.input";
-import Confiadores from "../../assets/Confiadores.png";
-import Footer from "../footer/footer";
+import Fundo from "../../assets/fundo.png";
+import NewsImage from "../../assets/news.png";
+import Financiadores from "../../assets/Financiadores.png";
+import Trusted from "../../assets/trusted.png";
+import ConceitoPlataforma from "../../assets/conceitoPlataforma.pdf";
 
 export default function Main() {
-    const images = [colaborate1, colaborate2];
-    const [isHovered, setIsHovered] = React.useState(false);
-    const [isHovered2, setIsHovered2] = React.useState(false);
+
     return (
         <>
-            <SimpleGrid minChildWidth='350px'mr={180} top={{base: 0, md: 50 }} 
+            <SimpleGrid minChildWidth='150px' mr={180} top={{base: 0, md: "140px"}} 
             
-            position='relative' spacing={{base: '100px', sm:'40px', md: '200px', lg: '40px'}} >
-            <Box height='470px' mt={{base: 0, md: 10}}>
+            position='relative' spacing={{md: "600px", "2xl": "200px"}}>
+            <Box 
+            display={{md: 'block'}} 
+            height={{base: '700px', md: '400px'}}
+            bottom={{base: 150, md: "62px"}}
+            position={"relative"}
+            w={{base: "760px", md: "450px"}}
+            right={{base: "193px", md: "0px"}}
+            left={{base: "0px", md: "50px"}}
+          
+            >
+                <Center>
+                <Image
+                src='https://iili.io/JXrpbXn.md.png'
+                w={{md: "100%"}}
+                ></Image>
+                </Center>
+            </Box>
+            <Box
+            height={{ md: '400px', '2xl': '400px'}} mt={{base: 0, md: 10}}
+            w={{md: "420px", '2xl': "450px"}}
+            right={{md: "175px", '2xl': "0px"}}
+            bottom={{md: 100, '2xl': "100px"}}
+            position={"relative"}
+            
+            >
             <Stack
             spacing={30} 
             position={"relative"}
             >
             
                 <Heading
-                fontSize={{base: 20, md: 50, lg: 50, xl: 50, '2xl': 50}}
+                fontSize={{md: 32, '2xl': 40}}
+                textAlign={"left"}
                 >
-                    Plataforma Colaborativa para Povos, Comunidades e Indios
+                    Plataforma <br /> Colaborativa para <br /> Povos, Comunidades e <br /> da Natureza
                 </Heading>
                 <Text
-                fontSize={{base: 20, md: 25, lg: 25, xl: 25, '2xl': 20}}
+                fontSize={{md: 25, '2xl': 20}}
                 >
                     Boas práticas de adaptação à mudança do clima em áreas costeiras e nos biomas Mata Atlântica Cerrado e Caatinga baianos.
                 </Text>
-            <Button
-            width={"50%"}
-            height={{base: "50px", sm: "50px", md: "50px", lg: "50px", xl: "50px", '2xl': "50px"}}
-            border={"2px"}
-            bgColor={"white"}
-            _hover={{bg: "#CFD249"}}
-            boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.4)"
-            >
-                <Text
-                fontFamily={'Fira Code'}
-                fontSize={{base: "0px", sm: "0px", md: "0px", lg: "20px", xl: "20px", '2xl': "20px"}}
+            <a 
+            target="_blank" rel="noopener noreferrer"
+            href={ConceitoPlataforma}>
+                <Button
+                width={{md: "30%", lg: "50%", xl: "50%", '2xl': "50%"}} 
+                border={"2px"}
+                _hover={{bg: "#bdbf47"}}
+                bg={{md: "#CFD249"}}
+                boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.4)"
                 
-                >Saber Mais</Text>
-            </Button>
+                >
+                    <Text
+                    fontFamily={'Fira Code'}
+                    fontSize={{md: "22px", lg: "20px", xl: "20px", '2xl': "20px"}}
+                    
+                    >Saber Mais</Text>
+                </Button>
+            </a>
             </Stack>
             </Box>
-            <Box display={{base: 'none', sm: 'none', md: 'block'}} height='700px'>
-                <Center>
-                <Image
-                src='https://iili.io/JXrpbXn.md.png'
-                w={"100%"}
-                ></Image>
-                </Center>
-            </Box>
+            
             </SimpleGrid>
+           
     
-            <SimpleGrid columns={1} spacing={8} mt={8}>
-                <Box  bgColor="white" position="relative" right={200} 
-                width={{ lg: "1027px", xl: "1442px", '2xl': "1521px"}} height="1300px">
-                    <SimpleGrid columns={2}>
-                        <Box width={"200%"}>
-                        <Text fontFamily="Fira Code" fontWeight="bold" fontSize="60px" ml={200} mt={20}>
-                            nossos parceiros, assim como a gente, são <br /> impulsionados pela <br /> tecnologia para um <br /> mundo melhor.
-                        </Text>
-                        </Box>
+            <SimpleGrid display={"block"} columns={1} spacing={8} mt={150}>
+                <Box  bgColor="#7D9270" position="relative" 
+                marginLeft={"-200px"}
+                height={{md: "680px"}}
+               
+                >
+                    <SimpleGrid columns={1}>
+
                         <Box>
                         <Image
+                        display={"none"}
                         src={Fantasminha}
-                        w={{lg: "20%", xl: "30%", '2xl': "30%"}}
+                        w={{md: "35%" ,lg: "20%", xl: "30%", '2xl': "30%"}}
                         ml={200}
-                        mt={250}
+                        mt={{md: 150, lg: 250, xl: 250, '2xl': 250}}
                         ></Image> 
-                        <Box mt={100} position="relative" right={{lg: 500, xl: 500, '2xl': 470}} w="900px" height='550px'>
-                            <Carousel images={images} /> 
+                        <Box mt={100} position="relative" 
+                        left={{md: 160, "2xl": 210}} 
+                        w={{md: "1100px"}} height='550px'
+                        >
+                            <Carousel
+                            slides={[
+                                { imageUrl: colaborate1, link: "#" },
+                                { imageUrl: colaborate2, link: "https://arcg.is/0OW5eO0" }
+                              ]}
+                            /> 
                         </Box>      
                         </Box>
                     </SimpleGrid>
                 </Box>
             </SimpleGrid>
-            <SimpleGrid  minChildWidth="350px" mt={20} mr={180} columns={2}>          
-                <Box >
-                    <Center mt= {{base: 20, sm: 20, md: 0, lg: 100, xl: 0, '2xl': 0}}>
-                        <Flex zIndex={1}>
-                        <Text textAlign={"left"} color={"black"} mt={20} fontSize={50} fontWeight="bold" fontFamily={"Fira Code"} mb={9}>
-                        Registre Ocorrências de conflitos 
-                        em seu território e receba apoio gratuito.
-                        
-                        </Text>
-                        </Flex>
-                        
-                    </Center>
-                    <Flex zIndex={0} position="relative"  right={100} 
-                    bottom={{lg: 500, xl: 600, '2xl': 600}}>
-                            <img
-                            width={400}
-                            top={100}
-                            position="absolute"
-                            src={circulo}
-                            ></img>
-                        </Flex>
-                    {/* <Image
-                    src={Dashboard}
-                    w={"100%"}
-                    ></Image> */}   
-                </Box>
-                <Box position={"relative"} 
-                bottom={{lg: 400, xl: 0, '2xl': 0}}
-                >
-                <a href="https://storyset.com/data" />
-                <img src={DashboardDoodle}/>
-                </Box>
-            </SimpleGrid>
-            
-            <SimpleGrid columns={1}  spacing={1} >
-                <Center
-                 marginRight={{ lg: 190, xl: 250, '2xl': 190}} 
-                 mt={{base: 0, sm: 0, md: 0, lg: 0, xl: 250, '2xl': 0}} mr={240}  position="relative" 
-                 bottom={{lg: 200, xl: 400, '2xl': 250}}> 
-                        <Flex>  
-                            <Box zIndex={0} w={{lg: "800px", xl: "1200px", '2xl': "1200px"}} height='680px'>
-                            <Center
-                            mb={{lg: 10, xl: 10, '2xl': 20}}
-                            >
-                                <Heading fontFamily={'Fira Code'}>
-                                    Dashboard de Registros
-                                </Heading>
-                            </Center>
-                                <Image
-                                boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.8)"
-                                src={Dashboard}
-                                w={"100%"}
-                                />
-                            </Box>
-                        </Flex>
-                </Center>
-            </SimpleGrid>
-            
-            <SimpleGrid>
-                <Center mr={{ lg: 160, xl: 200, '2xl': 200}} position="relative" 
-                bottom={{lg: 420, xl: 400, '2xl': 200}} mt={120}>
-                    <Button  boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.4)" width={{ lg: "60%", xl: "35%", '2xl': "35%"}} height={"50px"} _hover={{bg: "#CFD249"}} bgColor={"white"}>
-                        <Text fontFamily={'Fira Code'} fontSize={20}>                      
-                            Acessar o aplicativo aqui
-                         </Text>
-                    </Button>
-                </Center>
-            </SimpleGrid>
-            
-            <SimpleGrid mt={{base: 20, sm: 20, md: 20, lg: 0, xl: 20, '2xl': 20}} 
-            mb={{lg: 20, xl: 0, '2xl': 20}} columns={2} position="relative" right={100} 
-            bottom={{lg: 150, xl: 200, '2xl': 20}} spacing='40px'>
-                <Box height='500px'>
-                    <Center position={"relative"} bottom={{base: 0, sm: 0, md: 0, lg: 0, xl: 20, '2xl': 0}}>
-                        
-                        <a
-                        cursor="pointer"
-                        href="https://ekonavi.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >
-                        <img
-                        width={"100%"}
-                        src={Ekonavi}
-                        type="button"
-                        style={{ 
-                            cursor: "pointer",
-                            transform: isHovered ? 'scale(1.1)' : 'scale(1)', // Aplica o zoom
-                            transition: 'transform 0.3s ease', 
-                        }}
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        />
-                        
-                        </a>
 
-                    </Center>
-                </Box>
-                <Box height='500px' w={"80%"}>
-                    <Center mt={{base: 20, sm: 20, md: 20, lg: 0, xl: 20, '2xl': 20}}>
-                        <Heading fontFamily={"Fira Code"} color={"black"} fontSize={40}>
-                            Faça parte da Ekonavi, uma rede social 
-                            colaborativa que te paga por impacto gerado.
-                        </Heading>
-                    </Center>
-                </Box>
-            </SimpleGrid>
-
-            <SimpleGrid columns={1} spacing={8} mt={8}>
-                <Box bgColor="#E9EB76" position="relative" right={200} 
-                width={{ lg: "1027px", xl: "1442px", '2xl': "1521px"}} height="400px">
-                </Box>       
-            </SimpleGrid>
-
-    
-            <SimpleGrid zIndex={1} mr={200} 
+            <Grid
+            
             position={"relative"}
-            bottom={{lg: 0, xl: 0, '2xl': 250}}
-            columns={2} spacing={10}>
-                <Box 
-                bottom={{lg: 500, xl: 500, '2xl': 280}}
-                right={{lg: 200, xl: 8, '2xl': 8}}
-                position={"relative"} minW={{lg: "200%", xl: "125%", '2xl': "125%%"}} height='400px'>
-                    <a href="https://storyset.com/data" />
-                    
-                    <Image position={"relative"}  src={ScienceDoodle}/>
-                </Box>
-                
-                <Box position={"relative"} bottom={{lg: 400, xl: 400, '2xl': 120}} height='400px'>
-                    <Center
-                    mt={10}
-                    position={"relative"}
-                    mr={{lg: 30, xl: 90, '2xl': 90}}
-                    >
-                        <Heading
-                        fontFamily={"Fira Code"}
-                        >
-                            Publicações Recentes
-                        </Heading>
-                    </Center>
-                    <Center
-                    mt={{lg: 2, xl: 10, '2xl': 10}}
+            right={{md: "10px"}}
+            width={"90%"}
+            >
+                <Text
+                textAlign={"right"}
+                right={{md: "0px"}}    
+                fontFamily={"Arial Black"}
+                fontSize={{md: "35px"}}
+                mt={{md: 10}}
+                >
+                    Registre Ocorrências de conflitos
+                    <br />
+                    em seu território e receba apoio
+                    <br />
+                    gratuito.
+                    <br/>
+                    <a 
+                    target="_blank" rel="noopener noreferrer"
+                    href="https://www.arcgis.com/apps/dashboards/f2ae4e17467d4dd396362c3b624511c3" >
+                    <Button 
+                    w={{md: "25%", '2xl': "20%"}}
+                    pos={"relative"}
+                    _hover={{bg: "#bdbf47"}}
+                    bg={"#CFD249"}
+                    right={"200px"}
+                    bottom={"50px"}
+                    boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
+                    href="https://www.arcgis.com/apps/dashboards/f2ae4e17467d4dd396362c3b624511c3"
                     >
                         <Text
-                        fontFamily={"Fira Code"}
-                        textAlign={"left"}
-                        fontSize={{lg: 20, xl: 25, '2xl': 25}}
+                        fontFamily={"Arial Black"}
+                        color="black"
                         >
-                            Aqui é o cantinho das publicações mais recentes, 
-                            sempre que surgir algo novo relacionado ao nosso projeto, vai aparecer aqui :)
+                            Acessar o aplicativo aqui
                         </Text>
-                    </Center>
-                </Box>
-            </SimpleGrid>
-            <SimpleGrid columns={1} spacing={8} position={"relative"} bottom={{lg: 400, xl: 410, '2xl': 400}}>
-                <Box bgColor="white" position="relative" right={200} 
-                width={{ lg: "1027px", xl: "1442px", '2xl': "1521px"}} height={{lg: "1100px", xl: "1400px", '2xl': "1400px"}}>
-                    <SimpleGrid margin={200} mt={180} height={500} columns={2} spacing={200}>
-                        <Box>
-                            <a
-                            cursor="pointer"
-                            href="#"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >
-                                <Image 
-                                src={Article1} w={"100%"}
-                                type="button"
-                                style={{ 
-                                    cursor: "pointer",
-                                    transform: isHovered ? 'scale(1.1)' : 'scale(1)', // Aplica o zoom
-                                    transition: 'transform 0.3s ease', 
-                                }}
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                                boxShadow={"0px 2px 2px rgba(0, 0, 0, 1)"}
-                                />
-                            </a>
-                        </Box>
-                        <Box
-                        >
-                            <a
-                            cursor="pointer"
-                            href="https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >
-                                <Image 
-                                src={Article2} w={"100%"}
-                                type="button"
-                                style={{ 
-                                    cursor: "pointer",
-                                    transform: isHovered2 ? 'scale(1.1)' : 'scale(1)',
-                                    transition: 'transform 0.3s ease', 
-                                }}
-                                onMouseEnter={() => setIsHovered2(true)}
-                                onMouseLeave={() => setIsHovered2(false)}
-                                height={{lg: 285, xl: 595, '2xl': 645}}
-                                boxShadow={"0px 2px 2px rgba(0, 0, 0, 1)"}
-                                />
-                            </a>
-                        </Box>
-                    </SimpleGrid>
-                    <Stack position={"relative"} bottom={{lg: 300, xl: 0, '2xl': 0}}>
-                        <Center mt={2} mb={10}>
-                            <Button
-                            _hover={{ bg: "tomato" }}
-                            bg={"#E9EB76"}
-                            boxShadow={"0px 2px 2px rgba(0, 0, 0, 1)"}
-                            >Ver mais</Button>
-                        </Center>
-                        <Center mb={10}>
-                            <Text
-                            fontSize={25}
-                            >
-                                Caso queira receber novas atualizações, 
-                                deixe seu email abaixo:
-                            </Text>
-                        </Center>
-                    <Contribution/>
-                    </Stack>      
-                </Box>       
-            </SimpleGrid>
-
+                    </Button>
+                    </a>
+                </Text>
+                
+            </Grid>
             <SimpleGrid 
+            columns={2}
+            right={{md: "10px"}}
             position={"relative"}
-            bottom={{lg: 300, xl: 300, '2xl': 300}}
-            right={{lg: 100, xl: 20, '2xl': 20}}
-            columns={2} spacing={10}
-            mt={200}
-            >
-                <Box
-                height='600px' 
-                width={'100%'}
-                >
-                    <Image
-                    borderRadius={20}
-                    src={Confiadores}
-                    />
-
-                </Box>
-                <Box
-                >
+            w={{md: "90%" }}
+           
+            spacing='40px'>
+                
+                <Box zIndex={1}
+                 w={"80%"}
+                
+                 height='410px'
+                 mt={5}
+                 >
                     <Heading
-                    fontFamily={'Fira Code'}
-                    fontSize={40}
-                    mt={8}
+                    fontFamily={"Arial Black"}
                     >
-                        Quem confia na gente.
+                        No período...
                     </Heading>
                     <Text
-                    fontSize={20}
-                    fontFamily={'Fira Code'}
-                    mt={10}
+                    fontFamily={"Colibri Corpo"}
+                    fontSize={"30px"}
+                    mt={20}
                     >
-                        Essas é a equipe que solidifica todo nosso projeto,
-                        em etapas como a concepção, a prototipação e o desenvolvimento, 
-                        até o final da implementação.
+                    Foram registrados <strong>8 ocorrências</strong>, sendo 
+                    <strong> 2 crimes de desmatamento, 2 invasões de terra, 4 ameaças a povos tradicionais.</strong>
                     </Text>
+                    <Button position={"relative"}
+                    top={{md: "65px"}}
+                    w={{md: "50%", '2xl': "40%"}}
+                    _hover={{bg: "#bdbf47"}}
+                    bg={{md: "#CFD249"}}
+                    boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
+                    >
+                        <Text
+                        fontFamily={"Arial Black"}
+                        color="black"
+                        >
+                            Ler Boletim Mensal
+                        </Text>
+                    </Button>
+                 </Box>
+                
+                {/* bg ta com tamanho certinho do dashboard */}
+                <Box pos={"relative"}
+                right={{md: "120px", '2xl': "120px"}}
+                mt={10}
+                w={{md:"130%", '2xl': "120%"}} height='387px'
+                boxShadow={"-4px 20px 20px rgba(8, 0, 0, 1)"}
+                >
+                    <Image src={Dashboard}/>  
                 </Box>
             </SimpleGrid>
-            <Footer />
+            <SimpleGrid 
+            
+            columns={1} spacing={10}>
+                <Box
+                h="80px"
+                w={"40%"}
+                pos="relative"
+                left={"650px"}
+                top={"350px"}
+                zIndex={3}
+                >
+                    <Heading
+                    textAlign={"right"}
+                    fontSize={"30px"}
+                    >
+                    Faça parte da Ekonavi, uma rede
+                    <br />
+                    social colaborativa que te paga
+                    <br />
+                    por impacto gerado.
+                    </Heading>
+                </Box>
+                <Box
+                h="500px"
+                w={"40%"}
+                left={"650px"}
+                pos="relative"
+                top={"350px"}
+                zIndex={3}
+                >
+                    <a href="https://ekonavi.com/" target="_blank" rel="noopener noreferrer">
+                    <Image
+                    pos={"relative"}
+                    left="40px"
+                    transition="transform 0.3s"
+                        _hover={{ transform: "scale(1.05)" }}
+                    src={Ekonavi} />
+                    </a>
+                    
+                </Box>
+                
+
+                <Box 
+                w={"45%"}
+                zIndex={2}
+                pos={"relative"}
+                top={{md: "440px", '2xl': "440px"}}
+                left={{md: "630px", '2xl': "630px"}}
+                height='350px'>
+                    <Heading
+                    textAlign={"right"}
+                    fontFamily={"Chiller"}
+                    fontSize={"50px"}
+                    pos={"relative"}
+                    right={{md: "65px", '2xl': "65px"}}
+                    >Trusted by:</Heading>
+                    <Image src={Trusted} />
+                </Box>
+
+            </SimpleGrid>
+            <SimpleGrid 
+            marginLeft={"-200px"}
+            columns={1} spacing={10}
+            mt={"-1000px"}
+            >
+                <Box
+                position={"relative"}
+                zIndex={1}
+                top={"250px"}
+                mt="-100px"
+                bg="white"
+                h={"600px"}
+                borderRadius={"50px"}
+                w={"30%"}
+                ml={{md: "180px", '2xl': "180px"}}
+                pos={"relative"}
+                boxShadow={"-4px 8px 10px rgba(8, 0, 0, 0.5)"}
+                >
+                    <Image
+                    pos="relative"
+                    left="30px"
+                    top="30px"
+                    w="90%" src={NewsImage}/>
+                </Box>
+
+                <Box
+                h="250px"
+                zIndex={4}
+                w={"25%"}
+                pos="relative"
+                left={"180px"}
+                top={{md: "170px", '2xl': "170px"}}
+                mt={20}
+
+                >
+                    <Heading
+                    pos={"relative"}
+                    bottom={"20px"}
+                    fontSize={"28px"}
+                    >
+                        <u>
+                            Publicações Recentes:
+                        </u>
+                    </Heading>
+                    <Flex>
+                    <a href="https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf"
+                    target="_blank" rel="noopener noreferrer"
+                    >
+                        <Image
+                        transition="transform 0.3s"
+                        _hover={{ transform: "scale(1.05)" }}
+                        w={"89%"} ml={2} src={Article2}/>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        <Image
+                            w="100%"
+                            src={Article1}
+                            alt="Descrição da Imagem"
+                            cursor="pointer"
+                            transition="transform 0.3s"
+                            _hover={{ transform: "scale(1.05)" }}
+                        />
+                        </a>
+                    </Flex>
+                </Box>
+
+                <Box
+                h="160px"
+                zIndex={4}
+                w={"25%"}
+                pos="relative"
+                left={"180px"}
+                top={{md: "210px", '2xl': "210px"}}
+                >
+                    <Stack 
+                    spacing={4}>
+                        <Text
+                        fontSize={"18px"}
+                        fontFamily={"Arial"}
+                        >Receba Atualizações</Text>
+                    <InputGroup>
+                        <InputLeftAddon>
+                        🫵
+                        </InputLeftAddon>
+                        <Input
+                        border="1px solid"
+                        bg={"#eced95"}
+                        type='tel' placeholder='Digite seu nome' />
+                    </InputGroup>
+                    <InputGroup>
+                        <InputLeftAddon>
+                        📫
+                        </InputLeftAddon>
+                        <Input
+                        border="1px solid"
+                        bg={"#eced95"}
+                        type='tel' placeholder='Email' />
+                    </InputGroup>
+                    </Stack>
+                    <Button
+                    mt={5}
+                    w={"30%"}
+                    _hover={{bg: "white"}}
+                    bg={{md: "white"}}
+                    boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
+                    >
+                        <Text
+                        fontSize={"18px"}
+                        >
+                            Enviar
+                        </Text>
+                    </Button>
+                </Box>
+        
+                <Box
+                h="150px"
+                zIndex={4}
+                w={"30%"}
+                pos="relative"
+                left={"180px"}
+                top={"150px"}
+                mt={100}
+                mb={40}
+                >
+                    <Center>
+                        <Text fontSize={"18px"} fontFamily={"Arial"}>
+                            <u>
+                                Contribua com o projeto financiado
+                            </u>
+                        </Text>
+                    </Center>
+                    <Image mt={5} src={Financiadores} />
+                </Box>
+                <Box
+                height='900px'
+                pos="relative"
+                mt={"-900px"}
+                backgroundImage={Fundo}
+                ></Box>
+            </SimpleGrid>
            
-            
-    
-            
 
                     
 
