@@ -10,7 +10,7 @@ import Article1 from "../../assets/article1.png";
 import Article2 from "../../assets/article2.png";
 import Fundo from "../../assets/fundo.png";
 import NewsImage from "../../assets/news.png";
-import Financiadores from "../../assets/Financiadores.png";
+import Financiadores from "../../assets/financiadores.png";
 import Trusted from "../../assets/trusted.png";
 import ConceitoPlataforma from "../../assets/conceitoPlataforma.pdf";
 
