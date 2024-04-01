@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, Flex } from "@chakra-ui/react";
-import Logo from "../header/hooks.header/select";
 
 export default function Navbar() {
     return (
@@ -14,34 +13,34 @@ export default function Navbar() {
             type="button"
             textAlign={{ base: "center", md: "left" }}
             px={{ base: "20px", md: "0px" }}
+          
         >    
-            <Logo />
             <Flex
                 gap={{base: "20px", md: "50px"}}
                 fontSize={{base: "15px", md: "18px", xl: "20px"}}
-                color={"black"}
+                color={"#399984"}
                 cursor="pointer"
             >
                 <Text
-                    _hover={{ color: "white" }}
+                    _hover={{ color: "#30806e" }}
                 >
-                    DADOS E INFORMAÇÕES
+                    Dados e Informações
                 </Text>
 
                 <Text 
-                    _hover={{ color: "white" }}
+                    _hover={{ color: "#30806e" }}
                 >
-                    ONDEFOI
+                    Registros OndeFoi
                 </Text>
                 <Text
-                    _hover={{ color: "white" }}
+                    _hover={{ color: "#30806e" }}
                 >
-                    ASSESSORIA SOFIA
+                    Assessoria Sofia
                 </Text>
                 <Text
-                    _hover={{ color: "white" }}
+                    _hover={{ color: "#30806e" }}
                 >
-                    LIGA COLABORATIVA
+                    Liga Colaborativa
                 </Text>
             </Flex>
         </Flex>
