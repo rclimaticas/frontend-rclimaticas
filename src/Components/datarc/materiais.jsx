@@ -18,6 +18,7 @@ export default function Materiais() {
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
+                    spacing={"12rem"}
                     color="white"
                     >
                         <Box
