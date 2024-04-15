@@ -1,8 +1,9 @@
 import React from "react";
 import { Flex, SimpleGrid, Box, Center, Text, Stack, Heading, Image, Button, Grid, GridItem, Input, InputGroup, InputLeftAddon, InputRightAddon} from "@chakra-ui/react";
 import Carousel from "../main/hooks.colaborates/main.colaborates.carousel";
-import colaborate1 from "../../assets/colaborate1.png";
-import colaborate2 from "../../assets/colaborate2.png";
+import collaborate1 from "../../assets/collaborate1.png";
+import collaborate2 from "../../assets/collaborate2.png";
+import collaborate3 from "../../assets/collaborate3.png";
 import Fantasminha from "../../assets/fantasminha.png";
 import Dashboard from "../../assets/dashboard.png";
 import Ekonavi from "../../assets/ekonavi.png";
@@ -95,21 +96,15 @@ export default function Main() {
                     <SimpleGrid columns={1}>
 
                         <Box>
-                        <Image
-                        display={"none"}
-                        src={Fantasminha}
-                        w={{md: "35%" ,lg: "20%", xl: "30%", '2xl': "30%"}}
-                        ml={200}
-                        mt={{md: 150, lg: 250, xl: 250, '2xl': 250}}
-                        ></Image> 
                         <Box mt={100} position="relative" 
                         left={{md: 160, "2xl": 210}} 
                         w={{md: "1100px"}} height='550px'
                         >
                             <Carousel
                             slides={[
-                                { imageUrl: colaborate1, link: "#" },
-                                { imageUrl: colaborate2, link: "https://arcg.is/0OW5eO0" }
+                                { imageUrl: collaborate1, link: "https://www.espiralds.com/sofia" },
+                                { imageUrl: collaborate2, link: "/ondefoi" },
+                                { imageUrl: collaborate3, link: "/datarc" }
                               ]}
                             /> 
                         </Box>      
@@ -249,7 +244,7 @@ export default function Main() {
                     pos={"relative"}
                     left="40px"
                     transition="transform 0.3s"
-                        _hover={{ transform: "scale(1.05)" }}
+                    _hover={{ transform: "scale(1.05)" }}
                     src={Ekonavi} />
                     </a>
                     
