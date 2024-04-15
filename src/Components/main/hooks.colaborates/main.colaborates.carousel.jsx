@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { Box, IconButton, Grid, Flex, Text } from '@chakra-ui/react';
+import { Box, IconButton, Grid, Flex } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const Carousel = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1); 
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    setOpacity(0); 
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      setOpacity(1); 
+    }, 300); 
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+    setOpacity(0); 
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+      setOpacity(1); 
+    }, 300); // tempo para transição, em milissegundos
   };
 
   return (
@@ -35,11 +44,14 @@ const Carousel = ({ slides }) => {
           top={{md: "330%", '2xl': "300%" }}
           transform="translateX(-120%)"
           _hover={{ bg: "#7D9270" }}
-      
         />
         <Box w="0x" h="170px" textAlign="center" position="relative">
           <a href={slides[currentIndex].link} target="_blank" rel="noopener noreferrer">
-            <img src={slides[currentIndex].imageUrl} alt={`Slide ${currentIndex + 1}`} />
+            <img
+              src={slides[currentIndex].imageUrl}
+              alt={`Slide ${currentIndex + 1}`}
+              style={{ opacity, transition: "opacity 0.3s ease-in-out" }} // aplicando transição fade nas imagens
+            />
           </a>
         </Box>
         <IconButton
@@ -54,8 +66,6 @@ const Carousel = ({ slides }) => {
           top={{md: "330%",'2xl': "300%" }}
           right={{md: "0px"}}
           _hover={{ bg: "#7D9270" }}
-        
-          
         />
       </Grid>
       <Flex justifyContent="center" mt={4} position="absolute" 
@@ -68,7 +78,7 @@ const Carousel = ({ slides }) => {
             w="10px"
             h="10px"
             borderRadius="50%"
-            bg={currentIndex === index ? "black" : "#666"} // Aqui está a lógica para definir o bg com base no currentIndex
+            bg={currentIndex === index ? "black" : "#666"} 
             mx={1}
             cursor="pointer"
             onClick={() => setCurrentIndex(index)}
