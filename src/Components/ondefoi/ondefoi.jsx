@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Center, Flex, Heading, HStack, Image, Stack, Text, ChakraProvider, extendTheme, Button, Spinner } from '@chakra-ui/react';
 import BackgroundOndeFoi from '../../assets/ondefoi/back.png'
-import Phone3d from '../../assets/ondefoi/Phone3d.png'
+import Phone3d from '../../assets/ondefoi/phone3d.png'
 import Gradient from '../../assets/ondefoi/gradient.png'
 import About from '../../Components/ondefoi/about.jsx';
 import Strategies from '../../Components/ondefoi/strategies.jsx';
