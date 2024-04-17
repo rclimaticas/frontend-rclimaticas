@@ -4,6 +4,7 @@ import Navbar from "../../Components/datarc/navbar.jsx";
 import DoodleData from "../../assets/datarc/doodledata.png";
 import Materiais from "../../Components/datarc/materiais.jsx";
 import DataMaps from "../../Components/datarc/data.maps.jsx";
+import MaterialList from "../../Components/datarc/materialList.jsx";
 
 export default function Datarc() {
     const materiaisRef = useRef(null);
@@ -51,7 +52,7 @@ export default function Datarc() {
                                     Biblioteca Colaborativa dos Povos, Culturas e <br />da Natureza
                                 </Heading>
                                 <Text fontSize={"19px"}>
-                                    Fonte essencial para pesquisa e descoberta, nossa biblioteca de dados oferece um vasto repositório de informações para ser exploradas.
+                                    Fonte essencial para pesquisa e aplicações práticas, nossa biblioteca de dados oferece um vasto repositório de conhecimentos originados das tradições, de estudos e de projetos.
                                 </Text>
                                 <Button bg={"#399984"} color={"white"} _hover={{ bg: "#30806e" }} boxShadow={"-5px 5px 10px rgba(0, 0, 0, 0.5)"} w={"50%"} onClick={handleButtonClick}>Pesquise Materiais de Apoio</Button>
                             </Stack>
@@ -61,6 +62,7 @@ export default function Datarc() {
                 <div ref={materiaisRef}>
                     <Materiais />
                 </div>
+                <MaterialList />
                 <DataMaps />
             </Box>
         </>
