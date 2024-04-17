@@ -48,13 +48,14 @@ export default function Materiais() {
                                 </InputGroup>
                                 <InputGroup>
                                     <InputLeftAddon bg="#7D9270" w={"90px"} display="flex" justifyContent="center">Período</InputLeftAddon>
-                                    <Input color="black" bg="white" type='tel' placeholder='Digite o tipo de período...' />
+                                    <Input color="black" bg="white" type='datetime-local' />
                                 </InputGroup>
                                 
                                 <Button h={"40px"} bg="#399984" color="white"_hover={{ bg: "#30806e" }}>Pesquisar</Button>
                             </VStack>
                             
                         </Box>
+                        
                         <Box
                         border={"1px solid white"}
                         w="430px"
