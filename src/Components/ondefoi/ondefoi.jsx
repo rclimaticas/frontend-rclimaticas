@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box, Center, Flex, Heading, HStack, Image, Stack, Text, ChakraProvider, extendTheme, Button, Spinner } from '@chakra-ui/react';
 import BackgroundOndeFoi from '../../assets/ondefoi/back.png'
 import Phone3d from '../../assets/ondefoi/phone3d.png'
@@ -13,6 +13,29 @@ import '../styles/ondefoi.global.css';
 
 export default function OndeFoi() {
     const [loading, setLoading] = useState(true);
+    const aboutRef = useRef(null);
+    const dashboardRef = useRef(null);
+    const collaborateRef = useRef(null);
+
+    const handleButtonAbout = () => {
+        if (aboutRef.current) {
+            aboutRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+        
+        
+    };
+
+    const handleButtonDashboard = () => {
+        if (dashboardRef.current) {
+            dashboardRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+    
+    const handleButtonCollaborate = () => {
+        if (collaborateRef.current) {
+            collaborateRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }
 
     useEffect(() => {
 
@@ -32,7 +55,11 @@ export default function OndeFoi() {
                 </Center>
             ) : (
                 <>
-                    <Navbar />
+                    <Navbar 
+                    handleButtonAbout={handleButtonAbout}
+                    handleButtonCollaborate={handleButtonCollaborate}
+                    handleButtonDashboard={handleButtonDashboard}
+                    />
                     <Box
                         w="100%"
                         bgImage={BackgroundOndeFoi}
@@ -72,20 +99,22 @@ export default function OndeFoi() {
                                                     fontSize={"50px"}
                                                     whiteSpace={"nowrap"}
                                                     fontFamily={"Alata"}
-                                                >Plataforma de Registros <br />de Ocorrências</Heading>
+                                                >Monitor de ocorrências <br />de Conflitos Socioambientais</Heading>
                                                 <Text
                                                     fontSize={"25px"}
                                                     fontFamily={"Alata"}
                                                     opacity={0.7}
                                                 >
-                                                    O <Text as="span" color="#31BB3E">OndeFoi</Text> é uma aplicação intuitiva de <br />fácil entendimento para registros de <br />ocorrencias ambientais.
+                                                    <Text as="span" color="#31BB3E">OndeFoi</Text> é uma aplicação para registros <br /> de conflitos socioambientais e <br />identificação de assessoria técnica.
                                                 </Text>
-                                                <Button
-                                                    width={"30%"}
-                                                    bg={"#31BB3E"}
-                                                >
-                                                    <Text fontFamily={"Alata"} _hover={{ color: "#31BB3E" }}>Acessar OndeFoi</Text>
-                                                </Button>
+                                                <a href="https://arcg.is/1mzbme">
+                                                    <Button
+                                                        width={"30%"}
+                                                        bg={"#31BB3E"}
+                                                    >
+                                                        <Text fontFamily={"Alata"} _hover={{ color: "#31BB3E" }}>Acessar OndeFoi</Text>
+                                                    </Button>
+                                                </a>
                                             </Stack>
 
                                         </Box>
@@ -116,16 +145,22 @@ export default function OndeFoi() {
 
                         </Center>
                         {/* sobre a ondefoi */}
-                        <About />
+                        <div ref={aboutRef}>
+                            <About />
+                        </div>
 
                         {/* estrategias da ondefoi */}
                         <Strategies />
 
                         {/* dashboard ondefoi */}
-                        <Dashboard />
+                        <div ref={dashboardRef}>
+                            <Dashboard />
+                        </div>
 
                         {/* trustedby ondefoi */}
-                        <TrustedBy />
+                        <div ref={collaborateRef}>
+                            <TrustedBy />
+                        </div>
                     </Box>
 
                 </>
