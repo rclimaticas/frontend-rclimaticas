@@ -14,7 +14,7 @@ import NewsImage from "../../assets/news.png";
 import Financiadores from "../../assets/financiadores.png";
 import Trusted from "../../assets/trusted.png";
 import ConceitoPlataforma from "../../assets/conceitoPlataforma.pdf";
-
+import BoletimInformativo from "../../assets/boletimInformativo.pdf"
 export default function Main() {
 
     return (
@@ -56,12 +56,12 @@ export default function Main() {
                 fontSize={{md: 32, '2xl': 40}}
                 textAlign={"left"}
                 >
-                    Plataforma <br /> Colaborativa para <br /> Povos, Comunidades e <br /> da Natureza
+                    Plataforma <br /> Colaborativa dos <br /> Povos, Comunidades e <br /> da Natureza
                 </Heading>
                 <Text
                 fontSize={{md: 25, '2xl': 20}}
                 >
-                    Boas práticas de adaptação à mudança do clima em áreas costeiras e nos biomas Mata Atlântica Cerrado e Caatinga baianos.
+                    Um espaço descentralizado com o propósito de conectar redes, saberes tradicionais, dados técnicos e acadêmicos.
                 </Text>
             <a 
             target="_blank" rel="noopener noreferrer"
@@ -134,7 +134,7 @@ export default function Main() {
                     <br/>
                     <a 
                     target="_blank" rel="noopener noreferrer"
-                    href="https://www.arcgis.com/apps/dashboards/f2ae4e17467d4dd396362c3b624511c3" >
+                    href="https://arcg.is/1mzbme" >
                     <Button 
                     w={{md: "25%", '2xl': "20%"}}
                     pos={"relative"}
@@ -143,7 +143,6 @@ export default function Main() {
                     right={"200px"}
                     bottom={"50px"}
                     boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
-                    href="https://www.arcgis.com/apps/dashboards/f2ae4e17467d4dd396362c3b624511c3"
                     >
                         <Text
                         fontFamily={"Arial Black"}
@@ -178,35 +177,40 @@ export default function Main() {
                     <Text
                     fontFamily={"Colibri Corpo"}
                     fontSize={"30px"}
-                    mt={20}
+                    mt={5}
                     >
-                    Foram registrados <strong>8 ocorrências</strong>, sendo 
-                    <strong> 2 crimes de desmatamento, 2 invasões de terra, 4 ameaças a povos tradicionais.</strong>
+                    Foram registrados <strong>20 ocorrências</strong>, sendo 
+                    <strong> 6 animais selvagens encontrados, 4 conflitos com empreendimentos, 2 desmatamentos,
+                    3 poluições no rio, 1 poluição de solo/erosão, 1 queimada e 3 outras ocorrências.
+                    </strong>
                     </Text>
-                    <Button position={"relative"}
-                    top={{md: "65px"}}
-                    w={{md: "50%", '2xl': "40%"}}
-                    _hover={{bg: "#bdbf47"}}
-                    bg={{md: "#CFD249"}}
-                    boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
-                    >
-                        <Text
-                        fontFamily={"Arial Black"}
-                        color="black"
+                   <a href={BoletimInformativo}  target="_blank" rel="noopener noreferrer">
+                        <Button position={"relative"}
+                        top={{md: "20px"}}
+                        w={{md: "50%", '2xl': "40%"}}
+                        _hover={{bg: "#bdbf47"}}
+                        bg={{md: "#CFD249"}}
+                        boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
                         >
-                            Ler Boletim Mensal
-                        </Text>
-                    </Button>
+                            <Text
+                            fontFamily={"Arial Black"}
+                            color="black"
+                            >
+                                Ler Boletim Mensal
+                            </Text>
+                        </Button>
+                    </a>    
                  </Box>
                 
                 {/* bg ta com tamanho certinho do dashboard */}
                 <Box pos={"relative"}
-                right={{md: "120px", '2xl': "120px"}}
+                right={{md: "120px", '2xl': "130px"}}
                 mt={10}
-                w={{md:"130%", '2xl': "120%"}} height='387px'
+                w={{md:"130%", '2xl': "135%"}} height='387px'
                 boxShadow={"-4px 20px 20px rgba(8, 0, 0, 1)"}
-                >
-                    <Image src={Dashboard}/>  
+                bgImage={Dashboard}
+                bgSize="cover"
+                > 
                 </Box>
             </SimpleGrid>
             <SimpleGrid 
