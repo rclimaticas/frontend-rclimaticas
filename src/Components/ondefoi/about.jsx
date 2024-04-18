@@ -13,15 +13,15 @@ export default function About() {
                     <Box>
                         <Stack fontFamily={"Alata"} color="white" mt={"3.5rem"}>
                             <Heading fontSize={"28px"}>Sobre a plataforma</Heading>
-                            <Text opacity={0.7}>
-                                O OndeFoi como surge ferramenta essencial para o registro de < br/>
-                                <Text as={"span"} color={"#31BB3E"}>incidentes climáticos, </Text>como agressões ou violações ocorridas em <br/>
-                                Terras Indígenas e Comunidades e etc.
+                            <Text opacity={0.7} fontSize={"20px"}>
+                                O OndeFoi surge como uma ferramenta essencial para o registro de < br/>
+                                <Text as={"span"} color={"#31BB3E"}>conflitos socioambientais </Text>e climáticos para direcionamento de <br/>
+                                assessoria aos povos, comunidades e natureza.
                             </Text>
 
                             <Stack mt={"2rem"}>
                                 <Heading fontSize={"28px"}>Nossa estrutura</Heading>
-                                <Text opacity={0.7}>
+                                <Text opacity={0.7} fontSize={"20px"}>
                                     Nosso processo de registro é estruturado com a finalidade de <br/>
                                     <Text as={"span"} color={"#31BB3E"}>coletar informações </Text>
                                     abragentes e detalhadas em seções <br/> estratégicas, que incluem:
@@ -35,7 +35,7 @@ export default function About() {
                     w="300px"
                     _hover={{ filter: "brightness(1.2)" }}
                     >
-                        <Image mt="3rem" src={Logo} />
+                        <Image src={Logo} />
                         <Center mt={"1rem"}>
                             <Heading color="white" fontFamily={"Alfa Slab One"} fontSize={"50px"} letterSpacing={"5px"}>ondefoi</Heading>
                         </Center>
