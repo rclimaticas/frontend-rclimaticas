@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import OndeFoi from "./Components/ondefoi/ondefoi";
 import DataRC from "./Components/datarc/datarc";
-import Login from "./Components/form/Login";
-import Register from "./Components/form/Register";
+import Login from "./Components/form/logiin.jsx";
+import Register from "./Components/form/registter";
 import { AuthProvider } from './Components/hooks/authcontext'; // Importe o AuthProvider aqui
 import { UserProvider } from './Components/hooks/userContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
