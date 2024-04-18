@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Center, HStack, Text, Icon, Image, Divider } from '@chakra-ui/react';
+import { Box, Center, HStack, Text, Icon, Image, Divider, Button } from '@chakra-ui/react';
 import { IoChevronBackCircleSharp } from "react-icons/io5";
 import Logo2 from '../../assets/ondefoi/logo2.png';
 import BackgroundOndeFoi from '../../assets/ondefoi/back.png';
+import BoletimInformativo from '../../assets/boletimInformativo.pdf'
 
-export default function Navbar() {
+export default function Navbar({ handleButtonAbout, handleButtonCollaborate, handleButtonDashboard }) {
 
     return (
         <>
@@ -32,10 +33,18 @@ export default function Navbar() {
                         >
                             
                             <Text _hover={{ color: "#31BB3E" }} cursor="pointer" >Início</Text>
-                            <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Sobre</Text>
-                            <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Estrutura</Text>
-                            <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Dashboard</Text>
-                            <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Colaboradores</Text>
+                            <a onClick={handleButtonAbout}>
+                                <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Sobre</Text>
+                            </a>
+                            <a onClick={handleButtonDashboard}>
+                                <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Dashboard</Text>
+                            </a>
+                            <a href={BoletimInformativo}>
+                                <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Boletim</Text>
+                            </a>
+                            <a onClick={handleButtonCollaborate}>
+                                <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Colabore</Text>
+                            </a>
                         </HStack>
                     </Center>
                 </Box>
