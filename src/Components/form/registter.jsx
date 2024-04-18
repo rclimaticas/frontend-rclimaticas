@@ -43,7 +43,7 @@ export default function Register() {
           password: password,
         };
   
-        const response = await axios.post('http://localhost:3333/register', userData);
+        const response = await axios.post('https://backend-rclimaticas.onrender.com/register', userData);
   
         if (response.status === 200) {
           if (response.data.error) {

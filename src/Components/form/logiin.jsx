@@ -31,7 +31,7 @@ export default function Login() {
           password: password
         };
   
-        const response = await axios.post('http://localhost:3333/login', userData);
+        const response = await axios.post('https://backend-rclimaticas.onrender.com/login', userData);
   
         if (response.status === 200) {
           if (response.data.error) {
