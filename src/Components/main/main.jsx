@@ -4,6 +4,7 @@ import Carousel from "../main/hooks.colaborates/main.colaborates.carousel";
 import collaborate1 from "../../assets/collaborate1.png";
 import collaborate2 from "../../assets/collaborate2.png";
 import collaborate3 from "../../assets/collaborate3.png";
+import collaborate4 from "../../assets/collaborate4.png";
 import Fantasminha from "../../assets/fantasminha.png";
 import Dashboard from "../../assets/dashboard.png";
 import Ekonavi from "../../assets/ekonavi.png";
@@ -65,8 +66,9 @@ export default function Main() {
                         </Text>
                         <a
                             target="_blank" rel="noopener noreferrer"
-                            href={ConceitoPlataforma}>
+                            href="/ligacolaborativa">
                             <Button
+
                                 width={{ md: "30%", lg: "50%", xl: "50%", '2xl': "50%" }}
                                 border={"2px"}
                                 _hover={{ bg: "#bdbf47" }}
@@ -104,7 +106,8 @@ export default function Main() {
                                     slides={[
                                         { imageUrl: collaborate1, link: "https://www.espiralds.com/sofia" },
                                         { imageUrl: collaborate2, link: "/ondefoi" },
-                                        { imageUrl: collaborate3, link: "/datarc" }
+                                        { imageUrl: collaborate3, link: "/datarc" },
+                                        { imageUrl: collaborate4, link: "/ligacolaborativa" }
                                     ]}
                                 />
                             </Box>
@@ -243,7 +246,7 @@ export default function Main() {
                     top={"350px"}
                     zIndex={3}
                 >
-                    <a href="https://ekonavi.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://ekonavi.com/regen?r=r4f4.eu" target="_blank" rel="noopener noreferrer">
                         <Image
                             pos={"relative"}
                             left="40px"
@@ -259,7 +262,7 @@ export default function Main() {
                     w={"45%"}
                     zIndex={2}
                     pos={"relative"}
-                    top={{ md: "440px", '2xl': "440px" }}
+                    top={{ md: "440px", '2xl': "350px" }}
                     left={{ md: "630px", '2xl': "630px" }}
                     height='350px'>
                     <Heading
@@ -400,7 +403,7 @@ export default function Main() {
                     <Center>
                         <Text fontSize={"18px"} fontFamily={"Arial"}>
                             <u>
-                                Contribua com o projeto financiado
+                                Contribua com o projeto financiando
                             </u>
                         </Text>
                     </Center>

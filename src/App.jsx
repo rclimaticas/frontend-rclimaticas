@@ -6,9 +6,11 @@ import OndeFoi from "./Components/ondefoi/ondefoi";
 import DataRC from "./Components/datarc/datarc";
 import Login from "./Components/form/Login.jsx";
 import Register from "./Components/form/Register.jsx";
+import LigaColaborativa from "./Components/ligacolaborativa/ligaColaborativa.jsx";
 import { AuthProvider } from './Components/hooks/authcontext'; // Importe o AuthProvider aqui
 import { UserProvider } from './Components/hooks/userContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+
 const App = () => {
   return (
     <ChakraProvider>
@@ -23,6 +25,7 @@ const App = () => {
                 <Route path="/datarc" element={<DataRC />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/ligacolaborativa" element={<LigaColaborativa />} />
               </Routes>
             </BrowserRouter>
           </GoogleOAuthProvider>

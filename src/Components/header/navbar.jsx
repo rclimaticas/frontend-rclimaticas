@@ -57,11 +57,13 @@ export default function Navbar() {
                         Assessoria Sofia
                     </Text>
                 </a>
-                <Text
-                    _hover={{ color: "#30806e" }}
-                >
-                    Liga Colaborativa
-                </Text>
+                <a href="/ligacolaborativa">
+                    <Text
+                        _hover={{ color: "#30806e" }}
+                    >
+                        Liga Colaborativa
+                    </Text>
+                </a>
                 {token ? ( // Verifica se há um token (usuário logado)
                     <Menu>
                         <MenuButton as={Button} bg="transparent" _hover={{ color: "#30806e" }}>
