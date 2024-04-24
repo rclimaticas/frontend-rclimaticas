@@ -49,7 +49,7 @@ export default function Contribution() {
                     <Stack p={10}>
                         <Text p={10} fontSize={"18px"} fontFamily={"Arial"} textAlign={"center"}>
                                 <u>
-                                    Contribua com o projeto financiado
+                                    Contribua com o projeto financiando
                                 </u>
                         </Text>
                         <Box
