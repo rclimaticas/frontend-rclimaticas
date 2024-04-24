@@ -31,7 +31,7 @@ export default function About() {
 
                     </Box>
                     <Box
-                    h="370px"
+                    h="400px"
                     w="300px"
                     _hover={{ filter: "brightness(1.2)" }}
                     >
