@@ -7,8 +7,8 @@ import DataRC from "./Components/datarc/datarc";
 import Login from "./Components/form/Login.jsx";
 import Register from "./Components/form/Register.jsx";
 import LigaColaborativa from "./Components/ligacolaborativa/ligaColaborativa.jsx";
-import { AuthProvider } from './Components/hooks/authcontext'; // Importe o AuthProvider aqui
-import { UserProvider } from './Components/hooks/userContext';
+import { AuthProvider } from './Components/context/authcontext'; // Importe o AuthProvider aqui
+import { UserProvider } from './Components/context/userContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const App = () => {
