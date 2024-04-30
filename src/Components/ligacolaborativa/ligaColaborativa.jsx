@@ -10,11 +10,13 @@ export default function LigaColaborativa() {
     return (
         <>
             <Navbar />
-            <Container maxW={"100%"} bg="white" h="3100px" overflow={"hidden"}>
+            <Container maxW={"100%"} bg="white" h="2700px" overflow={"hidden"}>
                 
-                <Container maxW={"90%"} h={"2800px"} display={"flex"} justifyContent={"center"}>
-                    <Box bg="purple" h="600px" w={"70rem"} >
-                        <Image src={Trusted} />
+                <Container maxW={"90%"} mt={10} h={"2800px"} display={"flex"} justifyContent={"center"}>
+                    <Box h="600px" w={"70rem"} >
+                        <Center justifyContent={"right"}>
+                            <Image w={"50% "}src={Trusted} />
+                        </Center>
                         <Flex display={"flex"} justifyContent={"center"} mt={"3rem"}>
                             <Box>
                                 <Box w="200%" pos="relative" right={"90%"}>
