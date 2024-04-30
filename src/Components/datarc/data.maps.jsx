@@ -102,7 +102,7 @@ export default function DataMaps() {
                 </VStack>
             </Box>
             <Box
-                h="2100px"
+                h="1300px"
                 bgImg={Fundo}
                 bgSize={"cover"}
                 overflow={"hidden"}

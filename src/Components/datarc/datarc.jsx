@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Box, Button, Heading, HStack, Stack, Text, Wrap, Center, Container } from "@chakra-ui/react";
-import Navbar from "../../Components/datarc/navbar.jsx";
+import Navbar from "../../Hooks/navbar.jsx";
 import DoodleData from "../../assets/datarc/doodledata.png";
 import Materiais from "../../Components/datarc/materiais.jsx";
 import DataMaps from "../../Components/datarc/data.maps.jsx";
@@ -37,8 +37,7 @@ export default function Datarc() {
         </Center>
       ) : (
         <>
-          {/* <Navbar />  erro em tela mobile aqui */}
-          <Container width="100vw" maxW="100%" bg={"orange"} h={"3200px"} overflow={"hidden"}>
+          <Navbar />
             <HStack
               display="flex"
               alignItems="center"
@@ -53,7 +52,7 @@ export default function Datarc() {
                   bgSize={"cover"}
                   href="https://storyset.com/nature"
                 ></Box>
-                <Box w="500px" bg="orange" h="400px" mt={"5rem"}>
+                <Box w="500px" h="400px" mt={"5rem"}>
                   <Stack spacing={"2rem"}>
                     <Heading fontSize={"40px"}>
                       Biblioteca Colaborativa dos Povos, Culturas e <br />
@@ -83,7 +82,6 @@ export default function Datarc() {
               <MaterialList />
             </div>
             <DataMaps />
-          </Container>
         </>
       )}
     </>

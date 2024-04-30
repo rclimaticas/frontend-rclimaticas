@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, HStack, Text, Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
-import { useAuth } from '../hooks/authcontext'; 
+import { useAuth } from '../context/authcontext'; 
 
 export default function navbar() {
 

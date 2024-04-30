@@ -262,7 +262,7 @@ export default function Main() {
                     w={"45%"}
                     zIndex={2}
                     pos={"relative"}
-                    top={{ md: "440px", '2xl': "350px" }}
+                    top={{ md: "440px", '2xl': "400px" }}
                     left={{ md: "630px", '2xl': "630px" }}
                     height='350px'>
                     <Heading
@@ -272,7 +272,9 @@ export default function Main() {
                         pos={"relative"}
                         right={{ md: "65px", '2xl': "65px" }}
                     >Trusted by:</Heading>
-                    <Image src={Trusted} />
+                    <Center mt={3}>
+                        <Image w={"80%"}src={Trusted} />
+                    </Center>
                 </Box>
 
             </SimpleGrid>

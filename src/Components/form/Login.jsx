@@ -3,8 +3,8 @@ import { Center, Container, Box, Image, HStack, Heading, VStack, Input, Text, St
 import { GoogleLogin } from '@react-oauth/google';
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import axios from "axios";
-import { useAuth } from '../hooks/authcontext';
-import { useUser } from '../hooks/userContext';
+import { useAuth } from '../context/authcontext';
+import { useUser } from '../context/userContext';
 import LogoProject from '../../assets/logoProject.png';
 
 export default function Login() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Menu, MenuButton, MenuItem, MenuList, MenuItemOption, MenuOptionGroup, Flex, MenuDivider, HStack, VStack, Text, Button, Input, InputGroup, InputLeftAddon, InputLeftElement, InputRightElement, Heading, Icon } from "@chakra-ui/react";
+import { Box, Container, Menu, MenuButton, MenuItem, MenuList, MenuItemOption, MenuOptionGroup, Flex, MenuDivider, HStack, VStack, Text, Button, Input, InputGroup, InputLeftAddon, InputLeftElement, InputRightElement, Heading, Icon } from "@chakra-ui/react";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 export default function Materiais({
@@ -13,10 +13,10 @@ export default function Materiais({
 
     return (
         <>
-                <Box
+                <Container
                     bg="#7D9270"
                     h='500px'
-                    w="100%"
+                    maxW="100vw"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
@@ -90,7 +90,7 @@ export default function Materiais({
                             </Heading>
                         </Box>
                     </HStack>
-                </Box>
+                </Container>
 
         </>
     );

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Image, Grid, GridItem, Center} from "@chakra-ui/react";
 import Main from "./main/main";
-import Navbar from "./header/navbar";
+import Navbar from "../Hooks/navbar.jsx";
 import './styles/loading.css'
 
 const Home = () => {
@@ -35,7 +35,7 @@ const Home = () => {
             // Definindo a altura da Grid para ocupar toda a altura da tela
             fontWeight='normal'
           >
-            <GridItem pl='2' area={'header'}>
+            <GridItem  area={'header'}>
               <Navbar />
             </GridItem>
             <GridItem area={'main'}>

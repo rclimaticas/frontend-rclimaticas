@@ -32,7 +32,9 @@ export default function Navbar({ handleButtonAbout, handleButtonCollaborate, han
                         left={"10rem"}
                         >
                             
-                            <Text _hover={{ color: "#31BB3E" }} cursor="pointer" >Início</Text>
+                            <a href="/">
+                                <Text _hover={{ color: "#31BB3E" }} cursor="pointer" >Início</Text>
+                            </a>
                             <a onClick={handleButtonAbout}>
                                 <Text _hover={{ color: "#31BB3E" }} cursor="pointer">Sobre</Text>
                             </a>
