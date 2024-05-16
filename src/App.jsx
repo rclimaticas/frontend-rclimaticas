@@ -6,7 +6,7 @@ import DataRC from "./Components/datarc/datarc.jsx";
 import Login from "./Components/form/Login.jsx";
 import Register from "./Components/form/Register.jsx";
 import Home from "./Components/home/home.jsx";
-import LigaColaborativa from "./Components/ligacolaborativa/ligacolaborativa.jsx"
+import LigaColaborativa from "./Components/ligacolaborativa/ligaColaborativa.jsx"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import theme from "./Components/styles/theme.ts";
 const App = () => {
