@@ -3,11 +3,11 @@ import { Box, Center, Flex, Heading, HStack, Image, Stack, Text, ChakraProvider,
 import BackgroundOndeFoi from '../../assets/ondefoi/back.png'
 import Phone3d from '../../assets/ondefoi/phone3d.png'
 import Gradient from '../../assets/ondefoi/gradient.png'
-import About from '../../components/ondefoi/about.jsx';
-import Strategies from '../../components/ondefoi/strategies.jsx';
-import Dashboard from '../../components/ondefoi/dashboard.jsx';
-import TrustedBy from '../../components/ondefoi/trustedby.jsx';
-import Navbar from '../../components/ondefoi/navbar.jsx';
+import About from './about.jsx';
+import Strategies from './ondefoi/strategies.jsx';
+import Dashboard from './dashboard.jsx';
+import TrustedBy from './trustedby.jsx';
+import Navbar from './navbar.jsx';
 
 
 export default function OndeFoi() {
