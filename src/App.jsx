@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OndeFoi from "./Components/ondefoi/ondefoi.jsx";
 import DataRC from "./Components/datarc/datarc.jsx";
 import Login from "./Components/form/Login.jsx";
-import Register from "./components/form/register.jsx";
-import Home from "./components/home/home.jsx";
-import LigaColaborativa from "./components/ligacolaborativa/ligacolaborativa.jsx"
+import Register from "./Components/form/register.jsx";
+import Home from "./Components/home/home.jsx";
+import LigaColaborativa from "./Components/ligacolaborativa/ligacolaborativa.jsx"
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import theme from "./components/styles/theme.ts";
+import theme from "./Components/styles/theme.ts";
 const App = () => {
   
   return (
