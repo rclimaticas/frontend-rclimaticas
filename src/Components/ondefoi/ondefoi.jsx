@@ -4,7 +4,7 @@ import BackgroundOndeFoi from '../../assets/ondefoi/back.png'
 import Phone3d from '../../assets/ondefoi/phone3d.png'
 import Gradient from '../../assets/ondefoi/gradient.png'
 import About from './about.jsx';
-import Strategies from './ondefoi/strategies.jsx';
+import Strategies from './strategies.jsx';
 import Dashboard from './dashboard.jsx';
 import TrustedBy from './trustedby.jsx';
 import Navbar from './navbar.jsx';
