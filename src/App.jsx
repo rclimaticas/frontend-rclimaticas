@@ -2,7 +2,7 @@ import React from "react";
 import { ChakraProvider, extendTheme  } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OndeFoi from "./components/ondefoi/ondefoi.jsx";
-import DataRC from "./components/datarc/datarc.jsx";
+import DataRC from "./Components/datarc/datarc.jsx";
 import Login from "./components/form/Login.jsx";
 import Register from "./components/form/register.jsx";
 import Home from "./components/home/home.jsx";
