@@ -3,8 +3,8 @@ import { ChakraProvider, extendTheme  } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OndeFoi from "./Components/ondefoi/ondefoi.jsx";
 import DataRC from "./Components/datarc/datarc.jsx";
-import Login from "./Components/form/login.jsx";
-import Register from "./Components/form/register.jsx";
+import Login from "./Components/form/Login.jsx";
+import Register from "./Components/form/Register.jsx";
 import Home from "./Components/home/home.jsx";
 import LigaColaborativa from "./Components/ligacolaborativa/ligacolaborativa.jsx"
 import { GoogleOAuthProvider } from '@react-oauth/google';
