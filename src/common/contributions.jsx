@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, Container, Box, Wrap, HStack, Heading, Image, Stack, InputGroup, InputLeftAddon, Input, Button } from '@chakra-ui/react';
-import Trusted from '../../assets/trusted.png'
-import Financiadores from '../../assets/financiadores.png'
+import Trusted from '../assets/trusted.png'
+import Financiadores from '../assets/financiadores.png'
 
 export default function Contribution() {
     return (
         <>
-            <HStack spacing={20} p={"10rem"}>
+            <HStack spacing={20}>
                 <Box w="500px" h="400px">
                     <Stack
                         spacing={4}>
@@ -36,9 +36,6 @@ export default function Contribution() {
                     <Button
                         mt={5}
                         w={"30%"}
-                        _hover={{ bg: "white" }}
-                        bg={'white'}
-                        boxShadow={"-4px 4px 4px rgba(0, 0, 0, 0.4)"}
                     >
                         <Text
                             fontSize={"18px"}
@@ -60,13 +57,6 @@ export default function Contribution() {
 
                         </Box>
                     </Stack>
-                </Box>
-                <Box
-                    w="500px"
-                    h="400px"
-                >
-                    <Heading color="black" fontFamily={"Chiller"} fontSize={"50px"} textAlign={"right"} mb={5}>TrustedBy</Heading>
-                    <Image borderRadius={"2rem"} src={Trusted} />
                 </Box>
             </HStack>
         </>

@@ -3,16 +3,12 @@ import { Center, Container, Box, Image, HStack, Heading, VStack, Input, Text, St
 import { GoogleLogin } from '@react-oauth/google';
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import axios from "axios";
-import { useAuth } from '../context/authcontext';
-import { useUser } from '../context/userContext';
 import LogoProject from '../../assets/logoProject.png';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const { login } = useAuth();
-    const { user, setUser } = useUser();
     const toast = useToast();
 
     const handleSuccessAuth = (response) => {
@@ -23,7 +19,7 @@ export default function Login() {
           status: "success",
           position: "top",
         });
-        window.location.href = '/';
+      
     };
   
     const handleErrorAuth = (error) => {

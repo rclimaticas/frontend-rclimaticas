@@ -1,41 +1,20 @@
-import React from "react";
-import { Box, Container, Menu, MenuButton, MenuItem, MenuList, MenuItemOption, MenuOptionGroup, Flex, MenuDivider, HStack, VStack, Text, Button, Input, InputGroup, InputLeftAddon, InputLeftElement, InputRightElement, Heading, Icon } from "@chakra-ui/react";
-import { IoMdArrowDropdown } from "react-icons/io";
+import React from 'react';
+import { Box, Container, Grid, GridItem, SimpleGrid, Center, Flex, Heading, VStack, InputGroup, InputLeftAddon, Input } from '@chakra-ui/react';
 
-export default function Materiais({
+export default function Material({
     handleFilterChange,
     filtersmedia,
     filterstopic,
     filterssource,
     filtersdate
-
 }) {
 
     return (
         <>
-                <Container
-                    bg="#7D9270"
-                    h='500px'
-                    maxW="100vw"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                >
-                    <HStack
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    spacing={"12rem"}
-                    color="white"
-                    >
-                        <Box
-                        border={"1px solid white"}
-                        w="430px"
-                        h="450px"
-                        display="flex"
-                        justifyContent="center"
-                        >
-                            <VStack spacing={"3rem"} >
+            <Container maxW="container.xl">
+                <SimpleGrid columns={2} spacingX='40px' spacingY='20px'>
+                    <Box bg='#7D9270' height='500px' border={"1px solid white"}>
+                    <VStack spacing={"3rem"} >
                                 <Heading mt={"2rem"} fontSize={"25px"}>
                                     Pesquise por Materiais de Apoio
                                 </Heading>
@@ -46,7 +25,8 @@ export default function Materiais({
                                     <Input
                                      onChange={(e) => handleFilterChange('media', e.target.value)}
                                      value={filtersmedia}
-                                     color="black" bg="white" type='media' placeholder='Digite o tipo de mídia...' />
+                                     color="black"
+                                     bg="white" type='media' placeholder='Digite o tipo de mídia...' />
                                 </InputGroup>
                                 <InputGroup>
                                     <InputLeftAddon  bg="#7D9270" display="flex" justifyContent="center">Assunto</InputLeftAddon>
@@ -75,24 +55,10 @@ export default function Materiais({
                                 
                                 {/* <Button h={"40px"} bg="#399984" color="white"_hover={{ bg: "#30806e" }}>Pesquisar</Button> */}
                             </VStack>
-                            
-                        </Box>
-                        
-                        <Box
-                        border={"1px solid white"}
-                        w="430px"
-                        h="450px"
-                        display="flex"
-                        justifyContent="center"
-                        >
-                            <Heading mt={"2rem"} fontSize={"25px"}> 
-                                Últimas publicações adicionadas
-                            </Heading>
-                        </Box>
-                    </HStack>
-                </Container>
-
+                    </Box>
+                    <Box bg='#7D9270' height='500px' border={"1px solid white"}></Box>
+                    </SimpleGrid>
+            </Container>
         </>
     );
-
 }
