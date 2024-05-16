@@ -3,7 +3,7 @@ import { ChakraProvider, extendTheme  } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OndeFoi from "./Components/ondefoi/ondefoi.jsx";
 import DataRC from "./Components/datarc/datarc.jsx";
-import Login from "./components/form/Login.jsx";
+import Login from "./Components/form/Login.jsx";
 import Register from "./components/form/register.jsx";
 import Home from "./components/home/home.jsx";
 import LigaColaborativa from "./components/ligacolaborativa/ligacolaborativa.jsx"
