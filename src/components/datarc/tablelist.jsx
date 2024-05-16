@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Tbody, Td, Th, Thead, Tr, Container, Input, HStack, Box, Button } from '@chakra-ui/react';
-import Materiais from './materiais';
+import Material from './material';
 
-function MaterialList() {
+export default function TableList() {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState({ media: '', topic: '', source: '', date: '' });
@@ -18,20 +18,13 @@ function MaterialList() {
     try {
       const token = 'add-token';
 
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      };
-
-      const response = await axios.get('https://backend-rclimaticas.onrender.com/materials', config);
+      const response = await axios.get('https://backend-rclimaticas.onrender.com/materials');
       setData(response.data);
       setFilteredData(response.data); 
     } catch (error) {
       console.error('Erro ao buscar dados da tabela:', error);
     }
   };
-
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -60,34 +53,36 @@ function MaterialList() {
     setFilteredData(filtered);
   };
 
-  // Função para lidar com a alteração nos campos de filtro
   const handleFilterChange = (field, value) => {
-   
     setFilters(prevFilters => ({
       ...prevFilters,
       [field]: value
     }));
   };
 
-  
   useEffect(() => {
     applyFilters();
   }, [filters]);
 
-  // Calcula os materiais a serem exibidos na página atual
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   const indexOfLastMaterial = currentPage * materialsPerPage;
   const indexOfFirstMaterial = indexOfLastMaterial - materialsPerPage;
   const currentMaterials = filteredData.slice(indexOfFirstMaterial, indexOfLastMaterial);
 
   return (
     <>
-      <Materiais
-        handleFilterChange={handleFilterChange}
-        filtersmedia={filters.media}
-        filterstopic={filters.topic}
-        filterssource={filters.source}
-        filtersdate={filters.date}
-      />
+      <Box display="none">
+        <Material
+          handleFilterChange={handleFilterChange}
+          filtersmedia={filters.media}
+          filterstopic={filters.topic}
+          filterssource={filters.source}
+          filtersdate={filters.date}
+        />
+      </Box>
       <Container
         display="flex"
         flexDirection="column"
@@ -116,37 +111,28 @@ function MaterialList() {
             ))}
           </Tbody>
         </Table>
-        
-        {/* navegação de páginas */}
+
         <div>
-        {filteredData.length > materialsPerPage && (
-            <HStack
-            p={3}
-            >
-                    {/* botão de retornar*/}
-                  <Button
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    className='page-link'
-                    disabled={currentPage === 1}
-                  >
-                    {"<"}
-                  </Button>
-                
-                  {/* botão de avançar */}
-                  <Button 
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    className='page-link'
-                    disabled={currentPage === Math.ceil(filteredData.length / materialsPerPage)}
-                  >
-                    {">"}
-                  </Button>
+          {filteredData.length > materialsPerPage && (
+            <HStack p={3}>
+              <Button
+                onClick={() => handlePageChange(currentPage - 1)}
+                className='page-link'
+                disabled={currentPage === 1}
+              >
+                {"<"}
+              </Button>
+              <Button 
+                onClick={() => handlePageChange(currentPage + 1)}
+                className='page-link'
+                disabled={currentPage === Math.ceil(filteredData.length / materialsPerPage)}
+              >
+                {">"}
+              </Button>
             </HStack>
           )}
-
         </div>
       </Container>
     </>
   );
 }
-
-export default MaterialList;

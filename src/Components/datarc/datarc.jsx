@@ -1,89 +1,58 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Box, Button, Heading, HStack, Stack, Text, Wrap, Center, Container } from "@chakra-ui/react";
-import Navbar from "../../Hooks/navbar.jsx";
-import DoodleData from "../../assets/datarc/doodledata.png";
-import Materiais from "../../Components/datarc/materiais.jsx";
-import DataMaps from "../../Components/datarc/data.maps.jsx";
-import MaterialList from "../../Components/datarc/materialList.jsx";
-import "../styles/loading.css";
-import "../styles/mobile.screen.css"; // Importe o arquivo CSS aqui
+import React from "react";
+import { Grid, GridItem, Center, Image, Heading, Stack, Text, Button } from "@chakra-ui/react";
+import Layout from "../layout.jsx";
+import i18n from '../i18n/i18n.json';
+import Material from "./material.jsx";
+import Header from '../../common/header.jsx';
+import Maps from "./maps.jsx";
+import Footer from './footer.jsx'
+import TableList from "./tablelist.jsx"
+export default function Rcdata() {
 
-export default function Datarc() {
-  const materiaisRef = useRef(null);
-  const navbarHeight = 60; // Altura estimada da barra de navegação para não bugar o rolamento smooth
-  const [loading, setLoading] = useState(true);
+    return (
+        <>  
+            <Header />
+            <Layout maxW="container.xl">
+                <Grid mt={10} templateColumns='repeat(6, 1fr)' columns={1} flexDirection={"column"}>
+                    <GridItem colSpan={{ base: 6, md: 2, lg: 2 }} justifyContent="center">
+                        <Center>
+                            <Image src={i18n.datarc.doodle} />
+                        </Center>
+                    </GridItem>
+                    <GridItem colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7}>
+                        <Stack fontFamily={"Alata"} fontSize={"20px"} gap={5} p={10} >
+                            <Heading>
+                                {i18n.datarc.title}
+                            </Heading>
+                            <Text>
+                                {i18n.datarc.desc}
+                            </Text>
+                            <Button>
+                                <Text fontWeight={"normal"} fontSize={"20px"}>
+                                    Saber Mais
+                                </Text>
+                            </Button>
+                        </Stack>
+                    </GridItem>
+                </Grid>
+            </Layout>
+            
+            {/* material */}
+            <Layout color="#7D9270" maxW="full">
+                <Material />
+            </Layout>
 
-  const handleButtonClick = () => {
-    if (materiaisRef.current) {
-      const offset = materiaisRef.current.offsetTop - navbarHeight;
-      window.scrollTo({ top: offset, behavior: "smooth" });
-    }
-  };
+            {/* tablelist */}
+            <TableList />
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+            {/* mapas */}
+            <Maps />
 
-    // limpando o timer
-    return () => clearTimeout(timer);
-  }, []);
+            {/* footer */}
+            <Footer />
 
-  return (
-    <>
-      {loading ? (
-        <Center h="100vh">
-          <Box className="loader"></Box>
-        </Center>
-      ) : (
-        <>
-          <Navbar />
-            <HStack
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              mt={"5rem"}
-            >
-              <Wrap wrap="nowrap">
-                <Box
-                  w="500px"
-                  h="500px"
-                  bgImg={DoodleData}
-                  bgSize={"cover"}
-                  href="https://storyset.com/nature"
-                ></Box>
-                <Box w="500px" h="400px" mt={"5rem"}>
-                  <Stack spacing={"2rem"}>
-                    <Heading fontSize={"40px"}>
-                      Biblioteca Colaborativa dos Povos, Culturas e <br />
-                      da Natureza
-                    </Heading>
-                    <Text fontSize={"19px"}>
-                      Fonte essencial para pesquisa e aplicações práticas,
-                      nossa biblioteca de dados oferece um vasto repositório
-                      de conhecimentos originados das tradições, de estudos e
-                      de projetos.
-                    </Text>
-                    <Button
-                      bg={"#399984"}
-                      color={"white"}
-                      _hover={{ bg: "#30806e" }}
-                      boxShadow={"-5px 5px 10px rgba(0, 0, 0, 0.5)"}
-                      w={"50%"}
-                      onClick={handleButtonClick}
-                    >
-                      Pesquise Materiais de Apoio
-                    </Button>
-                  </Stack>
-                </Box>
-              </Wrap>
-            </HStack>
-            <div ref={materiaisRef}>
-              <MaterialList />
-            </div>
-            <DataMaps />
+
+            
         </>
-      )}
-    </>
-  );
+    );
 }

@@ -1,21 +1,18 @@
 import React from "react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme  } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import OndeFoi from "./Components/ondefoi/ondefoi";
-import DataRC from "./Components/datarc/datarc";
-import Login from "./Components/form/Login.jsx";
-import Register from "./Components/form/Register.jsx";
-import LigaColaborativa from "./Components/ligacolaborativa/ligaColaborativa.jsx";
-import { AuthProvider } from './Components/context/authcontext'; // Importe o AuthProvider aqui
-import { UserProvider } from './Components/context/userContext';
+import OndeFoi from "./components/ondefoi/ondefoi.jsx";
+import DataRC from "./components/datarc/datarc.jsx";
+import Login from "./components/form/Login.jsx";
+import Register from "./components/form/register.jsx";
+import Home from "./components/home/home.jsx";
+import LigaColaborativa from "./components/ligacolaborativa/ligacolaborativa.jsx"
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
+import theme from "./components/styles/theme.ts";
 const App = () => {
+  
   return (
-    <ChakraProvider>
-      <UserProvider>
-        <AuthProvider>
+    <ChakraProvider theme={theme}>
           <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
             <BrowserRouter>
               <Routes>
@@ -29,8 +26,6 @@ const App = () => {
               </Routes>
             </BrowserRouter>
           </GoogleOAuthProvider>
-        </AuthProvider>
-      </UserProvider>
     </ChakraProvider>
   );
 };
