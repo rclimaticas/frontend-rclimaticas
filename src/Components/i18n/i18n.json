@@ -26,6 +26,17 @@
         "logo": "https://iili.io/JPqtFnV.md.png",
         "roadmap": "https://iili.io/JPqD1g1.md.png"
       }
+    },
+    "form": {
+      "title": {
+        "login":"Entrar na conta", 
+        "register": "Cadastrar-se na conta"
+      },
+      "bg": "https://iili.io/JiqCLVs.md.png",
+      "image": {
+        "logo": "https://iili.io/Jic5zZv.md.png"
+      }
+
     }
   }
   

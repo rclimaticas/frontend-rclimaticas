@@ -6,6 +6,7 @@ import Navbar from '../../common/header.jsx';
 import i18n from '../i18n/i18n.json';
 import Layout from '../layout.jsx';
 import Roadmap from '../../assets/ligacolaborativa/roadmap.png';
+import { Link as RouterLink } from 'react-router-dom';
 
 export default function LigaColaborativa() {
     return (
@@ -13,7 +14,7 @@ export default function LigaColaborativa() {
             <Navbar />
             <Layout overflow={"hidden"} maxW={"full"} bg={"orange"}>
                 <Container maxW="container.xl">
-                <SimpleGrid mt={"5rem"} columns={2} spacingX='90px' spacingY='60px'>
+                <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
                     <Box h="380px" display="flex" justifyContent="center" alignItems="center">
                         <Text fontSize={"25px"} fontFamily={"Alata"}>
                             {i18n.ligacolaborativa.title}
@@ -51,7 +52,7 @@ export default function LigaColaborativa() {
                 <Box w="100%" h="200px"
                     display="flex" justifyContent="center" alignItems="center"
                 >
-                    <Button height={"30%"} >
+                    <Button height={"30%"} as={RouterLink} to="/user">
                         <Text fontFamily={"Alata"} fontWeight={"normal"} fontSize={"20px"} color={"#425A3F"}>
                             Colabore com a LCdP
                         </Text>

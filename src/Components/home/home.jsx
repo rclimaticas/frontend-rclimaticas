@@ -15,8 +15,8 @@ export default function Test() {
                 {/* Container Mãe da Home */}
                 <Container p={2} maxW="container.xl" maxH={"full"} mt={20}>
                     {/* Grid principal da Home */}
-                    <Grid templateColumns='repeat(6, 1fr)' columns={1} flexDirection={"column"}>
-                        <GridItem colSpan={{ base: 6, md: 2, lg: 2 }} justifyContent="center">
+                    <Grid templateColumns='repeat(6, 1fr)' spacing={"-10rem "} columns={1} flexDirection={"column"}>
+                        <GridItem colSpan={{ base: 6, md: 2, lg: 3 }} justifyContent="center">
                             <Center>
                                 <Image src={i18n.home.doodle} />
                             </Center>
@@ -25,8 +25,8 @@ export default function Test() {
                         {/* base -> mobile, md -> tablet, lg -> desktop */}
                         {/* essa padrão que você pode usar para o mobile */}
                         {/* colstart = 1, colEnd = 7 para centralizar o GridItem pretendido */}
-                        <GridItem colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7}>
-                            <Stack pt={10} gap={{ sm: 5, md: 5, lg: 10 }} fontFamily={"Alata"}>
+                        <GridItem display="flex" alignItems={"center"} colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7}>
+                            <Stack gap={{ sm: 5, md: 5, lg: 4 }} fontFamily={"Alata"}>
                                 <Heading fontSize={{ sm: "40px", md: "24px", lg: "28px", xl: "40px" }}>
                                     {i18n.home.title}
                                 </Heading>

@@ -18,6 +18,15 @@ const theme = extendTheme({
         variant: 'sm'
       },
     },
+    Tabs: {
+      baseStyle: {
+        tab: {
+          _focus: {
+            boxShadow: 'none',
+          },
+        },
+      },
+    },
   },
 })
 

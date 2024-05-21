@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Container, Text, Stack, Image, SimpleGrid, Box, Button, Link} from "@chakra-ui/react";
+import { Container, Text, Stack, Image, SimpleGrid, Box, Button, Link, HStack, Flex} from "@chakra-ui/react";
 import LogoLC from '../assets/ligacolaborativa/logoLC.png';
 
 export default function Header() {
@@ -30,16 +30,17 @@ export default function Header() {
             <Container
                 position="fixed"
                 bg="white"
+                alignItems={"center"} display="flex" justifyContent={"center"}
                 zIndex={999}
                 boxShadow={showBorder ? "0px 2px 4px rgba(0, 0, 0, 0.3)" : "none"} // add boxshadow se showBorder for true
                 transition="box-shadow 0.3s ease-in-out" //add transition ao box
-                maxW="full" h={"50px"} >
+                maxW="full" h={"100px"} >
                 <SimpleGrid  columns={2} spacingX='90px' spacingY='60px'>
-                    <Box h="50px">
-                            <Stack  color={"#399984"} mt={1} direction="row" spacing={5} alignItems={"center"} display="flex" justifyContent={"center"}>
-                            <a href="/">
-                                <Image w="40%" mr="-50rem" src={LogoLC} />
-                            </a>
+                    <Box alignItems={"center"} display="flex" justifyContent={"flex-start"}>
+                            <HStack whiteSpace="nowrap"  color={"#399984"}   spacing={5}>
+                            
+                            <Image w="8%" src={LogoLC} />
+                            
                             <a
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -68,15 +69,16 @@ export default function Header() {
                             >
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Liga Colaborativa</Text>
                             </a>
-                            </Stack>
+                            </HStack>
                     </Box>
-                    <Box h="50px">
-                        <Stack  direction="row" spacing={5} align="center" justifyContent="flex-end">
-        
-                                <Button as={RouterLink} to="/login" mt={1} width="18%">Login</Button>
+                    <Box alignItems={"center"} display="flex" justifyContent={"flex-end"} >
+                        <Stack  direction="row" spacing={5} >
+                            <Button as={RouterLink} to="/login" width="70%">Login</Button>
+                            <Box alignItems={"center"} display="flex" justifyContent={"center"}>
                             <a href='/register'>
-                                <Text href='/register'>Sign up</Text>
+                                <Text whiteSpace="nowrap" _hover={{ color: "#30806e" }} cursor="pointer">Sign up</Text>
                             </a>
+                            </Box>
                         </Stack>
                     </Box>
                 </SimpleGrid>

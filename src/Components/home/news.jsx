@@ -85,6 +85,7 @@ export default function News() {
                             <Box display={"flex"} justifyContent={"flex-end"}>
                                 <a href="https://ekonavi.com/regen?r=r4f4.eu" target="_blank" rel="noopener noreferrer">
                                     <Image
+                                        
                                         transition="transform 0.3s"
                                         _hover={{ transform: "scale(1.05)" }}
                                         src={Ekonavi}

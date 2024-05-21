@@ -39,7 +39,7 @@ export default function Occurrences() {
 
             <Container  maxW="container.xl" maxH={"container.xs"} flexDirection={"column"}>
                 <Grid templateColumns='repeat(6, 1fr)' >
-                    <GridItem colSpan={{ base: 6, md: 2, lg: 2 }}>
+                    <GridItem colSpan={{ base: 6, md: 2, lg: 2 }} mt={{base: "-5rem", lg:"-10rem" }}>
                         <Stack spacing={5}>
                         <Heading fontSize={"35px"}>No período...</Heading>
                         <Text
@@ -60,7 +60,6 @@ export default function Occurrences() {
                     {/* desktop dashboard */}
                     <GridItem 
                     display={{ sm: "none", md: "block", lg: "block" }} 
-                    mt={{sm: 10}} 
                     colSpan={{ base: 6, md: 3, lg: 3 }} 
                     colStart={{ base: 1, md: 4, lg: 4 }} 
                     colEnd={7} 

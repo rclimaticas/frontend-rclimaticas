@@ -47,12 +47,6 @@ export default function OndeFoi() {
     }, []);
 
     return (
-        <>
-            {loading ? (
-                <Center h="100vh">
-                    <Box className="loader"></Box>
-                </Center>
-            ) : (
                 <>
                     <Navbar 
                     handleButtonAbout={handleButtonAbout}
@@ -161,9 +155,6 @@ export default function OndeFoi() {
                             <TrustedBy />
                         </div>
                     </Box>
-
-                </>
-            )}
         </>
     )
 }

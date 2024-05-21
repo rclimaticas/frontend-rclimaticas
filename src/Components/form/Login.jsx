@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Center, Container, Box, Image, HStack, Heading, VStack, Input, Text, Stack, Divider, Button, InputGroup, InputRightElement, useToast } from '@chakra-ui/react';
-import { GoogleLogin } from '@react-oauth/google';
+import { Container, Card, CardHeader, CardBody, CardFooter, Flex, Avatar, Box, Heading, Text, Image, Center, SimpleGrid, Stack, Input, Divider, Button, InputGroup, InputRightElement, useToast, HStack  } from '@chakra-ui/react';
 import { GoEye, GoEyeClosed } from "react-icons/go";
-import axios from "axios";
-import LogoProject from '../../assets/logoProject.png';
+import Layout from '../layout.jsx';
+import i18n from '../i18n/i18n.json';
+import { GoogleLogin } from '@react-oauth/google';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -73,46 +73,23 @@ export default function Login() {
         console.error('Erro ao fazer login:', error);
       }
     };
-
     return (
-        <Center>
-            <Box w={"100%"} h="100vh" overflow={"hidden"} >
-                <Image
-                    style={{ backgroundAttachment: "fixed", objectFit: "cover" }}
-                    w={"100%"}
-                    h="100vh"
-                    src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/f51858128024169.614d9da8acd37.jpg" />
-
-            </Box>
-            <Box
-                position="absolute"
-                top="0"
-                left="0"
-                w="100%"
-                h="100%"
-                bg="rgba(0, 0, 0, 0.8)"
-            />
-
-            <HStack pos="absolute" spacing={"20rem"}>
-                <Box
-                w="500px"
-                h="200px"
-                bgImage={LogoProject}
-                bgSize="cover"
-                ></Box>
-                <Box bg={"white"}
-                    w={"500px"}
-                    h={"600px"}
-                    borderRadius={"50px"}
-                    boxShadow={"0px 0px 20px rgba(8, 0, 0, 0.5)"}
-                    p={6}
-                >
-                    <VStack spacing={"5rem"}>
-
-                        <Heading fontFamily={"Alata"} >Entrar na conta</Heading>
-                        <Container maxW={"md"}>
-
-                            <Stack
+        <>
+            <Container maxW="full" h="100vh" bgImage={i18n.form.bg} bgSize={"cover"} alignItems={"center"} display="flex" justifyContent={"center"}>
+                <SimpleGrid columns={2} spacingX='90px' spacingY='60px'>
+                    <Box alignItems={"center"} display="flex" justifyContent={"center"}>
+                        <Image w={"50%"} src={i18n.form.image.logo} />
+                    </Box>
+                    <Box >
+                        <Layout maxW={"container.xl"}>
+                            <Card maxW='md' borderRadius={"50px"} boxShadow={"0px 0px 20px rgba(8, 0, 0, 0.5)"} >
+                                <CardHeader>
+                                    <Center>
+                                        <Heading size='xl'>{i18n.form.title.login}</Heading>
+                                    </Center>
+                                </CardHeader>
+                                <CardBody>
+                                <Stack
                                 fontFamily={"Alata"}
                                 fontSize={"14px"}
                                 opacity={0.7}
@@ -160,52 +137,52 @@ export default function Login() {
                                     ></Input>
                                     
                                     <InputRightElement>
-                                        <Button size="sm" _hover={{ bg: "transparent" }} bg="transparent" _focus={{ bg: "transparent" }} onClick={() => setShowPassword(!showPassword)}>
+                                        <Box onClick={() => setShowPassword(!showPassword)}>
                                             {showPassword ? <GoEyeClosed /> : <GoEye />}
-                                        </Button>
+                                        </Box>
                                     </InputRightElement>
                                     </InputGroup>
                                 </Box>
-                                <Button  onClick={handleLogin} _hover={{ bg: "#30806e" }} bg={"#399984"}>
-                                    <Text color="white" fontWeight={"light"}  >Entrar</Text>
-                                </Button>
-                                <Text textAlign={"center"}>Caso ainda não tenha feito o cadastro,
-                                    <a href="/register">
-                                        <Text as="span" cursor={"pointer"} color={"#1485E8"} href="/register"> clique aqui.</Text>
-                                    </a>
-                                </Text>
-
-
-                            </Stack>
-                            <HStack
-                                display={"flex"}
-                                justifyContent={"center"}
-                                mt={10}
-
-                            >
-                                <Divider opacity={1} />
-                                <Text fontFamily={"Alata"} fontSize={"14px"} whitespace={"nowrap"}>Ou</Text>
-                                <Divider opacity={1} />
-                            </HStack>
-                            <HStack
-                                mt={5}
-                                display={"flex"}
-                                justifyContent={"center"}
-                            >
-                                <GoogleLogin
-                                onSuccess={handleSuccessAuth}
-                                onError={handleErrorAuth}
-                              />;
-                            </HStack>
-                            <Text textAlign={"center"} p={5} fontFamily={"Alata"} fontSize={"12px"}>Ao continuar você concorda com nossa
-                                <a>
+                                <Box>
+                                    <Button  onClick={handleLogin} _hover={{ bg: "#30806e" }} bg={"#399984"}>
+                                        <Text color="white" fontWeight={"light"}>Entrar</Text>
+                                    </Button>
+                                </Box>
+                                <Box size="xl" display="flex" justifyContent={"center"} alignItems={"center"}>
+                                    <Text>
+                                        Caso ainda não tenha feito o cadastro,<a href="/register"> <Text as="span" _hover={{textDecoration: "underline"}} cursor={"pointer"} color={"#1485E8"} href="/register"> clique aqui.</Text></a>
+                                    </Text>
+                                </Box>
+                                <Box size="xl">
+                                    <HStack>
+                                    <Divider opacity={1} />
+                                    <Text fontFamily={"Alata"} fontSize={"14px"} whitespace={"nowrap"}>Ou</Text>
+                                    <Divider opacity={1} />
+                                    </HStack>
+                                </Box>
+                                <Box size="xl" display="flex" justifyContent={"center"} alignItems={"center"}>
+                                    <GoogleLogin
+                                    onSuccess={handleSuccessAuth}
+                                    onError={handleErrorAuth}
+                                />
+                                </Box>
+                                </Stack>
+                            
+                                </CardBody>
+      
+                                <CardFooter
+                                >
+                                    <Text textAlign={"center"} p={5} fontFamily={"Alata"} fontSize={"12px"}>Ao continuar você concorda com nossa
+                                        <a>
                                     <Text as="span" cursor={"pointer"} color={"#1485E8"} href="/register"> política de privacidade.</Text>
-                                </a>
-                            </Text>
-                        </Container>
-                    </VStack>
-                </Box>
-            </HStack>
-        </Center>
+                                        </a>
+                                    </Text>
+                                </CardFooter>
+                            </Card>
+                        </Layout>
+                    </Box>
+                </SimpleGrid>
+            </Container>
+        </>
     );
 }
