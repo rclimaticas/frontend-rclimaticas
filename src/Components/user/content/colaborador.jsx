@@ -100,7 +100,7 @@ export default function Colaborador() {
                 <FormLabel>⚡ Quais temas te conecta?</FormLabel>
                 <TableContainer>
                     <Table variant='simple' size='lg'>
-                        <TableCaption>Imperial to metric conversion factors</TableCaption>
+                        <TableCaption>Temas da liga Colaborativa</TableCaption>
                         <Thead>
                             <Tr>
                                 <Th>ㅤㅤㅤㅤㅤㅤㅤㅤ</Th>
