@@ -1,10 +1,15 @@
+import React, { useContext } from 'react';
 import { Box } from '@chakra-ui/react'
 
-import Actions from './actions'
-import Data from './data'
-import Profile from './profile'
+import Actions from './actions';
+import Data from './data';
+import Profile from './profile';
+
+import { AuthContext } from '../../context/authcontext';
 
 function Sidebar() {
+
+  const { logout } = useContext(AuthContext);
   return (
     <Box
       as="aside"

@@ -58,17 +58,15 @@ export default function Register() {
             });
           } else {
             
-            console.log('Login bem-sucedido:', response.data);
+            console.log('Registro bem-sucedido:', response.data);
             const token = response.data.token; 
             localStorage.setItem('token', token)
-            console.log('Login bem-sucedido:', token); 
-            login(token)
             toast({
               title: "Login bem-sucedido",
               description: "Seja bem-vindo(a)!",
               position: "top",
             });
-            window.location.href = '/';
+            window.location.href = '/login';
           }
         }
       } catch (error) {

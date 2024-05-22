@@ -27,13 +27,37 @@ export default function Carousel() {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide> 
-        <a href='https://www.espiralds.com/sofia'>
+        <a 
+        target="_blank"
+        rel="noopener noreferrer"
+        href='https://www.espiralds.com/sofia'>
           <img src={collaborate1} />
         </a> 
       </SwiperSlide>
-      <SwiperSlide> <img src={collaborate2} /></SwiperSlide>
-      <SwiperSlide> <img src={collaborate3} /></SwiperSlide>
-      <SwiperSlide> <img src={collaborate4} /></SwiperSlide>
+      <SwiperSlide> 
+        <a  
+        target="_blank"
+        rel="noopener noreferrer"
+        href='/ondefoi'>
+          <img src={collaborate2} />
+        </a> 
+      </SwiperSlide>
+      <SwiperSlide> 
+        <a 
+        target="_blank"
+        rel="noopener noreferrer"
+        href='/datarc'>
+          <img src={collaborate3} />
+        </a> 
+      </SwiperSlide>
+      <SwiperSlide> 
+        <a 
+        target="_blank"
+        rel="noopener noreferrer"
+        href='/ligacolaborativa'>
+          <img src={collaborate4} />
+        </a> 
+      </SwiperSlide>
     </Swiper>
   )
 }
