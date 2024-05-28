@@ -23,7 +23,7 @@ function AccountSettings() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3333/profile/${id}`, {
+        const response = await axios.get(`https://backend-rclimaticas.onrender.com/profile/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -49,7 +49,7 @@ function AccountSettings() {
   const handleUpdate = async () => {
     console.log("handleUpdate foi chamado");
     try {
-      await axios.put(`http://localhost:3333/profile/${id}`, userData, {
+      await axios.put(`https://backend-rclimaticas.onrender.com/profile/${id}`, userData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

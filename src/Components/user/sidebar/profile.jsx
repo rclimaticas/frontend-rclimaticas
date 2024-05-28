@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext, useEffect } from 'react'
 import {
   Avatar,
   AvatarBadge,
@@ -16,12 +16,47 @@ import {
   Text,
   useDisclosure,
   VStack,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
+import axios from 'axios';
+import { AuthContext } from '../../context/authcontext';
 
 function Profile() {
   const [userProfile, setUserProfile] = useState(null)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const { token, id } = useContext(AuthContext);
+  const [userData, setUserData] = useState({
+    email: '',
+    username: '',
+    whatsapp: '',
+    gender: '',
+    instagram: '',
+    twitter: '',
+    linkedin: '',
+    facebook: '',
+    areaOfInterest: '',
+    contributionAxis: '',
+    weeklyAvailability: '',
+  });
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`https://backend-rclimaticas.onrender.com/profile/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error);
+      }
+    };
+
+    fetchUserData();
+  }, [token, id]);
   const profileImage = useRef(null)
 
   const openChooseImage = () => {
@@ -90,11 +125,8 @@ function Profile() {
       </Modal>
       <VStack spacing={1}>
         <Heading as="h3" fontSize="xl" color="brand.dark">
-          João Vítor
+          {userData.username || ''}
         </Heading>
-        <Text color="brand.gray" fontSize="sm">
-          Desenvolvedor @rclimaticas
-        </Text>
       </VStack>
     </VStack>
   )

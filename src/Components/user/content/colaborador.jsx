@@ -77,7 +77,7 @@ export default function Colaborador() {
     const handleUpdate = async () => {
         console.log("handleUpdate foi chamado");
         try {
-            await axios.put(`http://localhost:3333/profile/${id}`, userData, {
+            await axios.put(`https://backend-rclimaticas.onrender.com/profile/${id}`, userData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
