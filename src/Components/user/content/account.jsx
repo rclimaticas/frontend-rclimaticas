@@ -1,61 +1,141 @@
-import { FormControl, FormLabel, Grid, Input, Select } from '@chakra-ui/react'
+import React, { useState, useEffect, useContext } from 'react';
+import { FormControl, FormLabel, Grid, Input, Select, Box } from '@chakra-ui/react';
+import { AuthContext } from '../../context/authcontext';
+import Actions from './actions';
+import axios from 'axios';
 
 function AccountSettings() {
+  const { token, id } = useContext(AuthContext);
+  const [userData, setUserData] = useState({
+    email: '',
+    username: '',
+    whatsapp: '',
+    gender: '',
+    instagram: '',
+    twitter: '',
+    linkedin: '',
+    facebook: '',
+    areaOfInterest: '',
+    contributionAxis: '',
+    weeklyAvailability: '',
+  });
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3333/profile/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados do usuário:', error);
+      }
+    };
+
+    fetchUserData();
+  }, [token, id]);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setUserData(prevData => ({
+      ...prevData,
+      [id]: value
+    }));
+  };
+
+  const handleUpdate = async () => {
+    console.log("handleUpdate foi chamado");
+    try {
+      await axios.put(`http://localhost:3333/profile/${id}`, userData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+       // Notificar o componente pai que a atualização foi bem-sucedida
+    } catch (error) {
+      console.error('Erro ao atualizar dados do usuário:', error);
+    }
+  };
+
   return (
-    <Grid
-      templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
-      gap={6}
-    >
-      <FormControl id="name">
+    <>
+
+      
+    <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={6}>
+      <FormControl id="username">
         <FormLabel>Nome</FormLabel>
-        <Input focusBorderColor="brand.blue" type="description" placeholder="João Vítor" />
+        <Input
+          focusBorderColor="brand.blue"
+          type="text"
+          placeholder="Nome"
+          value={userData.username || ''}
+          onChange={handleChange}
+        />
       </FormControl>
       <FormControl id="email">
         <FormLabel>Email</FormLabel>
-        <Input focusBorderColor="brand.blue" type="email" placeholder="jvittor.contatos@gmail.com" />
+        <Input
+          focusBorderColor="brand.blue"
+          type="email"
+          placeholder="Email"
+          value={userData.email || ''}
+          onChange={handleChange}
+        />
       </FormControl>
-      <FormControl id="phoneNumber">
+      <FormControl id="whatsapp">
         <FormLabel>Whatsapp</FormLabel>
         <Input
           focusBorderColor="brand.blue"
           type="tel"
-          placeholder="(75) 98233-7055"
+          placeholder="Whatsapp"
+          value={userData.whatsapp || ''}
+          onChange={handleChange}
         />
       </FormControl>
-      <FormControl id="sexo">
+      <FormControl id="gender">
         <FormLabel>Sexo</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Selecione um sexo">
-          <option value="california">Masculino</option>
-          <option value="washington">Feminino</option>
-          <option value="toronto">Prefiro não dizer</option>
-          <option value="newyork" selected>
-            Outro
-          </option>
+        <Select
+          focusBorderColor="brand.blue"
+          placeholder="Selecione um sexo"
+          value={userData.gender || ''}
+          onChange={handleChange}
+        >
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="nao_dizer">Prefiro não dizer</option>
+          <option value="outro">Outro</option>
         </Select>
       </FormControl>
       <FormControl id="city">
         <FormLabel>Cidade</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Selecione uma cidade">
-          <option value="california">test</option>
-          <option value="washington">test</option>
-          <option value="toronto">test</option>
-          <option value="newyork" selected>
-            test
-          </option>
-        </Select>
+        <Input
+          focusBorderColor="brand.blue"
+          type="text"
+          placeholder="Cidade"
+          value={userData.city || ''}
+          onChange={handleChange}
+        />
       </FormControl>
       <FormControl id="country">
         <FormLabel>Estado</FormLabel>
-        <Select focusBorderColor="brand.blue" placeholder="Selecione um estado">
-          <option value="america" selected>
-            test
-          </option>
-          <option value="england">test</option>
-          <option value="poland">test</option>
-        </Select>
+        <Input
+          focusBorderColor="brand.blue"
+          type="text"
+          placeholder="Estado"
+          value={userData.country || ''}
+          onChange={handleChange}
+        />
       </FormControl>
+      
     </Grid>
-  )
+
+  
+   
+    </>
+  );
 }
 
-export default AccountSettings
+export default AccountSettings;

@@ -6,7 +6,7 @@ import CompanySettings from './company'
 import Colaborador from './colaborador'
 
 const Content = () => {
-  const tabs = ['Configuração de Conta', 'Redes Sociais', 'Área Colaborador']
+  const tabs = ['Configuração de Conta', 'Redes Sociais', 'Área Colaborador', 'Meus impactos']
 
   return (
     <Box
@@ -53,12 +53,14 @@ const Content = () => {
           <TabPanel>
             <Colaborador />
           </TabPanel>
-  
+
         </TabPanels>
       </Tabs>
-
       <Actions />
+
+      
     </Box>
+    
   )
 }
 

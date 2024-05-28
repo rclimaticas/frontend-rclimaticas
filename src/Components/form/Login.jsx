@@ -13,7 +13,7 @@ export default function Login() {
     const [email, setEmail] = useState("");
     const toast = useToast();
 
-    const { setAuth, auth } = useContext(AuthContext);
+    const { setAuth, auth, login } = useContext(AuthContext);
     console.log('auth', auth);
 
     const handleSuccessAuth = (response) => {
@@ -57,15 +57,19 @@ export default function Login() {
                         position: "top",
                     });
                 } else {
-                    const token = response.data.token;
-                    console.log('Login bem-sucedido:', token);
+                    const { token, user } = response.data
+                    const id = user.id; 
+                    console.log('Login bem-sucedido:', token, id);
                     localStorage.setItem('auth', 'true');
+                    login(token, id);
+                    localStorage.setItem('token', token)
                     toast({
                         title: "Login bem-sucedido",
                         description: "Seja bem-vindo(a)!",
                         position: "top",
                     });
                     window.location.href = '/';
+                    
                 }
             }
         } catch (error) {
@@ -76,7 +80,7 @@ export default function Login() {
     return (
         <Container maxW="full" h="100vh" bgImage={i18n.form.bg} bgSize={"cover"} alignItems={"center"} display="flex" justifyContent={"center"}>
             <SimpleGrid columns={2} spacingX='90px' spacingY='60px'>
-                <Box alignItems={"center"} display="flex" justifyContent={"center"}>
+                <Box alignItems={"center"} display="flex">
                     <Image w={"50%"} src={i18n.form.image.logo} />
                 </Box>
                 <Box>
