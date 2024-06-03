@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Center, Container, Grid, GridItem, Heading, Text, Image, Stack } from '@chakra-ui/react'
 import Dashboard from "../../assets/dashboard.png"
-
+import BoletimInformativo from '../../assets/boletimInformativo.pdf'
 
 export default function Occurrences() {
 
@@ -51,7 +51,7 @@ export default function Occurrences() {
                                 3 poluições no rio, 1 poluição de solo/erosão, 1 queimada e 3 outras ocorrências.
                             </strong>
                         </Text>
-                        <Button w={{sm: "40%", md: "60%", lg: "50%"}}>
+                        <Button as="a" target="_blank" rel="noopener noreferrer" href={BoletimInformativo} w={{sm: "40%", md: "60%", lg: "50%"}}>
                             <Text fontSize={{sm: "16px", md: "15px", lg: "15px"}} fontWeight={"bold"}>Ler Boletim Mensal</Text>
                         </Button>
                         </Stack>
