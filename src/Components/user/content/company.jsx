@@ -11,8 +11,10 @@ import {
     NumberInputField,
     NumberInputStepper,
   } from '@chakra-ui/react'
+  import { useAccountSettingsContext } from '../../context/AccountSettingsContext';
   
   function CompanySettings() {
+    const { userData, handleChange } = useAccountSettingsContext();
     return (
       <Grid
         templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
@@ -33,7 +35,8 @@ import {
             <Input
               focusBorderColor="brand.blue"
               type="text"
-              placeholder="jvittor"
+              value={userData.facebook || ''}
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
@@ -52,7 +55,8 @@ import {
             <Input
               focusBorderColor="brand.blue"
               type="text"
-              placeholder="jvittor"
+              value={userData.instagram || ''}
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
@@ -71,7 +75,8 @@ import {
             <Input
               focusBorderColor="brand.blue"
               type="text"
-              placeholder="jvittor"
+              value={userData.linkedin || ''}
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>
@@ -90,7 +95,8 @@ import {
             <Input
               focusBorderColor="brand.blue"
               type="text"
-              placeholder="jvittor"
+              value={userData.twitter || ''}
+              onChange={handleChange}
             />
           </InputGroup>
         </FormControl>

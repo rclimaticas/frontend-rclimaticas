@@ -22,6 +22,7 @@ export default function Actions() {
   const { hasCopied, onCopy } = useClipboard(value);
   const { logout } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const profileUrl = useRef(null);
 
@@ -30,7 +31,7 @@ export default function Actions() {
       profileUrl.current.focus();
       profileUrl.current.select();
     }
-  });
+  }, [hasCopied]);
 
   const handleLogout = () => {
     setIsOpen(true);
@@ -40,9 +41,12 @@ export default function Actions() {
     setIsOpen(false);
   };
 
-  const handleConfirmLogout = () => {
-    logout();
+  const handleConfirmLogout = async () => {
+    setIsLoading(true);
+    await logout();
+    setIsLoading(false);
     setIsOpen(false);
+    window.location.href = '/';
   };
 
   return (
@@ -67,7 +71,11 @@ export default function Actions() {
             <Button variant="outline" onClick={handleClose}>
               Cancelar
             </Button>
-            <Button onClick={handleConfirmLogout} as={RouterLink} to="/">
+            <Button
+              onClick={handleConfirmLogout}
+              isLoading={isLoading}
+              colorScheme="red"
+            >
               Confirmar Logout
             </Button>
           </ModalFooter>

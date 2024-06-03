@@ -1,18 +1,58 @@
 import { Box, Text, VStack } from '@chakra-ui/react'
-
-const list = [
-  {
-    id: 1,
-    name: 'Contribuições',
-    value: 32,
-    color: 'yellow',
-  },
-]
+import { useContext } from 'react'
+import { AccountSettingsContext } from '../../context/AccountSettingsContext';
 
 function Data() {
+  const { userData } = useContext(AccountSettingsContext);
+
+  const list = [
+    {
+      id: 1,
+      name: 'Contribuições',
+      value: 32,
+    },
+    {
+      id: 2,
+      name: 'Meu email',
+      value: userData.email,
+    },
+    {
+      id: 3,
+      name: 'Meu número',
+      value: userData.whatsapp,
+    },
+    {
+      id: 4,
+      name: 'Minhas Áreas de Interesse',
+      value: Array.isArray(userData.areaOfInterest) ? userData.areaOfInterest.join(', ') : userData.areaOfInterest,
+    },
+    {
+      id: 5,
+      name: 'Eixos que eu contribuo',
+      value: Array.isArray(userData.contributionAxis) ? userData.contributionAxis.join(', ') : userData.contributionAxis,
+    },
+    {
+      id: 6,
+      name: 'Disponibilidade Semanal (Em horas)',
+      value: userData.weeklyAvailability,
+    },
+    {
+      id: 7,
+      name: 'Temas Biomas',
+      value: Array.isArray(userData.themesBiomes) ? userData.themesBiomes.join(', ') : userData.themesBiomes,
+    },
+    {
+      id: 8,
+      name: 'Tema Comunidade',
+      value: Array.isArray(userData.themesCommunities) ? userData.themesCommunities.join(', ') : userData.themesCommunities,
+    },
+  ];
+
+  const filteredList = list.filter(item => item.value && item.value.length > 0);
+
   return (
     <VStack as="ul" spacing={0} listStyleType="none">
-      {list.map(item => (
+      {filteredList.map(item => (
         <Box
           key={item.id}
           as="li"
@@ -26,7 +66,7 @@ function Data() {
           borderColor="brand.light"
         >
           <Text color="brand.dark">{item.name}</Text>
-          <Text color={`brand.${item.color}`} fontWeight="bold">
+          <Text color={"green"} fontWeight="bold">
             {item.value}
           </Text>
         </Box>
@@ -35,4 +75,4 @@ function Data() {
   )
 }
 
-export default Data
+export default Data;

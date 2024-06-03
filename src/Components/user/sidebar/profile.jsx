@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from 'react'
+import React, { useState, useContext, useRef } from "react";
 import {
   Avatar,
   AvatarBadge,
@@ -16,72 +16,62 @@ import {
   Text,
   useDisclosure,
   VStack,
-} from '@chakra-ui/react';
-import axios from 'axios';
-import { AuthContext } from '../../context/authcontext';
+} from '@chakra-ui/react'
+import { useAccountSettingsContext } from "../../context/AccountSettingsContext"; // Importe o contexto corretamente
+import { AuthContext } from "../../context/authcontext";
 
-function Profile() {
-  const [userProfile, setUserProfile] = useState(null)
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
+function App() {
+  const [file, setFile] = useState(null);
   const { token, id } = useContext(AuthContext);
-  const [userData, setUserData] = useState({
-    email: '',
-    username: '',
-    whatsapp: '',
-    gender: '',
-    instagram: '',
-    twitter: '',
-    linkedin: '',
-    facebook: '',
-    areaOfInterest: '',
-    contributionAxis: '',
-    weeklyAvailability: '',
-  });
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get(`https://backend-rclimaticas.onrender.com/profile/${id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados do usuário:', error);
-      }
-    };
-
-    fetchUserData();
-  }, [token, id]);
+  const { userData, handleChange, handleFileChange } = useAccountSettingsContext(); 
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const profileImage = useRef(null)
 
   const openChooseImage = () => {
     profileImage.current.click()
   }
 
-  const changeProfileImage = event => {
-    const ALLOWED_TYPES = ['image/png', 'image/jpeg', 'image/jpg']
-    const selected = event.target.files[0]
+  const uploadImage = async (e) => {
+    handleFileChange(e);
+    const file = e.target.files[0];
+    setFile(file);
+  };
 
-    if (selected && ALLOWED_TYPES.includes(selected.type)) {
-      let reader = new FileReader()
-      reader.onloadend = () => setUserProfile(reader.result)
-      return reader.readAsDataURL(selected)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("userData", JSON.stringify(userData));
+
+    try {
+      const response = await fetch(`https://backend-rclimaticas.onrender.com/profile/${id}`, { 
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log("Imagem e dados enviados com sucesso!");
+      } else {
+        console.error("Erro ao enviar os dados", await response.text());
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
     }
-
-    onOpen()
-  }
+  };
 
   return (
-    <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
-       <Avatar
+    <>
+      <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
+      <Avatar
         size="2xl"
-        onClick={openChooseImage}
+        name={userData.username}
         cursor="pointer"
+        onClick={openChooseImage}
+        src={userData.imageBase64}
        >
         <AvatarBadge boxSize='1.25em' bg='#CFD249' >
         <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">
@@ -93,43 +83,61 @@ function Profile() {
           </svg>
         </AvatarBadge>
       </Avatar>
+        <input
+          hidden
+          type="file"
+          ref={profileImage}
+          onChange={(e) => {
+            uploadImage(e);
+          }}
+        />
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Something went wrong</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text>File not supported!</Text>
+              <HStack mt={1}>
+                <Text color="brand.cadet" fontSize="sm">
+                  Supported types:
+                </Text>
+                <Badge colorScheme="green">PNG</Badge>
+                <Badge colorScheme="green">JPG</Badge>
+                <Badge colorScheme="green">JPEG</Badge>
+              </HStack>
+            </ModalBody>
 
- =
-      <input
-        hidden
-        type="file"
-        ref={profileImage}
-        onChange={changeProfileImage}
-      />
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Something went wrong</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Text>File not supported!</Text>
-            <HStack mt={1}>
-              <Text color="brand.cadet" fontSize="sm">
-                Supported types:
-              </Text>
-              <Badge colorScheme="green">PNG</Badge>
-              <Badge colorScheme="green">JPG</Badge>
-              <Badge colorScheme="green">JPEG</Badge>
-            </HStack>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-      <VStack spacing={1}>
-        <Heading as="h3" fontSize="xl" color="brand.dark">
-          {userData.username || ''}
-        </Heading>
+            <ModalFooter>
+              <Button onClick={onClose}>Close</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+        <VStack spacing={1}>
+          <Heading as="h3" fontSize="xl" color="brand.dark">
+            {userData.username}
+          </Heading>
+          
+        </VStack>
       </VStack>
-    </VStack>
-  )
+
+      {/* <div className="App">
+        <form onSubmit={handleSubmit}>
+          <input
+            hidden
+            type="file"
+            onChange={(e) => {
+              uploadImage(e);
+            }}
+          />
+          <br />
+          <img height="200px" alt="Preview" />
+          <br />
+          <button type="submit">Enviar</button>
+        </form>
+      </div> */}
+    </>
+  );
 }
 
-export default Profile
+export default App;
