@@ -5,10 +5,12 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Container, Text, Stack, Image, SimpleGrid, Box, Button, HStack, Avatar } from "@chakra-ui/react";
 import LogoLC from '../assets/ligacolaborativa/logoLC.png';
 import { AuthContext } from '../Components/context/authcontext.jsx';
+import { AccountSettingsContext } from '../Components/context/AccountSettingsContext.jsx';
 
 export default function Header() {
     const [showBorder, setShowBorder] = useState(false);
     const { auth, logout } = useContext(AuthContext);
+    const { userData } = useContext(AccountSettingsContext);
 
     const handleScroll = () => {
         if (window.pageYOffset > 0) {
@@ -37,8 +39,13 @@ export default function Header() {
                 maxW="full" h={"100px"} >
                 <SimpleGrid columns={2} spacingX='90px' spacingY='60px'>
                     <Box alignItems={"center"} display="flex" justifyContent={"flex-start"}>
+
+                        
                         <HStack whiteSpace="nowrap" color={"#399984"} spacing={5}>
-                            <Image w="8%" src={LogoLC} />
+                            <Image w="10%" src={LogoLC} />
+                            <a href="/">
+                                <Text _hover={{ color: "#30806e" }} cursor="pointer">Início</Text>
+                            </a>
                             <a target="_blank" rel="noopener noreferrer" href="/datarc">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Dados e Informações</Text>
                             </a>
@@ -57,7 +64,7 @@ export default function Header() {
                         <Stack direction="row" spacing={5}>
                             {auth ? (
                                 <>
-                                    <Avatar title={"ver perfil"} as={RouterLink} to="/user" size="md" src="" />
+                                    <Avatar name={userData.username} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={userData.imageBase64} />
                                 </>
                             ) : (
                                 <>
