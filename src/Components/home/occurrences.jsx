@@ -64,7 +64,7 @@ export default function Occurrences() {
                     colStart={{ base: 1, md: 4, lg: 4 }} 
                     colEnd={7} 
                     alignContent={"center"}>
-                        <Image src={Dashboard} />
+                        <Image src={Dashboard} filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))" />
                     </GridItem>
                 </Grid>
             </Container>

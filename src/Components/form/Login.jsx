@@ -19,7 +19,7 @@ export default function Login() {
     const handleSuccessAuth = (response) => {
         console.log(response);
         toast({
-            title: "Registro feito com sucesso!",
+            title: "Login feito com sucesso!",
             description: "Seja bem-vindo(a)!",
             status: "success",
             position: "top",
@@ -29,8 +29,8 @@ export default function Login() {
     const handleErrorAuth = (error) => {
         console.error('Falha na autenticação:', error);
         toast({
-            title: "Falha ao se registrar",
-            description: "Ocorreu um erro ao tentar fazer o registro!",
+            title: "Falha ao se logar",
+            description: "Ocorreu um erro ao tentar fazer o login!",
             status: "error",
             position: "top",
         });
@@ -66,6 +66,7 @@ export default function Login() {
                     toast({
                         title: "Login bem-sucedido",
                         description: "Seja bem-vindo(a)!",
+                        status: "success",
                         position: "top",
                     });
                     window.location.href = '/';

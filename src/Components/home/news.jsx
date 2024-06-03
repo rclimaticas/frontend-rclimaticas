@@ -13,38 +13,45 @@ export default function News() {
     return (
         <>
             {/* tela desktop com fundo */}
-            
 
-            <Container 
-            bgImage={Fundo} bgSize={"cover"} mt={{ sm: "15rem", md: "20rem", lg: "20rem", xl: "20rem"}} maxW="full"
+
+            <Container
+                bgImage={Fundo} bgSize={"cover"} mt={{ sm: "15rem", md: "20rem", lg: "20rem", xl: "20rem" }} maxW="full"
             >
-  
+
                 <Container maxW="container.xl" maxH={"container.xs"}>
                     <SimpleGrid columns={2} spacing={2}>
-                        <Box mt={{base: 5, sm: "-14rem", md: "-20rem", lg: "-20rem", xl: "-20rem"}}>
-                            <Image w={"80%"} src={GoogleNews} />
+                        <Box mt={{ base: 5, sm: "-14rem", md: "-20rem", lg: "-20rem", xl: "-20rem" }}>
+                            <Image w={"80%"} 
+                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                            src={GoogleNews} />
                             <Stack spacing={5}>
                                 <Heading mt={5} fontSize={{ sm: "25px", md: "35px", lg: "30px", xl: "30px" }}><u>Publicações Recentes</u></Heading>
                                 <SimpleGrid columns={2} w={{ sm: "80%", md: "50%", lg: "50%" }} spacing={5}>
-                                    <a 
-                                    href="https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf"
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
+                                    <a
+                                        href="https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         <Image
-                                        transition="transform 0.3s"
-                                        _hover={{ transform: "scale(1.05)" }}
-                                        src={Article1} />
+                                            transition="transform 0.3s"
+                                            _hover={{ transform: "scale(1.05)" }}
+                                            src={Article1} 
+                                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                                            />
                                     </a>
-                                    <a 
-                                    href="#"
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
+                                    <a
+                                        href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                     >
-                                        <Image 
-                                        transition="transform 0.3s"
-                                        _hover={{ transform: "scale(1.05)" }}   
-                                        w={"97%"} src={Article2} />
+                                        <Image
+                                            transition="transform 0.3s"
+                                            _hover={{ transform: "scale(1.05)" }}
+                                            w={"97%"} src={Article2} 
+                                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                                            />
+                                            
                                     </a>
                                 </SimpleGrid>
                                 <Text fontSize={{ sm: "20px", md: "15px", lg: "20px", xl: "25px" }}>Receba Atualizações</Text>
@@ -73,7 +80,7 @@ export default function News() {
                                 </Button>
                             </Stack>
                         </Box>
-                        <Box mt={{ sm: "-9.5rem", md: "-16.5rem", lg: "-17.5rem", xl: "-17.5rem"}}>
+                        <Box mt={{ sm: "-9.5rem", md: "-16.5rem", lg: "-17.5rem", xl: "-17.5rem" }}>
                             <Heading
                                 fontSize={{ sm: "28px", md: "30px", lg: "30px" }}
                                 textAlign={"right"}
@@ -85,29 +92,33 @@ export default function News() {
                             <Box display={"flex"} justifyContent={"flex-end"}>
                                 <a href="https://ekonavi.com/regen?r=r4f4.eu" target="_blank" rel="noopener noreferrer">
                                     <Image
-                                        
-                                        transition="transform 0.3s"
-                                        _hover={{ transform: "scale(1.05)" }}
+                                        transition="transform 0.3s, filter 0.3s"
+                                        _hover={{
+                                            transform: "scale(1.05)",
+                                            filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))" // Sombra ao passar o mouse
+                                        }}
+                                        filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))" // Sombra padrão
                                         src={Ekonavi}
                                     />
                                 </a>
                             </Box>
+
                         </Box>
                     </SimpleGrid>
 
                     <SimpleGrid columns={2}>
-                            <Box mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
-                                <Center flexDirection={"column"} gap={5}>
-                                    <Text>Contribua com o projeto financiando</Text>
-                                    <Image w={"80%"} src={Financiadores} />
-                                </Center>
-                            </Box>
-                            <Box mt={{ sm: "-10rem", md: "-12rem", lg: "-18rem", xl: "-30rem" }}>
-                                <Heading  fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
-                                <Center>
-                                    <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={TrustedBy} />
-                                </Center>
-                            </Box>
+                        <Box mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
+                            <Center flexDirection={"column"} gap={5}>
+                                <Text>Contribua com o projeto financiando</Text>
+                                <Image w={"80%"} src={Financiadores} />
+                            </Center>
+                        </Box>
+                        <Box mt={{ sm: "-10rem", md: "-12rem", lg: "-18rem", xl: "-30rem" }}>
+                            <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
+                            <Center>
+                                <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={"https://iili.io/JmwwYnR.md.png"} />
+                            </Center>
+                        </Box>
                     </SimpleGrid>
 
 

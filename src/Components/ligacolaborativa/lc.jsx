@@ -22,7 +22,7 @@ export default function LigaColaborativa() {
                     </Box>
                     <Box h="380px">
                         <Center>
-                            <Image src={Trusted} />
+                            <Image src={"https://iili.io/JmwwYnR.md.png"} />
                         </Center>
                     </Box>
                 </SimpleGrid>
