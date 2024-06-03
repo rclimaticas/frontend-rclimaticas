@@ -28,7 +28,7 @@ export const AccountSettingsProvider = ({ children }) => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`https://backend-rclimaticas.onrender.com/profile/${id}`, {
+        const response = await axios.get(`https://backend-rclimaticas-2.onrender.com/profile/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -63,7 +63,7 @@ export const AccountSettingsProvider = ({ children }) => {
     );
 
     try {
-      await axios.put(`https://backend-rclimaticas.onrender.com/profile/${id}`, filteredData, {
+      await axios.put(`https://backend-rclimaticas-2.onrender.com/profile/${id}`, filteredData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

@@ -60,7 +60,7 @@ export default function Register() {
                 password: password
             };
 
-            const response = await axios.post('https://backend-rclimaticas.onrender.com/register', userData, {
+            const response = await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

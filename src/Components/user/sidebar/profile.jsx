@@ -45,7 +45,7 @@ function App() {
     formData.append("userData", JSON.stringify(userData));
 
     try {
-      const response = await fetch(`https://backend-rclimaticas.onrender.com/profile/${id}`, { 
+      const response = await fetch(`https://backend-rclimaticas-2.onrender.com/profile/${id}`, { 
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`
