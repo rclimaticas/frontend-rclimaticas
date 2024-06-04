@@ -40,7 +40,7 @@ export default function LigaColaborativa() {
 
                 <SimpleGrid mt={"5rem"} columns={1} spacingX='90px' spacingY='60px'>
                     <Box  h="500px" display={"flex"} justifyContent="center" alignItems="center">
-                        <Image w={"100%"} pos="relative" left={6} src={Roadmap} />
+                        <Image w={"100%"} pos="relative" left={6} src={"https://iili.io/JpfChWG.md.png"} />
                     </Box>
                 </SimpleGrid>
     

@@ -4,6 +4,7 @@ import AccountSettings from './account'
 import Actions from './actions'
 import CompanySettings from './company'
 import Colaborador from './colaborador'
+import Impacts from './impacts'
 
 const Content = () => {
   const tabs = ['Configuração de Conta', 'Redes Sociais', 'Área Colaborador', 'Meus impactos']
@@ -52,6 +53,9 @@ const Content = () => {
           </TabPanel>
           <TabPanel>
             <Colaborador />
+          </TabPanel>
+          <TabPanel>
+            <Impacts />
           </TabPanel>
 
         </TabPanels>
