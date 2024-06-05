@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   ChakraProvider,
   Box,
@@ -21,9 +21,15 @@ import {
   Input,
   extendTheme,
   Textarea,
-  Select
+  Select,
+  Checkbox,
+  Stack,
+  HStack
 } from '@chakra-ui/react';
 import './impacts.scss';
+import CustomIcon from '../content/customIcon';
+import { AccountSettingsContext } from '../../context/AccountSettingsContext';
+
 
 const activeLabelStyles = {
   transform: "scale(0.85) translateY(-24px)"
@@ -65,6 +71,7 @@ export const theme = extendTheme({
 
 const ImpactTable = () => {
   const [selectedTable, setSelectedTable] = useState('Impactos da Liga');
+  const { userData } = useContext(AccountSettingsContext);
 
 
   const handleTableChange = (table) => {
@@ -174,8 +181,10 @@ const ImpactTable = () => {
                   <FormLabel>Tipo de apoio</FormLabel>
                 </FormControl>
               </Box>
-              <Box p={2}>
-                <FormControl variant="floating" id="first-name" >
+              <Box p={2} mt={2}>
+                <FormControl
+                  width={"300px"}
+                  variant="floating" id="first-name" >
                   <Select
                     focusBorderColor="brand.blue"
                   >
@@ -187,21 +196,100 @@ const ImpactTable = () => {
                   <FormLabel>Urgência</FormLabel>
                 </FormControl>
               </Box>
+
+              {/* Apenas para pular linha */}
+              <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box>
               <Box p={2}>
-                <FormControl variant="floating" id="first-name" >
-                  <Input width={"300px"} placeholder=" " />
+                <FormControl>
+                  <FormLabel>Temas</FormLabel>
+                  <Flex gap={5}>
+                    <Stack>
+                      <Text>• Escolha um tipo de bioma</Text>
+                      {(userData.themesBiomes && userData.themesBiomes.length > 0) ? (
+                        userData.themesBiomes.map(themesBiomes => (
+                          <Checkbox
+                            key={themesBiomes}
+                            icon={<CustomIcon />}
+                            color='black'
+                            value={themesBiomes}
+                          >
+                            {themesBiomes}
+                          </Checkbox>
+                        ))
+                      ) : (
+                        <Box bg="white" borderColor={'green'} >
+                          <Text color={'red'}>Você não escolheu nenhum tema</Text>
+                        </Box>
+                      )}
+                    </Stack>
+
+                    <Stack>
+                      <Text>• Escolha um tipo de comunidade</Text>
+                      {(userData.themesCommunities && userData.themesCommunities.length > 0) ? (
+                        userData.themesCommunities.map(themesCommunities => (
+                          <Checkbox
+                            key={themesCommunities}
+                            icon={<CustomIcon />}
+                            color='black'
+                            value={themesCommunities}
+                          >
+                            {themesCommunities}
+                          </Checkbox>
+                        ))
+                      ) : (
+                        <Box bg="white" borderColor={'green'} >
+                          <Text color={'red'}>Você não escolheu nenhuma comunidade</Text>
+                        </Box>
+                      )}
+                    </Stack>
+
+                  </Flex>
+
+
                   {/* It is important that the Label comes after the Control due to css selectors */}
-                  <FormLabel>Tema</FormLabel>
+
                 </FormControl>
+                <Stack mt={5}>
+                      <Text>• Escolha um tipo Áreas de Interesse</Text>
+                      {(userData.areaOfInterest && userData.areaOfInterest.length > 0) ? (
+                        userData.areaOfInterest.map(areaOfInterest => (
+                          <Checkbox
+                            key={areaOfInterest}
+                            icon={<CustomIcon />}
+                            color='black'
+                            value={areaOfInterest}
+                          >
+                            {areaOfInterest}
+                          </Checkbox>
+                        ))
+                      ) : (
+                        <Box bg="white" borderColor={'green'} >
+                          <Text color={'red'}>Você não escolheu nenhum tema</Text>
+                        </Box>
+                      )}
+                    </Stack>
+
               </Box>
 
             </Grid>
-            <Box p={2}>
+            <Box p={2} mt={2}>
               <FormControl variant="floating" id="first-name" >
                 <Textarea placeholder=" " />
                 {/* It is important that the Label comes after the Control due to css selectors */}
                 <FormLabel>Contribuição do pedido</FormLabel>
               </FormControl>
+            </Box>
+            <Box p={2}>
+              <Button
+                bg={"#CFD249"}
+                _hover={{ bg: "#bdbf47" }}
+                width={"20%"}
+                boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.4)"
+                border="2px"
+
+              >
+                Enviar Impacto
+              </Button>
             </Box>
           </>
         );

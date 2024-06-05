@@ -34,7 +34,7 @@ export default function Test() {
                                 <Text fontSize={{ sm: "20px", md: "15px", lg: "20px", xl: "24px" }}>
                                     {i18n.home.desc}
                                 </Text>
-                                <Button as='a' target="_blank" rel="noopener noreferrer" href={ConceitoPlataforma} w={{ sm: "40%", md: "60%", lg: "50%" }}>
+                                <Button as='a' target="_blank" rel="noopener noreferrer" href={"/ligacolaborativa"} w={{ sm: "40%", md: "60%", lg: "50%" }}>
                                     <Text fontSize={"20px"} fontWeight={"normal"}>
                                         Saber Mais
                                     </Text>

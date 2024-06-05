@@ -43,7 +43,7 @@ export default function Header() {
                         
                         <HStack whiteSpace="nowrap" color={"#399984"} spacing={5}>
                             <Image w="10%" src={LogoLC} />
-                            <a href="/">
+                            <a  href="/">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Início</Text>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="/datarc">

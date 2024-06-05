@@ -29,7 +29,9 @@ export default function LigaColaborativa() {
                 
                 <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
                     <Box h="500px" display={"flex"} justifyContent="center" alignItems="center" >
-                            <Image src={i18n.ligacolaborativa.image.logo}/>
+                            <Image
+                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                            src={i18n.ligacolaborativa.image.logo}/>
                     </Box>
                     <Box h="500px" display={"flex"} justifyContent="center" alignItems="center">
                         <Text fontSize={"25px"} fontFamily={"Alata"}>
@@ -40,7 +42,7 @@ export default function LigaColaborativa() {
 
                 <SimpleGrid mt={"5rem"} columns={1} spacingX='90px' spacingY='60px'>
                     <Box  h="500px" display={"flex"} justifyContent="center" alignItems="center">
-                        <Image w={"100%"} pos="relative" left={6} src={"https://iili.io/JpfChWG.md.png"} />
+                        <Image w={"100%"} pos="relative" left={6} src={Roadmap} />
                     </Box>
                 </SimpleGrid>
     
@@ -63,7 +65,9 @@ export default function LigaColaborativa() {
                         <Contributions />
                     </Box>
                     <Box h="400px" display={"flex"} justifyContent="center" alignItems="center">
-                        <Image src={i18n.ligacolaborativa.image.logo} />
+                        <Image 
+                        filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                        src={i18n.ligacolaborativa.image.logo} />
                     </Box>
                     {/* box para espaço final */}
                     <Box h={"100px"}></Box>

@@ -16,7 +16,12 @@ export default function Occurrences() {
                         <Heading fontSize={{ sm: "35", md: "25px", lg: "28px", xl: "40px" }}>
                             Registre Ocorrências de conflitos em seu território e receba apoio gratuito.
                             {/* button em tela desktop */}
-                            <Button ml={5} display={{ base: "none", sm: "none", md: "none", lg: "inline" }} width={"40%"} >
+                            <Button 
+                            as="a"
+                            href="https://arcg.is/1mzbme"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            ml={5}  width={"40%"} >
                                 <Center>
                                     <Text fontSize={"15px"} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
                                 </Center>
@@ -25,15 +30,20 @@ export default function Occurrences() {
                     </GridItem>
                     
                     {/* button em tela mobile */}
-                    <GridItem colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7} display={{ sm: "block", md: "none", lg: "none" }}>
-                        <Button mt={5} ml={{ sm: 0, md: 0, lg: 5, xl: 5, '2xl': 5 }} width={{sm: "40%", md: "60%", lg: "50%"}}>
+                    {/* <GridItem colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7} display={{ sm: "block", md: "none", lg: "none" }}>
+                        <Button 
+                        as="a"
+                        href="https://arcg.is/1mzbme"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        mt={5} ml={{ sm: 0, md: 0, lg: 5, xl: 5, '2xl': 5 }} width={{sm: "40%", md: "60%", lg: "50%"}}>
                             <Text fontSize={{sm: "16px", md: "15px", lg: "15px"}} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
                         </Button>
-                        {/* mobile dashboard */}
+                        {/* mobile dashboard
                         <GridItem mt={{sm: 10}} colSpan={{ base: 6, md: 3, lg: 3 }} colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7} alignContent={"center"}>
                             <Image src={Dashboard} />
                         </GridItem>
-                    </GridItem>
+                    </GridItem> */}
                 </Grid>
             </Container>
 

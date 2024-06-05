@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select,
-  Box, Text
+  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select, Box, Text, Flex
 } from '@chakra-ui/react';
 import CustomIcon from './customIcon';
 import { AccountSettingsContext } from '../../context/AccountSettingsContext';
@@ -45,7 +44,7 @@ export default function Colaborador() {
           </Stack>
         </FormControl>
 
-        <FormControl as='fieldset'>
+        {/* <FormControl as='fieldset'>
           <Stack>
             <FormLabel as='legend'>⚡ Em qual eixo você gostaria de contribuir na constelação da Liga Colaborativa dos Povos?</FormLabel>
             <Stack>
@@ -64,12 +63,12 @@ export default function Colaborador() {
             </Stack>
             <FormHelperText>Poderá ser selecionado mais de um eixo</FormHelperText>
           </Stack>
-        </FormControl>
+        </FormControl> */}
         <FormControl id="weeklyAvailability">
           <FormLabel>⚡ Qual sua disponibilidade de tempo para contribuir semanalmente?</FormLabel>
           <Select
             focusBorderColor="brand.blue"
-            placeholder="Selecione uma disponibilidade em horas" 
+            placeholder="Selecione uma disponibilidade em horas"
             value={userData.weeklyAvailability || ''}
             onChange={handleChange}
           >
@@ -78,50 +77,53 @@ export default function Colaborador() {
         </FormControl>
 
         {/* Apenas para pular linha */}
-        <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box>
+        {/* <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box> */}
 
-        <Box mt={5} w={'sm'}>
+        <Box mt={5} w={'lg'}>
           <FormLabel>⚡ Quais temas te conecta?</FormLabel>
 
-          <FormControl as='fieldset'>
-            <Stack>
-              <Text>• Escolha um tipo de bioma</Text>
-              <Stack>
-                {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Zonas urbanas'].map(biome => (
-                  <Checkbox
-                    key={biome}
-                    icon={<CustomIcon />}
-                    color='black'
-                    value={biome}
-                    isChecked={userData.themesBiomes.includes(biome)}
-                    onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
-                  >
-                    {biome}
-                  </Checkbox>
-                ))}
-              </Stack>
-            </Stack>
-          </FormControl>
+          <Flex gap={5}>
+            <FormControl as='fieldset'>
 
-          <FormControl mt={2} as='fieldset'>
-            <Stack>
-              <Text>• Escolha um tipo de comunidade</Text>
               <Stack>
-                {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
-                  <Checkbox
-                    key={community}
-                    icon={<CustomIcon />}
-                    color='black'
-                    value={community}
-                    isChecked={userData.themesCommunities.includes(community)}
-                    onChange={(e) => handleCheckboxChange(e, 'themesCommunities')}
-                  >
-                    {community}
-                  </Checkbox>
-                ))}
+                <Text>• Escolha um tipo de bioma</Text>
+                <Stack>
+                  {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Zonas urbanas'].map(biome => (
+                    <Checkbox
+                      key={biome}
+                      icon={<CustomIcon />}
+                      color='black'
+                      value={biome}
+                      isChecked={userData.themesBiomes.includes(biome)}
+                      onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
+                    >
+                      {biome}
+                    </Checkbox>
+                  ))}
+                </Stack>
               </Stack>
-            </Stack>
-          </FormControl>
+            </FormControl>
+
+            <FormControl as='fieldset'>
+              <Stack>
+                <Text>• Escolha um tipo de comunidade</Text>
+                <Stack>
+                  {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
+                    <Checkbox
+                      key={community}
+                      icon={<CustomIcon />}
+                      color='black'
+                      value={community}
+                      isChecked={userData.themesCommunities.includes(community)}
+                      onChange={(e) => handleCheckboxChange(e, 'themesCommunities')}
+                    >
+                      {community}
+                    </Checkbox>
+                  ))}
+                </Stack>
+              </Stack>
+            </FormControl>
+          </Flex>
         </Box>
 
         {/* <Box mt={5} w={'sm'}>
