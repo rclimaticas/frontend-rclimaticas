@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- deixa a tela em tela mobile com tela desktop -->
-    <meta name="viewport" content="width=1280, initial-scale=1"/>
-    <link rel="icon" type="image/x-icon" href="./src/assets/favicon.png" id="favicon" />
-    
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-    
-    <!-- Primary Meta Tags -->
-    <title>Resiliência Climáticas</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script>
-      if (window.location.pathname === "/ondefoi") {
-        document.title = "OndeFoi - Resiliência Climática";
-      }
-      // alterando favicon de acordo com a rota atual
-      function changeFavicon() {
-        var favicon = document.getElementById("favicon");
-        if (window.location.pathname === "/ondefoi") {
-          favicon.href = "./src/assets/ondefoi/logo2.png"; 
-        } else {
-          favicon.href = "./src/assets/favicon.png";
-        }
-      }
 
-      // função chamada inicialmente para definir o favicon correto
-      changeFavicon();
-    </script>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <!-- deixa a tela em tela mobile com tela desktop -->
+  <meta name="viewport" content="" />
+  <link rel="icon" type="image/x-icon" href="./src/assets/favicon.png" id="favicon" />
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+
+  <!-- Primary Meta Tags -->
+  <title>Resiliência Climáticas</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    if (window.location.pathname === "/ondefoi") {
+      document.title = "OndeFoi - Resiliência Climática";
+    }
+    // alterando favicon de acordo com a rota atual
+    function changeFavicon() {
+      var favicon = document.getElementById("favicon");
+      if (window.location.pathname === "/ondefoi") {
+        favicon.href = "./src/assets/ondefoi/logo2.png";
+      } else {
+        favicon.href = "./src/assets/favicon.png";
+      }
+    }
+
+    // função chamada inicialmente para definir o favicon correto
+    changeFavicon();
+  </script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

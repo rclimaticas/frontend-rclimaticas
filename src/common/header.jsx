@@ -64,6 +64,9 @@ export default function Header() {
                         <Stack direction="row" spacing={5}>
                             {auth ? (
                                 <>
+                                    <Button as="a" href="/user" width={"60%"}>
+                                        Meus Impactos
+                                    </Button>
                                     <Avatar name={userData.username} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={userData.imageBase64} />
                                 </>
                             ) : (

@@ -24,6 +24,7 @@ const Content = () => {
       borderWidth={1}
       borderColor="gray.200"
       style={{ transform: 'translateY(-100px)' }}
+      overflowX="hidden"
     >
       <Tabs onChange={(index) => setSelectedTabIndex(index)}>
         <TabList px={5}>

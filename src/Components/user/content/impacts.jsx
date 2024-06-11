@@ -165,7 +165,7 @@ const ImpactTable = () => {
       case 'Gerar Impactos':
         return (
           <>
-            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} >
+            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)' }} >
 
               <Box p={2} >
                 <FormControl variant="floating" id="first-name" >
@@ -283,7 +283,6 @@ const ImpactTable = () => {
               <Button
                 bg={"#CFD249"}
                 _hover={{ bg: "#bdbf47" }}
-                width={"20%"}
                 boxShadow="-4px 4px 4px rgba(0, 0, 0, 0.4)"
                 border="2px"
 
