@@ -42,7 +42,7 @@ const NotFound = () => {
                                 Olá, está perdido?
                             </Heading>
                             <Text>
-                                Para acessar outras rotas da aplicação, te convidamos a ser logar na nossa plataforma para conhecer mais sobre
+                                Para acessar outras rotas da plataforma, te convidamos a se logar na nossa plataforma para conhecer mais sobre
                                 nosso projeto.
                             </Text>
                             <Button as="a" href="/register" width={"50%"} textColor={'black'}>
