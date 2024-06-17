@@ -12,6 +12,7 @@ const NotFound = () => {
             backgroundSize="cover"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
+            overFlow={"hidden"}
 
         >
             <Box
