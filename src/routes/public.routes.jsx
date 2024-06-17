@@ -4,10 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import theme from "../Components/styles/theme.ts";
 import { AccountSettingsProvider } from '../Components/context/AccountSettingsContext.jsx';
+import { GoogleAuthProvider  } from '../Components/context/GoogleAuthContext.jsx';
 import Home from "../Components/home/home.jsx";
 import Login from "../Components/form/Login.jsx";
 import Register from "../Components/form/Register.jsx";
 import NotFound from "../Components/404page/NotFound.jsx";
+import '../App.css';
 
 const PublicRoutes = () => {
   if (!["/", "/login", "/register"].includes(window.location.pathname)) {
@@ -16,16 +18,20 @@ const PublicRoutes = () => {
   return (
     <ChakraProvider theme={theme}>
       <AccountSettingsProvider>
+
         <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
+          <GoogleAuthProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </GoogleAuthProvider>
         </GoogleOAuthProvider>
+
       </AccountSettingsProvider>
     </ChakraProvider>
   );

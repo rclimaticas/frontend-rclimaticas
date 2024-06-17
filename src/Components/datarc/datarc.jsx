@@ -7,6 +7,8 @@ import Header from '../../common/header.jsx';
 import Maps from "./maps.jsx";
 import Footer from './footer.jsx'
 import TableList from "./tablelist.jsx"
+import Article from "./article.jsx";
+import Highlights from './highlights.jsx'
 export default function Rcdata() {
 
     return (
@@ -37,16 +39,16 @@ export default function Rcdata() {
                 </Grid>
             </Layout>
 
+            <Article />
             {/* material */}
-            <Layout color="#7D9270" maxW="full">
-                <Material />
-            </Layout>
 
-            {/* tablelist */}
-            <TableList />
-
+            <Highlights />
+        
             {/* mapas */}
             <Maps />
+            <Layout mt={20} color="#7D9270" maxW="full">
+                <Material />
+            </Layout>
 
             {/* footer */}
             <Footer />

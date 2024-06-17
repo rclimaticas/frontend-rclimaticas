@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select, Box, Text, Flex
+  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select, Box, Text, Flex, Heading
 } from '@chakra-ui/react';
 import CustomIcon from './customIcon';
 import { AccountSettingsContext } from '../../context/AccountSettingsContext';
@@ -19,13 +19,17 @@ export default function Colaborador() {
 
   return (
     <>
+      <Heading fontSize={"20px"} mb={10}>
+        Esse espaço irá ajudar a direcionar da melhor forma as possibilidade de colaborar e
+        receber colaboração. Atualize as informações sempre que necessário.
+      </Heading>
       <Grid
         templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
         gap={6}
       >
         <FormControl as='fieldset'>
           <Stack>
-            <FormLabel as='legend'>⚡Área de interesse em colaborar com a Liga.</FormLabel>
+            <FormLabel as='legend'>Área de interesse em colaborar com a Liga.</FormLabel>
             <Stack>
               {['Social/Cultural/Econômia', 'Ambiental/Territórios/Biodiversidade', 'Tecnologia/Inovação/Desenvolvimento', 'Comunicação/Educação', 'Finanças/Captação', 'Governança/Politicas Públicas'].map(area => (
                 <Checkbox
@@ -37,6 +41,26 @@ export default function Colaborador() {
                   onChange={(e) => handleCheckboxChange(e, 'areaOfInterest')}
                 >
                   {area}
+                </Checkbox>
+              ))}
+            </Stack>
+            <FormHelperText>Poderá ser selecionado mais de uma área de interesse</FormHelperText>
+          </Stack>
+        </FormControl>
+        <FormControl as='fieldset'>
+          <Stack>
+            <FormLabel as='legend'>Sobre quais biomas você tem algum conhecimento?</FormLabel>
+            <Stack>
+              {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Zonas urbanas'].map(biome => (
+                <Checkbox
+                  key={biome}
+                  icon={<CustomIcon />}
+                  color='black'
+                  value={biome}
+                  isChecked={userData.themesBiomes.includes(biome)}
+                  onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
+                >
+                  {biome}
                 </Checkbox>
               ))}
             </Stack>

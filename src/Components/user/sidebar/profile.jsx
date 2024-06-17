@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { useAccountSettingsContext } from "../../context/AccountSettingsContext"; // Importe o contexto corretamente
 import { AuthContext } from "../../context/authcontext";
+import { GoogleAuthContext } from '../../context/GoogleAuthContext';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
   const { token, id } = useContext(AuthContext);
   const { userData, handleChange, handleFileChange } = useAccountSettingsContext(); 
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { user } = useContext(GoogleAuthContext);
   const profileImage = useRef(null)
 
   const openChooseImage = () => {
@@ -71,7 +73,7 @@ function App() {
         name={userData.username}
         cursor="pointer"
         onClick={openChooseImage}
-        src={userData.imageBase64}
+        src={userData.imageBase64 || ''}
        >
         <AvatarBadge boxSize='1.25em' bg='#CFD249' >
         <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">

@@ -165,46 +165,85 @@ const ImpactTable = () => {
       case 'Gerar Impactos':
         return (
           <>
-            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)' }} >
 
-              <Box p={2} >
-                <FormControl variant="floating" id="first-name" >
-                  <Input width={"300px"} placeholder=" " />
-                  {/* It is important that the Label comes after the Control due to css selectors */}
-                  <FormLabel>Assunto</FormLabel>
-                </FormControl>
-              </Box>
+            <Box p={2} >
+              <FormControl variant="floating" id="first-name" >
+                <Input placeholder=" " />
+                {/* It is important that the Label comes after the Control due to css selectors */}
+                <FormLabel>Assunto</FormLabel>
+              </FormControl>
+            </Box>
+            <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} >
               <Box p={2}>
-                <FormControl variant="floating" id="first-name" >
-                  <Input width={"300px"} placeholder=" " />
-                  {/* It is important that the Label comes after the Control due to css selectors */}
-                  <FormLabel>Tipo de apoio</FormLabel>
-                </FormControl>
-              </Box>
-              <Box p={2} mt={2}>
                 <FormControl
-                  width={"300px"}
                   variant="floating" id="first-name" >
                   <Select
                     focusBorderColor="brand.blue"
                   >
                     <option value="alta">Alta</option>
-                    <option value="média">Média</option>
                     <option value="baixa">Baixa</option>
                   </Select>
                   {/* It is important that the Label comes after the Control due to css selectors */}
-                  <FormLabel>Urgência</FormLabel>
+                  <FormLabel>Urgência:</FormLabel>
                 </FormControl>
               </Box>
-
-              {/* Apenas para pular linha */}
-              <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box>
+              <Box p={2}>
+                <FormControl
+                  variant="floating" id="first-name" >
+                  <Select
+                    focusBorderColor="brand.blue"
+                  >
+                    <option value="alta">Estado</option>
+                    <option value="média">Município</option>
+                  </Select>
+                  {/* It is important that the Label comes after the Control due to css selectors */}
+                  <FormLabel>Localidade:</FormLabel>
+                </FormControl>
+              </Box>
+              <Box p={2}>
+                <FormControl
+                  variant="floating" id="first-name" >
+                  <Select
+                    focusBorderColor="brand.blue"
+                  >
+                    <option value="alta">Financeiro</option>
+                    <option value="média">Técnico</option>
+                    <option value="baixa">Logístico</option>
+                    <option value="baixa">Incidência</option>
+                    <option value="baixa">Psicoemocional</option>
+                  </Select>
+                  {/* It is important that the Label comes after the Control due to css selectors */}
+                  <FormLabel>Tipo de apoio:</FormLabel>
+                </FormControl>
+              </Box>
+              <Box p={2}>
+                <FormControl
+                  variant="floating" id="first-name" >
+                  <Select
+                    focusBorderColor="brand.blue"
+                  >
+                    <option value="alta">Agricultura familiar</option>
+                    <option value="média">Quilombolas</option>
+                    <option value="baixa">Comunidades urbanas</option>
+                    <option value="baixa">Pescadores</option>
+                    <option value="baixa">Extrativistas</option>
+                    <option value="baixa">Fundo e fecho de pasto</option>
+                    <option value="baixa">Geraizeiros</option>
+                    <option value="baixa">Indígenas</option>
+                    <option value="baixa">Religiosos</option>
+                    <option value="baixa">Ciganos</option>
+                    <option value="baixa">Nômades</option>
+                    <option value="baixa">Outros</option>
+                  </Select>
+                  {/* It is important that the Label comes after the Control due to css selectors */}
+                  <FormLabel>Comunidade afetada:</FormLabel>
+                </FormControl>
+              </Box>
               <Box p={2}>
                 <FormControl>
-                  <FormLabel>Temas</FormLabel>
                   <Flex gap={5}>
                     <Stack>
-                      <Text>• Escolha um tipo de bioma</Text>
+                    <FormLabel>Bioma:</FormLabel>
                       {(userData.themesBiomes && userData.themesBiomes.length > 0) ? (
                         userData.themesBiomes.map(themesBiomes => (
                           <Checkbox
@@ -222,63 +261,45 @@ const ImpactTable = () => {
                         </Box>
                       )}
                     </Stack>
-
-                    <Stack>
-                      <Text>• Escolha um tipo de comunidade</Text>
-                      {(userData.themesCommunities && userData.themesCommunities.length > 0) ? (
-                        userData.themesCommunities.map(themesCommunities => (
-                          <Checkbox
-                            key={themesCommunities}
-                            icon={<CustomIcon />}
-                            color='black'
-                            value={themesCommunities}
-                          >
-                            {themesCommunities}
-                          </Checkbox>
-                        ))
-                      ) : (
-                        <Box bg="white" borderColor={'green'} >
-                          <Text color={'red'}>Você não escolheu nenhuma comunidade</Text>
-                        </Box>
-                      )}
-                    </Stack>
-
                   </Flex>
+                </FormControl>
+              </Box>
+              <Box p={2}>
+                <FormControl
+                  variant="floating" id="first-name" >
+                  <Select
+                    focusBorderColor="brand.blue"
+                  >
+                    <option value="alta">Violação de direito</option>
+                    <option value="média">Empreedimento abusivo</option>
+                    <option value="baixa">Desmatamento</option>
+                    <option value="baixa">Invasão do território</option>
+                    <option value="baixa">Abuso de poder</option>
+                    <option value="baixa">Agressão ou ameaça</option>
+                    <option value="baixa">Situação anormal</option>
+                    <option value="baixa">Falta de informação</option>
+                    <option value="baixa">Animal silvestre encontrado</option>
+                    <option value="baixa">Queimada ou incêndio</option>
+                    <option value="baixa">Poluição do rio</option>
+                    <option value="baixa">Poluição do solo</option>
+                    <option value="baixa">Poluição do mar</option>
+                    <option value="baixa">Poluição do ar</option>
+                    <option value="baixa">Situação climática extrema</option>
 
-
+                  </Select>
                   {/* It is important that the Label comes after the Control due to css selectors */}
+                  <FormLabel>Situação a ser resolvida:</FormLabel>
 
                 </FormControl>
-                <Stack mt={5}>
-                      <Text>• Escolha um tipo Áreas de Interesse</Text>
-                      {(userData.areaOfInterest && userData.areaOfInterest.length > 0) ? (
-                        userData.areaOfInterest.map(areaOfInterest => (
-                          <Checkbox
-                            key={areaOfInterest}
-                            icon={<CustomIcon />}
-                            color='black'
-                            value={areaOfInterest}
-                          >
-                            {areaOfInterest}
-                          </Checkbox>
-                        ))
-                      ) : (
-                        <Box bg="white" borderColor={'green'} >
-                          <Text color={'red'}>Você não escolheu nenhum tema</Text>
-                        </Box>
-                      )}
-                    </Stack>
-
               </Box>
-
             </Grid>
-            <Box p={2} mt={2}>
-              <FormControl variant="floating" id="first-name" >
-                <Textarea placeholder=" " />
-                {/* It is important that the Label comes after the Control due to css selectors */}
-                <FormLabel>Contribuição do pedido</FormLabel>
-              </FormControl>
-            </Box>
+            <Box p={2} mt={2} width={'full'}>
+                <FormControl variant="floating" id="first-name" >
+                  <Textarea placeholder=" " />
+                  {/* It is important that the Label comes after the Control due to css selectors */}
+                  <FormLabel>Contribuição do pedido</FormLabel>
+                </FormControl>
+              </Box>
             <Box p={2}>
               <Button
                 bg={"#CFD249"}
@@ -290,6 +311,7 @@ const ImpactTable = () => {
                 Enviar Impacto
               </Button>
             </Box>
+
           </>
         );
       default:
