@@ -27,7 +27,7 @@ function App() {
   const { token, id } = useContext(AuthContext);
   const { userData, handleChange, handleFileChange } = useAccountSettingsContext(); 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { user } = useContext(GoogleAuthContext);
+  const { googleAuth } = useContext(GoogleAuthContext);
   const profileImage = useRef(null)
 
   const openChooseImage = () => {
@@ -70,10 +70,10 @@ function App() {
       <VStack spacing={3} py={5} borderBottomWidth={1} borderColor="brand.light">
       <Avatar
         size="2xl"
-        name={userData.username}
+        name={userData.username || googleAuth.user?.name}
         cursor="pointer"
         onClick={openChooseImage}
-        src={userData.imageBase64 || ''}
+        src={userData.imageBase64 || googleAuth.user?.picture}
        >
         <AvatarBadge boxSize='1.25em' bg='#CFD249' >
         <svg width="0.4em" fill="currentColor" viewBox="0 0 20 20">
@@ -117,7 +117,7 @@ function App() {
         </Modal>
         <VStack spacing={1}>
           <Heading as="h3" fontSize="xl" color="brand.dark">
-            {userData.username}
+            {userData.username || googleAuth.user?.name}
           </Heading>
           
         </VStack>

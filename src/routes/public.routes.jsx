@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import theme from "../Components/styles/theme.ts";
 import { AccountSettingsProvider } from '../Components/context/AccountSettingsContext.jsx';
-import { GoogleAuthProvider  } from '../Components/context/GoogleAuthContext.jsx';
+import { GoogleAuthProvider } from '../Components/context/GoogleAuthContext.jsx';
 import Home from "../Components/home/home.jsx";
 import Login from "../Components/form/Login.jsx";
 import Register from "../Components/form/Register.jsx";
@@ -17,10 +17,11 @@ const PublicRoutes = () => {
   }
   return (
     <ChakraProvider theme={theme}>
+      <GoogleAuthProvider>
       <AccountSettingsProvider>
+        
+          <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
 
-        <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
-          <GoogleAuthProvider>
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -29,10 +30,10 @@ const PublicRoutes = () => {
                 <Route path="/*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
-          </GoogleAuthProvider>
-        </GoogleOAuthProvider>
-
+          </GoogleOAuthProvider>
+        
       </AccountSettingsProvider>
+      </GoogleAuthProvider>
     </ChakraProvider>
   );
 };

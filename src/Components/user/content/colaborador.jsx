@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select, Box, Text, Flex, Heading
+  Grid, Checkbox, FormControl, FormLabel, FormHelperText, Stack, Select, Box, Text, Flex, Heading, Input
 } from '@chakra-ui/react';
 import CustomIcon from './customIcon';
 import { AccountSettingsContext } from '../../context/AccountSettingsContext';
@@ -27,6 +27,22 @@ export default function Colaborador() {
         templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
         gap={6}
       >
+        <FormControl>
+          <FormLabel>Faz parte de alguma organização/coletivo?</FormLabel>
+          <Input type='email' />
+        </FormControl>
+        <FormControl id="weeklyAvailability">
+          <FormLabel>⚡ Qual sua disponibilidade de tempo para colaborar?</FormLabel>
+          <Select
+            focusBorderColor="brand.blue"
+            placeholder="Selecione uma disponibilidade em minutos"
+            value={userData.weeklyAvailability || ''}
+            onChange={handleChange}
+          >
+            {options}
+          </Select>
+        </FormControl>
+
         <FormControl as='fieldset'>
           <Stack>
             <FormLabel as='legend'>Área de interesse em colaborar com a Liga.</FormLabel>
@@ -88,73 +104,56 @@ export default function Colaborador() {
             <FormHelperText>Poderá ser selecionado mais de um eixo</FormHelperText>
           </Stack>
         </FormControl> */}
-        <FormControl id="weeklyAvailability">
-          <FormLabel>⚡ Qual sua disponibilidade de tempo para contribuir semanalmente?</FormLabel>
-          <Select
-            focusBorderColor="brand.blue"
-            placeholder="Selecione uma disponibilidade em horas"
-            value={userData.weeklyAvailability || ''}
-            onChange={handleChange}
-          >
-            {options}
-          </Select>
-        </FormControl>
 
         {/* Apenas para pular linha */}
         {/* <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box> */}
-
-        <Box mt={5} w={'lg'}>
-          <FormLabel>⚡ Quais temas te conecta?</FormLabel>
-
-          <Flex gap={5}>
-            <FormControl as='fieldset'>
-
+        <FormControl as='fieldset'>
+          <FormLabel>Sobre quais povos você tem conhecimento?</FormLabel>
+          <Stack>
+            <Stack>
+              {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
+                <Checkbox
+                  key={community}
+                  icon={<CustomIcon />}
+                  color='black'
+                  value={community}
+                  isChecked={userData.themesCommunities.includes(community)}
+                  onChange={(e) => handleCheckboxChange(e, 'themesCommunities')}
+                >
+                  {community}
+                </Checkbox>
+              ))}
+            </Stack>
+          </Stack>
+        </FormControl>
+        <FormControl>
+          <FormLabel>Sobre quais povos você tem conhecimento?</FormLabel>
+          <FormControl as='fieldset'>
+            <Stack>
               <Stack>
-                <Text>• Escolha um tipo de bioma</Text>
-                <Stack>
-                  {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Zonas urbanas'].map(biome => (
-                    <Checkbox
-                      key={biome}
-                      icon={<CustomIcon />}
-                      color='black'
-                      value={biome}
-                      isChecked={userData.themesBiomes.includes(biome)}
-                      onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
-                    >
-                      {biome}
-                    </Checkbox>
-                  ))}
-                </Stack>
+                {['Geraizeiros', 'Indígenas', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(biome => (
+                  <Checkbox
+                    key={biome}
+                    icon={<CustomIcon />}
+                    color='black'
+                    value={biome}
+                    isChecked={userData.themesBiomes.includes(biome)}
+                    onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
+                  >
+                    {biome}
+                  </Checkbox>
+                ))}
               </Stack>
-            </FormControl>
+            </Stack>
+          </FormControl>
+        </FormControl>
 
-            <FormControl as='fieldset'>
-              <Stack>
-                <Text>• Escolha um tipo de comunidade</Text>
-                <Stack>
-                  {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
-                    <Checkbox
-                      key={community}
-                      icon={<CustomIcon />}
-                      color='black'
-                      value={community}
-                      isChecked={userData.themesCommunities.includes(community)}
-                      onChange={(e) => handleCheckboxChange(e, 'themesCommunities')}
-                    >
-                      {community}
-                    </Checkbox>
-                  ))}
-                </Stack>
-              </Stack>
-            </FormControl>
-          </Flex>
-        </Box>
 
         {/* <Box mt={5} w={'sm'}>
           <Button onClick={handleUpdate} colorScheme="blue">Atualizar</Button>
         </Box> */}
 
-      </Grid>
+      </Grid >
     </>
   );
 }

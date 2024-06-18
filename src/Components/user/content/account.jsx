@@ -1,10 +1,12 @@
 // src/components/AccountSettings.js
-import React from 'react';
+import React, { useContext } from 'react';
 import { FormControl, FormLabel, Grid, Input, Select } from '@chakra-ui/react';
 import { useAccountSettingsContext } from '../../context/AccountSettingsContext';
+import { GoogleAuthContext } from '../../context/GoogleAuthContext';
 
 function AccountSettings() {
   const { userData, handleChange } = useAccountSettingsContext();
+  const { googleAuth } = useContext(GoogleAuthContext);
 
   return (
     <>
@@ -15,7 +17,7 @@ function AccountSettings() {
             focusBorderColor="brand.blue"
             type="text"
             placeholder="Nome"
-            value={userData.username || ''}
+            value={userData.username || googleAuth.user?.name}
             onChange={handleChange}
           />
         </FormControl>

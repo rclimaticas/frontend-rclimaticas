@@ -1,30 +1,53 @@
-import React, { createContext, useState } from 'react';
-import * as jwt_decode from 'jwt-decode';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const GoogleAuthContext = createContext();
 
 export const GoogleAuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    const [googleAuth, setGoogleAuth] = useState({
+        isAuthenticated: false,
+        token: null,
+        user: null
+    });
 
-    const handleGoogleLoginSuccess = (response) => {
-        const decodedToken = jwt_decode(response.credential);
-        const userInfo = {
-            email: decodedToken.email,
-            name: decodedToken.name,
-            picture: decodedToken.picture,
-        };
-        setUser(userInfo);  // store the user information
-        localStorage.setItem('googleUser', JSON.stringify(userInfo));
+    useEffect(() => {
+        // Carregar informações de autenticação do armazenamento local ao montar
+        const token = localStorage.getItem('googleToken');
+        const user = JSON.parse(localStorage.getItem('googleUser'));
+
+        if (token && user) {
+            setGoogleAuth({
+                isAuthenticated: true,
+                token,
+                user
+            });
+        }
+    }, []);
+
+    const googleLogin = (token, user) => {
+        setGoogleAuth({
+            isAuthenticated: true,
+            token,
+            user
+        });
+        localStorage.setItem('googleToken', token);
+        localStorage.setItem('googleUser', JSON.stringify(user));
     };
 
-    const handleGoogleLogout = () => {
-        setUser(null);
+    const googleLogout = () => {
+        setGoogleAuth({
+            isAuthenticated: false,
+            token: null,
+            user: null
+        });
+        localStorage.removeItem('googleToken');
         localStorage.removeItem('googleUser');
     };
 
     return (
-        <GoogleAuthContext.Provider value={{ user, handleGoogleLoginSuccess, handleGoogleLogout }}>
+        <GoogleAuthContext.Provider value={{ googleAuth, setGoogleAuth, googleLogin, googleLogout }}>
             {children}
         </GoogleAuthContext.Provider>
     );
 };
+
+export default GoogleAuthContext;

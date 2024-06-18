@@ -23,7 +23,7 @@ export default function News() {
                 <Container maxW="container.xl" maxH={"container.xs"}>
                     <SimpleGrid columns={2} spacing={2}>
                         <Box mt={{ base: 5, sm: "-14rem", md: "-20rem", lg: "-20rem", xl: "-20rem" }}>
-                           <IBGE />
+                            <IBGE />
                             <Stack spacing={5}>
                                 <Heading mt={5} fontSize={{ sm: "25px", md: "35px", lg: "30px", xl: "30px" }}><u>Publicações Recentes</u></Heading>
                                 <SimpleGrid columns={2} w={{ sm: "80%", md: "50%", lg: "50%" }} spacing={5}>
@@ -35,9 +35,9 @@ export default function News() {
                                         <Image
                                             transition="transform 0.3s"
                                             _hover={{ transform: "scale(1.05)" }}
-                                            src={Article1} 
+                                            src={Article1}
                                             filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                                            />
+                                        />
                                     </a>
                                     <a
                                         href="#"
@@ -47,10 +47,10 @@ export default function News() {
                                         <Image
                                             transition="transform 0.3s"
                                             _hover={{ transform: "scale(1.05)" }}
-                                            w={"97%"} src={Article2} 
+                                            w={"97%"} src={Article2}
                                             filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                                            />
-                                            
+                                        />
+
                                     </a>
                                 </SimpleGrid>
                                 <Text fontSize={{ sm: "20px", md: "15px", lg: "20px", xl: "25px" }}>Receba Atualizações</Text>
@@ -108,7 +108,15 @@ export default function News() {
                     <SimpleGrid columns={2}>
                         <Box mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
                             <Center flexDirection={"column"} gap={5}>
-                                <Text>Contribua com o projeto financiando</Text>
+                                <Heading fontSize={"27px"}>Como você pode contribuir?</Heading>
+                                <Text>
+                                    Nosso projeto não possui financiamento permanente e conta com doações e
+                                    prestações de serviços para seguir contribuindo com os povos, culturas e natureza
+                                </Text>
+                                <Text>
+                                    Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
+                                    estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
+                                </Text>
                                 <Image w={"80%"} src={Financiadores} />
                             </Center>
                         </Box>

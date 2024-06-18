@@ -16,11 +16,13 @@ import {
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { AuthContext } from '../../context/authcontext';
+import { GoogleAuthContext } from '../../context/GoogleAuthContext';
 
 export default function Actions() {
   const value = 'https://rclimaticas.com/jvittor';
   const { hasCopied, onCopy } = useClipboard(value);
   const { logout } = useContext(AuthContext);
+  const { googleLogout } = useContext(GoogleAuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,6 +46,7 @@ export default function Actions() {
   const handleConfirmLogout = async () => {
     setIsLoading(true);
     await logout();
+    await googleLogout();
     setIsLoading(false);
     setIsOpen(false);
     window.location.href = '/';

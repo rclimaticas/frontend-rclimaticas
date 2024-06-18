@@ -6,11 +6,13 @@ import { Container, Text, Stack, Image, SimpleGrid, Box, Button, HStack, Avatar 
 import LogoLC from '../assets/ligacolaborativa/logoLC.png';
 import { AuthContext } from '../Components/context/authcontext.jsx';
 import { AccountSettingsContext } from '../Components/context/AccountSettingsContext.jsx';
+import { GoogleAuthContext } from '../Components/context/GoogleAuthContext.jsx';
 
 export default function Header() {
     const [showBorder, setShowBorder] = useState(false);
     const { auth, logout } = useContext(AuthContext);
     const { userData } = useContext(AccountSettingsContext);
+    const { googleAuth, user } = useContext(GoogleAuthContext);
 
     const handleScroll = () => {
         if (window.pageYOffset > 0) {
@@ -69,7 +71,17 @@ export default function Header() {
                                     </Button>
                                     <Avatar name={userData.username} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={userData.imageBase64} />
                                 </>
-                            ) : (
+                            ) : 
+                            
+                            googleAuth.isAuthenticated ? (
+                                <>
+                                    <Button as={RouterLink} to="/user" width={"60%"}>
+                                        Meus Impactos
+                                    </Button>
+                                    <Avatar name={googleAuth.user.name} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={googleAuth.user.picture} />
+                                </>
+                            ) :
+                            (
                                 <>
                                     <Button as={RouterLink} to="/login" width="70%">Login</Button>
                                     <Box alignItems={"center"} display="flex" justifyContent={"center"}>

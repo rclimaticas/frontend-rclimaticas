@@ -16,9 +16,11 @@ import OndeFoi from '../Components/ondefoi/index.jsx';
 const PrivateRoutes = () => {
     return (
         <ChakraProvider theme={theme}>
-            <AccountSettingsProvider>
-                <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
-                    <GoogleAuthProvider>
+            <GoogleAuthProvider>
+                <AccountSettingsProvider>
+
+                    <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
+
                         <BrowserRouter>
                             <Routes>
                                 <Route path="/" element={<Home />} />
@@ -30,9 +32,11 @@ const PrivateRoutes = () => {
                                 <Route path="/ondefoi" element={<OndeFoi />} />
                             </Routes>
                         </BrowserRouter>
-                    </GoogleAuthProvider>
-                </GoogleOAuthProvider>
-            </AccountSettingsProvider>
+
+                    </GoogleOAuthProvider>
+
+                </AccountSettingsProvider>
+            </GoogleAuthProvider>
         </ChakraProvider>
     );
 };

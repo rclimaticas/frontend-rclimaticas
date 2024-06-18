@@ -6,6 +6,8 @@ import i18n from '../i18n/i18n.json';
 import { GoogleLogin } from '@react-oauth/google';
 import { AuthContext } from '../context/authcontext.jsx';
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
+import { GoogleAuthContext } from '../context/GoogleAuthContext.jsx';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,16 +16,20 @@ export default function Login() {
     const toast = useToast();
 
     const { setAuth, auth, login } = useContext(AuthContext);
+    const { setGoogleAuth, googleAuth, googleLogin } = useContext(GoogleAuthContext);
     console.log('auth', auth);
 
     const handleSuccessAuth = (response) => {
-        console.log(response);
+        var decoded = jwtDecode(response.credential);
+        console.log(decoded)
         toast({
             title: "Login feito com sucesso!",
             description: "Seja bem-vindo(a)!",
             status: "success",
             position: "top",
         });
+        googleLogin(response.credential, decoded);
+        window.location.href = "/";
     };
 
     const handleErrorAuth = (error) => {
