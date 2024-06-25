@@ -19,18 +19,81 @@ export default function Login() {
     const { setGoogleAuth, googleAuth, googleLogin } = useContext(GoogleAuthContext);
     console.log('auth', auth);
 
-    const handleSuccessAuth = (response) => {
-        var decoded = jwtDecode(response.credential);
-        console.log(decoded)
-        toast({
-            title: "Login feito com sucesso!",
-            description: "Seja bem-vindo(a)!",
-            status: "success",
-            position: "top",
-        });
-        googleLogin(response.credential, decoded);
-        window.location.href = "/";
+    const handleSuccessAuth = async (response) => {
+        try {
+            const decoded = jwtDecode(response.credential);
+            const userEmail = decoded.email;
+            const userName = decoded.name;
+            const password = 'scorpit123'; // default password for Google sign in
+
+            const userData = {
+                email: userEmail,
+                username: userName,
+                password: password
+            };
+
+            try {
+                // Tentar registrar o usuário
+                await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                // Registro bem-sucedido, notificar o usuário
+                toast({
+                    title: "Registro bem-sucedido",
+                    description: "Seja bem-vindo(a)!",
+                    status: "success",
+                    position: "top",
+                });
+
+                googleLogin(response.credential, decoded);
+                window.location.href = "/";
+                return; // Exit the function after successful registration
+
+            } catch (registerError) {
+                console.error('Erro ao tentar registrar:', registerError);
+
+                // Se der qualquer erro, prosseguir para login
+            }
+
+            // Se chegarmos aqui, o registro falhou ou o usuário já existe, então tentamos fazer login
+            const loginResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/login', { email: userEmail, password: password });
+
+            if (loginResponse.status === 200) {
+                const { token, user } = loginResponse.data;
+                const id = user.id;
+
+                
+                localStorage.setItem('auth', 'true');
+                login(token, id);
+                localStorage.setItem('token', token);
+                toast({
+                    title: "Login bem-sucedido",
+                    description: "Seja bem-vindo(a)!",
+                    status: "success",
+                    position: "top",
+                });
+                googleLogin(response.credential, decoded);
+                window.location.href = "/";
+
+            } else {
+                throw new Error('Erro ao tentar fazer login com conta existente.');
+            }
+
+        } catch (error) {
+            console.error('Erro ao tentar registrar ou logar:', error);
+            toast({
+                title: "Falha ao se logar",
+                description: error.message || "Ocorreu um erro ao tentar fazer o login!",
+                status: "error",
+                position: "top",
+            });
+        }
     };
+
+
 
     const handleErrorAuth = (error) => {
         console.error('Falha na autenticação:', error);
@@ -64,7 +127,7 @@ export default function Login() {
                     });
                 } else {
                     const { token, user } = response.data
-                    const id = user.id; 
+                    const id = user.id;
                     console.log('Login bem-sucedido:', token, id);
                     localStorage.setItem('auth', 'true');
                     login(token, id);
@@ -76,7 +139,7 @@ export default function Login() {
                         position: "top",
                     });
                     window.location.href = '/';
-                    
+
                 }
             }
         } catch (error) {

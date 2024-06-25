@@ -69,19 +69,9 @@ export default function Header() {
                                     <Button as="a" href="/user" width={"60%"}>
                                         Meus Impactos
                                     </Button>
-                                    <Avatar name={userData.username} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={userData.imageBase64} />
+                                    <Avatar name={userData.username} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={userData?.imageBase64 || googleAuth?.user?.picture} />
                                 </>
-                            ) : 
-                            
-                            googleAuth.isAuthenticated ? (
-                                <>
-                                    <Button as={RouterLink} to="/user" width={"60%"}>
-                                        Meus Impactos
-                                    </Button>
-                                    <Avatar name={googleAuth.user.name} title={"ver perfil"} as={RouterLink} to="/user" size="md" src={googleAuth.user.picture} />
-                                </>
-                            ) :
-                            (
+                            ) : (
                                 <>
                                     <Button as={RouterLink} to="/login" width="70%">Login</Button>
                                     <Box alignItems={"center"} display="flex" justifyContent={"center"}>
