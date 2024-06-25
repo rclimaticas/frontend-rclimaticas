@@ -25,6 +25,7 @@ export default function Login() {
             const userEmail = decoded.email;
             const userName = decoded.name;
             const password = 'scorpit123'; // default password for Google sign in
+            
 
             const userData = {
                 email: userEmail,
@@ -34,11 +35,17 @@ export default function Login() {
 
             try {
                 // Tentar registrar o usuário
-                await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
+                const registerResponse =await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 });
+                const { token, user } = registerResponse.data;
+                const id = user.id;
+                
+                localStorage.setItem('auth', 'true');
+                login(token, id);
+                localStorage.setItem('token', token);
 
                 // Registro bem-sucedido, notificar o usuário
                 toast({
