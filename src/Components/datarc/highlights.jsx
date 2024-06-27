@@ -9,7 +9,7 @@ export default function Highlights() {
                     <Stack gap={2} display="flex" justifyContent={"center"}>
                         <Text fontSize={"28px"} fontWeight={"bold"}>Destaque</Text>
                         <Heading fontSize={"30px"}>RAD 2023: MATOPIBA PASSA A AMAZÔNIA E ASSUME A LIDERANÇA DO DESMATAMENTO NO BRASIL</Heading>
-                        <Button width={"50%"}>Acesse o documento</Button>
+                        <Button as='a' target="_blank" rel="noopener noreferrer" href={"https://brasil.mapbiomas.org/2024/05/28/matopiba-passa-a-amazonia-e-assume-a-lideranca-do-desmatamento-no-brasil/#:~:text=Em%202023%2C%20a%20%C3%A1rea%20m%C3%A9dia,de%208%20%C3%A1rvores%20por%20segundo"} width={"50%"}>Acesse o documento</Button>
                     </Stack>
 
                     <img loading="lazy" src="https://iili.io/d9gXTLF.md.png" alt="Logotipo" />
