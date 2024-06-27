@@ -12,3 +12,4 @@ body {
   font-family: var(--type-first);
   background-color: black;
 }
+@tailwind components;

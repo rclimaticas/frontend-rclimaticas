@@ -55,8 +55,8 @@ export default function Carousel() {
           >
             <img src={collaborate1} alt="Collaborate 1" />
           </a>
-        )}
-      </SwiperSlide> */}
+        )} */}
+      </SwiperSlide> 
         <SwiperSlide>
           <a
             target="_blank"
