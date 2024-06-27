@@ -28,7 +28,7 @@ export default function News() {
                                 <Heading mt={5} fontSize={{ sm: "25px", md: "35px", lg: "30px", xl: "30px" }}><u>Publicações Recentes</u></Heading>
                                 <SimpleGrid columns={2} w={{ sm: "80%", md: "50%", lg: "50%" }} spacing={5}>
                                     <a
-                                        href="https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf"
+                                        href="/datarc"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -40,7 +40,7 @@ export default function News() {
                                         />
                                     </a>
                                     <a
-                                        href="#"
+                                        href="/datarc"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -117,13 +117,14 @@ export default function News() {
                                     Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
                                     estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
                                 </Text>
+                                    <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
                                 <Image w={"80%"} src={Financiadores} />
                             </Center>
                         </Box>
                         <Box mt={{ sm: "-10rem", md: "-12rem", lg: "-18rem", xl: "-30rem" }}>
                             <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
                             <Center>
-                                <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={"https://iili.io/JmwwYnR.md.png"} />
+                                <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={TrustedBy} />
                             </Center>
                         </Box>
                     </SimpleGrid>

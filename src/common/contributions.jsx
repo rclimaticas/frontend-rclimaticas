@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, Container, Box, Wrap, HStack, Heading, Image, Stack, InputGroup, InputLeftAddon, Input, Button } from '@chakra-ui/react';
-import Trusted from '../assets/trusted.png'
+import { Text, Container, Box, Wrap, HStack, Heading, Image, Stack, InputGroup, InputLeftAddon, Input, Button, Center, Flex } from '@chakra-ui/react';
+import TrustedBy from '../assets/trusted.png'
 import Financiadores from '../assets/financiadores.png'
 
 export default function Contribution() {
@@ -43,17 +43,23 @@ export default function Contribution() {
                             Enviar
                         </Text>
                     </Button>
-                    <Stack p={10}>
-                        <Text p={10} fontSize={"18px"} fontFamily={"Arial"} textAlign={"center"}>
-                                <u>
-                                    Contribua com o projeto financiando
-                                </u>
-                        </Text>
-                        <Box
-                        w={"100%"}
-                        h="100px"
-                        >
-                            <Image src={Financiadores}/>
+                    <Stack p={10} textAlign={"center"} >
+                        <Heading fontSize={"27px"}>Como você pode contribuir?</Heading>
+                        <Box>
+                            <Flex flexDirection={"column"} gap={5}>
+                                <Text>
+                                    Nosso projeto não possui financiamento permanente e conta com doações e
+                                    prestações de serviços para seguir contribuindo com os povos, culturas e natureza
+                                </Text>
+                                <Text>
+                                    Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
+                                    estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
+                                </Text>
+                                <Center flexDirection={"column"} gap={5}>
+                                    <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
+                                    <Image w={"80%"} src={Financiadores} />
+                                </Center>
+                            </Flex>
 
                         </Box>
                     </Stack>

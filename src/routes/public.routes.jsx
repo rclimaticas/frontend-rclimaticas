@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -9,17 +9,23 @@ import Home from "../Components/home/home.jsx";
 import Login from "../Components/form/Login.jsx";
 import Register from "../Components/form/Register.jsx";
 import NotFound from "../Components/404page/NotFound.jsx";
+import { AccountSettingsContext } from "../Components/context/AccountSettingsContext.jsx";
 import '../App.css';
 
 const PublicRoutes = () => {
-  if (!["/", "/login", "/register"].includes(window.location.pathname)) {
-    document.title = "Acesso Negado :(";
-  }
+  const auth = useContext(AccountSettingsContext)
+
+
+  useEffect(() => {
+    if (!auth && !["/", "/login", "/register"].includes(location.pathname)) {
+      document.title = "Acesso Negado :(";
+    }
+  }, [auth, location.pathname]);
   return (
     <ChakraProvider theme={theme}>
       <GoogleAuthProvider>
-      <AccountSettingsProvider>
-        
+        <AccountSettingsProvider>
+
           <GoogleOAuthProvider clientId="121933231345-24jcpdkc5ck4og584uou6fd9mcnbtgpe.apps.googleusercontent.com">
 
             <BrowserRouter>
@@ -31,8 +37,8 @@ const PublicRoutes = () => {
               </Routes>
             </BrowserRouter>
           </GoogleOAuthProvider>
-        
-      </AccountSettingsProvider>
+
+        </AccountSettingsProvider>
       </GoogleAuthProvider>
     </ChakraProvider>
   );

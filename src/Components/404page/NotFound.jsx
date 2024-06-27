@@ -43,8 +43,11 @@ const NotFound = () => {
                                 Olá, está perdido?
                             </Heading>
                             <Text>
-                                Para acessar outras rotas da plataforma, te convidamos a se logar na nossa plataforma para conhecer mais sobre
-                                nosso projeto.
+                                Para acessar
+                                outras ferramentas da
+                                plataforma, te convidamos a se
+                                cadastrar na Liga Colaborativa
+                                dos Povos.
                             </Text>
                             <Button as="a" href="/register" width={"50%"} textColor={'black'}>
                                 Clique aqui para se cadastrar :)

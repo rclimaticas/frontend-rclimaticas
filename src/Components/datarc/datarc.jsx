@@ -8,7 +8,8 @@ import Maps from "./maps.jsx";
 import Footer from './footer.jsx'
 import TableList from "./tablelist.jsx"
 import Article from "./article.jsx";
-import Highlights from './highlights.jsx'
+import Highlights from './highlights.jsx';
+import ArcGis from './arcgis.jsx'
 export default function Rcdata() {
 
     return (
@@ -43,6 +44,7 @@ export default function Rcdata() {
             {/* material */}
 
             <Highlights />
+            <ArcGis />
         
             {/* mapas */}
             <Maps />

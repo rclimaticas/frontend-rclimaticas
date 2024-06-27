@@ -42,10 +42,10 @@ export default function Header() {
                 <SimpleGrid columns={2} spacingX='90px' spacingY='60px'>
                     <Box alignItems={"center"} display="flex" justifyContent={"flex-start"}>
 
-                        
+
                         <HStack whiteSpace="nowrap" color={"#399984"} spacing={5}>
                             <Image w="10%" src={LogoLC} />
-                            <a  href="/">
+                            <a href="/">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Início</Text>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="/datarc">
@@ -54,9 +54,20 @@ export default function Header() {
                             <a target="_blank" rel="noopener noreferrer" href="/ondefoi">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Registros OndeFoi</Text>
                             </a>
-                            <a target="_blank" rel="noopener noreferrer" href="https://www.espiralds.com/sofia">
-                                <Text _hover={{ color: "#30806e" }} cursor="pointer">Assesoria Sofia</Text>
-                            </a>
+                            {auth ? (
+                                <>
+                                    <a target="_blank" rel="noopener noreferrer" href="https://www.espiralds.com/sofia">
+                                        <Text _hover={{ color: "#30806e" }} cursor="pointer">Assessoria Sofia</Text>
+                                    </a>
+                                </>
+
+                            ) : (
+                                <>
+                                    <a target="_blank" rel="noopener noreferrer" href="/sofia">
+                                        <Text _hover={{ color: "#30806e" }} cursor="pointer">Assessoria Sofia</Text>
+                                    </a>
+                                </>
+                            )}
                             <a target="_blank" rel="noopener noreferrer" href="/ligacolaborativa">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Liga Colaborativa</Text>
                             </a>

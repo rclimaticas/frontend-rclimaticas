@@ -14,64 +14,64 @@ export default function LigaColaborativa() {
             <Navbar />
             <Layout overflow={"hidden"} maxW={"full"} bg={"orange"}>
                 <Container maxW="container.xl">
-                <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
-                    <Box h="380px" display="flex" justifyContent="center" alignItems="center">
-                        <Text fontSize={"25px"} fontFamily={"Alata"}>
-                            {i18n.ligacolaborativa.title}
-                        </Text>
-                    </Box>
-                    <Box h="380px">
-                        <Center>
-                            <Image src={"https://iili.io/JmwwYnR.md.png"} />
-                        </Center>
-                    </Box>
-                </SimpleGrid>
-                
-                <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
-                    <Box h="500px" display={"flex"} justifyContent="center" alignItems="center" >
+                    <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
+                        <Box h="380px" display="flex" justifyContent="center" alignItems="center">
+                            <Text fontSize={"25px"} fontFamily={"Alata"}>
+                                {i18n.ligacolaborativa.title}
+                            </Text>
+                        </Box>
+                        <Box h="380px">
+                            <Center>
+                                <Image src={Trusted} />
+                            </Center>
+                        </Box>
+                    </SimpleGrid>
+
+                    <SimpleGrid mt={"10rem"} columns={2} spacingX='90px' spacingY='60px'>
+                        <Box h="500px" display={"flex"} justifyContent="center" alignItems="center" >
                             <Image
-                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                            src={i18n.ligacolaborativa.image.logo}/>
-                    </Box>
-                    <Box h="500px" display={"flex"} justifyContent="center" alignItems="center">
+                                filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                                src={i18n.ligacolaborativa.image.logo} />
+                        </Box>
+                        <Box h="500px" display={"flex"} justifyContent="center" alignItems="center">
+                            <Text fontSize={"25px"} fontFamily={"Alata"}>
+                                {i18n.ligacolaborativa.desc[2]}
+                            </Text>
+                        </Box>
+                    </SimpleGrid>
+
+                    <SimpleGrid mt={"5rem"} columns={1} spacingX='90px' spacingY='60px'>
+                        <Box h="500px" display={"flex"} justifyContent="center" alignItems="center">
+                            <Image w={"100%"} pos="relative" left={6} src={Roadmap} />
+                        </Box>
+                    </SimpleGrid>
+
+                    <Box w="70%" h="150px">
                         <Text fontSize={"25px"} fontFamily={"Alata"}>
                             {i18n.ligacolaborativa.desc[2]}
                         </Text>
                     </Box>
-                </SimpleGrid>
-
-                <SimpleGrid mt={"5rem"} columns={1} spacingX='90px' spacingY='60px'>
-                    <Box  h="500px" display={"flex"} justifyContent="center" alignItems="center">
-                        <Image w={"100%"} pos="relative" left={6} src={Roadmap} />
+                    <Box w="100%" h="200px"
+                        display="flex" justifyContent="center" alignItems="center"
+                    >
+                        <Button height={"30%"} as={RouterLink} to="/user">
+                            <Text fontFamily={"Alata"} fontWeight={"normal"} fontSize={"20px"} color={"#425A3F"}>
+                                Colabore com a LCdP
+                            </Text>
+                        </Button>
                     </Box>
-                </SimpleGrid>
-    
-                <Box w="70%" h="150px">
-                    <Text fontSize={"25px"} fontFamily={"Alata"}>
-                        {i18n.ligacolaborativa.desc[2]}
-                    </Text>
-                </Box>
-                <Box w="100%" h="200px"
-                    display="flex" justifyContent="center" alignItems="center"
-                >
-                    <Button height={"30%"} as={RouterLink} to="/user">
-                        <Text fontFamily={"Alata"} fontWeight={"normal"} fontSize={"20px"} color={"#425A3F"}>
-                            Colabore com a LCdP
-                        </Text>
-                    </Button>
-                </Box>
-                <SimpleGrid mt={"2rem"} mb={10} columns={2} spacingX='90px' spacingY='60px'>
-                    <Box h="400px">
-                        <Contributions />
-                    </Box>
-                    <Box h="400px" display={"flex"} justifyContent="center" alignItems="center">
-                        <Image 
-                        filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                        src={i18n.ligacolaborativa.image.logo} />
-                    </Box>
-                    {/* box para espaço final */}
-                    <Box h={"100px"}></Box>
-                </SimpleGrid>
+                    <SimpleGrid mt={"2rem"} mb={10} columns={2} spacingX='90px' spacingY='60px'>
+                        <Box>
+                            <Contributions />
+                        </Box>
+                        <Box h="400px" display={"flex"} justifyContent="center" alignItems="center">
+                            <Image
+                                filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                                src={i18n.ligacolaborativa.image.logo} />
+                        </Box>
+                        {/* box para espaço final */}
+                        <Box h={"100px"}></Box>
+                    </SimpleGrid>
                 </Container>
             </Layout>
         </>

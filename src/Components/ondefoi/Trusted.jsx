@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Center, Heading, HStack, Image } from '@chakra-ui/react';
+import { Box, Button, Center, Heading, HStack, Image } from '@chakra-ui/react';
 import Trusted from '../../assets/trusted.png'
 import Financiadores from '../../assets/financiadores.png'
 export default function About() {
@@ -42,6 +42,9 @@ export default function About() {
                                 <Heading color="white" fontFamily={"Alata"} textAlign={"center"}>Colabore</Heading>
                                 <Box boxShadow={"-10px 10px 0px #40EC51"} borderRadius={"20rem"} bg="white">
                                     <Image mt={6} src={Financiadores} p={5} />
+                                    <Center>
+                                    <Button mb={5} as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
+                                    </Center>
                                 </Box>
                             </Box>
                         </HStack>

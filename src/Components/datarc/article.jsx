@@ -3,7 +3,7 @@ import { Container, SimpleGrid, Box } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // importações necessárias da Biblioteca do Swiper
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,7 +16,7 @@ export default function Article() {
                 <SimpleGrid columns={1} spacing={2}>
                     <Box maxH={"container.xs"} display="flex" justifyContent={"center"} p={10}>
                         <Swiper
-                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                             spaceBetween={20}
                             navigation
                             slidesPerView={4}
@@ -24,6 +24,7 @@ export default function Article() {
                             scrollbar={{
                                 hide: true,
                             }}
+                            autoplay={{ delay: 5000, disableOnInteraction: false }}
                         >
                                 <SwiperSlide>
                                     <a
