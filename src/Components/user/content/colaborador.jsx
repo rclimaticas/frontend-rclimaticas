@@ -9,7 +9,7 @@ export default function Colaborador() {
   const { userData, handleChange, handleCheckboxChange } = useContext(AccountSettingsContext);
 
   const options = [];
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 30; i++) {
     options.push(
       <option key={i} value={i}>
         {i}
@@ -39,7 +39,9 @@ export default function Colaborador() {
             value={userData.weeklyAvailability || ''}
             onChange={handleChange}
           >
-            {options}
+            <option value="10">10 minutos</option>
+            <option value="30">30 minutos</option>
+            <option value="60">60 minutos</option>
           </Select>
         </FormControl>
 
@@ -67,7 +69,7 @@ export default function Colaborador() {
           <Stack>
             <FormLabel as='legend'>Sobre quais biomas você tem algum conhecimento?</FormLabel>
             <Stack>
-              {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Zonas urbanas'].map(biome => (
+              {['Mata Atlântica', 'Caatinga', 'Amazônia', 'Pampas', 'Pantanal', 'Cerrado', 'Zonas urbanas'].map(biome => (
                 <Checkbox
                   key={biome}
                   icon={<CustomIcon />}
@@ -107,8 +109,9 @@ export default function Colaborador() {
 
         {/* Apenas para pular linha */}
         {/* <Box>ㅤㅤㅤㅤㅤㅤㅤㅤ</Box> */}
+
         <FormControl as='fieldset'>
-          <FormLabel>Sobre quais povos você tem conhecimento?</FormLabel>
+          <FormLabel> Sobre quais povos você tem conhecimento ou tem interesse em contribuir</FormLabel>
           <Stack>
             <Stack>
               {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
@@ -127,8 +130,8 @@ export default function Colaborador() {
           </Stack>
         </FormControl>
         <FormControl>
-          <FormLabel>Sobre quais povos você tem conhecimento?</FormLabel>
           <FormControl as='fieldset'>
+            <FormLabel color="white">Sobre quais povos você tem conhecimento ou tem interesse em contribuir?</FormLabel>
             <Stack>
               <Stack>
                 {['Geraizeiros', 'Indígenas', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(biome => (
