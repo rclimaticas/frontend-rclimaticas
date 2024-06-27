@@ -18,30 +18,16 @@ export default function Occurrences() {
                     <GridItem colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7} justifyContent="center" display={"flex"}>
                         <Heading fontSize={{ sm: "35", md: "25px", lg: "28px", xl: "40px" }}>
                             Registre Ocorrências de conflitos em seu território e receba apoio gratuito.
-                            {/* button em tela desktop */}
-                            {auth ? (
-                                <Button
-                                    as="a"
-                                    href="https://arcg.is/1mzbme"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    ml={5} width={"40%"} >
-                                    <Center>
-                                        <Text fontSize={"15px"} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
-                                    </Center>
-                                </Button>
-                            ) : (
-                                <Button
-                                    as="a"
-                                    href="/ocorrencia"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    ml={5} width={"40%"} >
-                                    <Center>
-                                        <Text fontSize={"15px"} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
-                                    </Center>
-                                </Button>
-                            )}
+                            <Button
+                                as="a"
+                                href="https://arcg.is/1mzbme"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ml={5} width={"40%"} >
+                                <Center>
+                                    <Text fontSize={"15px"} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
+                                </Center>
+                            </Button>
 
                         </Heading>
                     </GridItem>
@@ -78,15 +64,10 @@ export default function Occurrences() {
                                     3 poluições no rio, 1 poluição de solo/erosão, 1 queimada e 3 outras ocorrências.
                                 </strong>
                             </Text>
-                            {auth ? (
-                                <Button as="a" target="_blank" rel="noopener noreferrer" href={BoletimInformativo} w={{ sm: "40%", md: "60%", lg: "50%" }}>
-                                    <Text fontSize={{ sm: "16px", md: "15px", lg: "15px" }} fontWeight={"bold"}>Ler Boletim Mensal</Text>
-                                </Button>
-                            ) : (
-                                <Button as="a" target="_blank" rel="noopener noreferrer" href={"/boletim"} w={{ sm: "40%", md: "60%", lg: "50%" }}>
-                                    <Text fontSize={{ sm: "16px", md: "15px", lg: "15px" }} fontWeight={"bold"}>Ler Boletim Mensal</Text>
-                                </Button>
-                            )}
+
+                            <Button as="a" target="_blank" rel="noopener noreferrer" href={BoletimInformativo} w={{ sm: "40%", md: "60%", lg: "50%" }}>
+                                <Text fontSize={{ sm: "16px", md: "15px", lg: "15px" }} fontWeight={"bold"}>Ler Boletim Mensal</Text>
+                            </Button>
 
                         </Stack>
                     </GridItem>
