@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Hero from './Hero.jsx'
 import About from './about.jsx'
 import Header from '../../common/header.jsx'
-import Strategies from './Strategies.jsx'
+import Strategies from './strategies.jsx'
 import Dashboard from './Dashboard.jsx'
 import TrustedBy from './Trusted.jsx'
 
