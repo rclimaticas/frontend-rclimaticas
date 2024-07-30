@@ -9,7 +9,7 @@ import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 import { GoogleAuthContext } from '../context/GoogleAuthContext.jsx';
 
-export default function Login() {
+export default function LoginValidators() {
     const [showPassword, setShowPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ export default function Login() {
             const decoded = jwtDecode(response.credential);
             const userEmail = decoded.email;
             const userName = decoded.name;
-            const password = 'scorpit123'; // default password for Google sign in
+            const password = process.env.PasswordValidators; // default password for Google sign in
 
 
             const userData = {
@@ -133,12 +133,32 @@ export default function Login() {
                         position: "top",
                     });
                 } else {
-                    const { token, user } = response.data
+                    const { token, user } = response.data;
                     const id = user.id;
+
+                    // Fetch the user's current data
+                    const userResponse = await axios.get(`https://backend-rclimaticas-2.onrender.com/profile/${id}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+
+                    const userData = userResponse.data;
+
+                    // Check if the user already has the "validador" role
+                    if (!userData.roles.includes('validador')) {
+                        userData.roles.push('validador');
+                        await axios.put(`https://backend-rclimaticas-2.onrender.com/profile/${id}`, { roles: userData.roles }, {
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        });
+                    }
+
                     console.log('Login bem-sucedido:', token, id);
                     localStorage.setItem('auth', 'true');
                     login(token, id);
-                    localStorage.setItem('token', token)
+                    localStorage.setItem('token', token);
                     toast({
                         title: "Login bem-sucedido",
                         description: "Seja bem-vindo(a)!",
@@ -146,13 +166,21 @@ export default function Login() {
                         position: "top",
                     });
                     window.location.href = '/';
-
                 }
             }
         } catch (error) {
             console.error('Erro ao fazer login:', error);
+            toast({
+                title: "Erro ao fazer login",
+                description: error.message || "Ocorreu um erro ao tentar fazer login!",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "top",
+            });
         }
     };
+
 
     return (
         <Container maxW="full" h="100vh" bgImage={i18n.form.bg} bgSize={"cover"} alignItems={"center"} display="flex" justifyContent={"center"}>
@@ -165,7 +193,7 @@ export default function Login() {
                         <Card maxW='md' borderRadius={"50px"} boxShadow={"0px 0px 20px rgba(8, 0, 0, 0.5)"}>
                             <CardHeader>
                                 <Center>
-                                    <Heading size='xl'>{i18n.form.title.login}</Heading>
+                                    <Heading size='xl'>Entrar como Validador</Heading>
                                 </Center>
                             </CardHeader>
                             <CardBody>
@@ -227,16 +255,6 @@ export default function Login() {
                                             Caso ainda não tenha feito o cadastro,
                                             <a href="/register">
                                                 <Text as="span" _hover={{ textDecoration: "underline" }} cursor={"pointer"} color={"#1485E8"}> clique aqui.</Text>
-                                            </a>
-                                        </Text>
-                                    </Box>
-                                    <Box size="xl" display="flex" justifyContent={"center"} alignItems={"center"}>
-                                        <Text>
-                                            Login para{' '}
-                                            <a href="/validators">
-                                                <Text as='span' _hover={{ textDecoration: "underline" }} cursor={"pointer"} color={"#1485E8"}>
-                                                    Validadores
-                                                </Text>
                                             </a>
                                         </Text>
                                     </Box>

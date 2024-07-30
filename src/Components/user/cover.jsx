@@ -34,7 +34,6 @@ export default function Cover() {
       reader.onloadend = () => setCoverImage(reader.result)
       return reader.readAsDataURL(selected)
     }
-
     onOpen()
   }
 

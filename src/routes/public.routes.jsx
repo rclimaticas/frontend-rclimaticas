@@ -10,6 +10,7 @@ import Login from "../Components/form/Login.jsx";
 import Register from "../Components/form/Register.jsx";
 import NotFound from "../Components/404page/NotFound.jsx";
 import { AccountSettingsContext } from "../Components/context/AccountSettingsContext.jsx";
+import LoginValidators from '../Components/form/loginValidators.jsx'
 import '../App.css';
 
 const PublicRoutes = () => {
@@ -33,6 +34,7 @@ const PublicRoutes = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/validators" element={< LoginValidators/>} />
                 <Route path="/*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>

@@ -20,7 +20,7 @@ function Actions({ selectedTabIndex }) {
 
   return (
     <>
-      <Box display={selectedTabIndex === 3 ? 'none' : 'block'}mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
+      <Box display={(selectedTabIndex === 3 || selectedTabIndex === 4)  ? 'none' : 'block'} mt={5} py={5} px={8} borderTopWidth={1} borderColor="brand.light">
         <Button width={"20%"} onClick={handleButtonClick}>
           Atualizar Perfil
         </Button>

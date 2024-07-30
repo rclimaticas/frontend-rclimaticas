@@ -9,7 +9,8 @@ import Footer from './footer.jsx'
 import TableList from "./tablelist.jsx"
 import Article from "./article.jsx";
 import Highlights from './highlights.jsx';
-import ArcGis from './arcgis.jsx'
+import ArcGis from './arcgis.jsx';
+import SubmitArticle from "./submitArticle.jsx";
 export default function Rcdata() {
 
     return (
@@ -41,10 +42,12 @@ export default function Rcdata() {
             </Layout>
 
             <Article />
+            <SubmitArticle />
             {/* material */}
 
             <Highlights />
             <ArcGis />
+            
         
             {/* mapas */}
             <Maps />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 
 import AccountSettings from './account';
@@ -6,10 +6,23 @@ import Actions from './actions';
 import CompanySettings from './company';
 import Colaborador from './colaborador';
 import Impacts from './impacts';
+import Validation from './validation';
+import { useAccountSettingsContext } from '../../context/AccountSettingsContext';
+import { GoogleAuthContext } from '../../context/GoogleAuthContext';
 
 const Content = () => {
   const tabs = ['Configuração de Conta', 'Redes Sociais', 'Área Colaborador', 'Meus impactos'];
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const { userData, handleChange } = useAccountSettingsContext();
+  const { googleAuth } = useContext(GoogleAuthContext);
+
+  // Check if the user has the 'validador' role
+  const isValidador = userData.roles && userData.roles.includes('validador');
+
+  // Add 'Validações' tab if the user has the 'validador' role
+  if (isValidador) {
+    tabs.push('Validações');
+  }
 
   return (
     <Box
@@ -59,9 +72,14 @@ const Content = () => {
           <TabPanel>
             <Impacts />
           </TabPanel>
+          {isValidador && (
+            <TabPanel>
+              <Validation />
+            </TabPanel>
+          )}
         </TabPanels>
       </Tabs>
-        <Actions selectedTabIndex={selectedTabIndex} />
+      <Actions selectedTabIndex={selectedTabIndex} />
     </Box>
   );
 };

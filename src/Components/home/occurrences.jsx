@@ -23,7 +23,8 @@ export default function Occurrences() {
                                 href="https://arcg.is/1mzbme"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                ml={5} width={"40%"} >
+                                ml={5} width={"40%"}
+                                >
                                 <Center>
                                     <Text fontSize={"15px"} fontWeight={"bold"}>Acessar o aplicativo aqui</Text>
                                 </Center>

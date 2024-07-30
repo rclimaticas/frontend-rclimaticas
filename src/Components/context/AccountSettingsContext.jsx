@@ -23,6 +23,7 @@ export const AccountSettingsProvider = ({ children }) => {
     themesBiomes: [],
     themesCommunities: [],
     imageBase64: '',
+    rules: [],
   });
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export const AccountSettingsProvider = ({ children }) => {
           themesBiomes: data.themesBiomes || [],
           themesCommunities: data.themesCommunities || [],
           imageBase64: data.imageBase64 || '',
+          rules: data.rules || [],
         });
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);

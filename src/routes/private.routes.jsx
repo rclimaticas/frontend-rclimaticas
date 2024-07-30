@@ -11,6 +11,7 @@ import theme from "../Components/styles/theme.ts";
 import { GoogleAuthProvider } from "../Components/context/GoogleAuthContext.jsx"
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AccountSettingsProvider } from '../Components/context/AccountSettingsContext.jsx';
+import LoginValidators from '../Components/form/loginValidators.jsx';
 import OndeFoi from '../Components/ondefoi/index.jsx';
 
 const PrivateRoutes = () => {
@@ -30,6 +31,7 @@ const PrivateRoutes = () => {
                                 <Route path="/ligacolaborativa" element={<LigaColaborativa />} />
                                 <Route path="/user" element={<UserProfile />} />
                                 <Route path="/ondefoi" element={<OndeFoi />} />
+                                <Route path="/validators" element={< LoginValidators/>} />
                             </Routes>
                         </BrowserRouter>
 
