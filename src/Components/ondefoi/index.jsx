@@ -3,7 +3,7 @@ import Hero from './Hero.jsx'
 import About from './about.jsx'
 import Header from '../../common/header.jsx'
 import Strategies from './strategies.jsx'
-import Dashboard from './Dashboard.jsx'
+import Dashboard from './dashboard.jsx'
 import TrustedBy from './Trusted.jsx'
 
 export default function Index() {
