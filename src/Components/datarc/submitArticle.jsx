@@ -65,7 +65,7 @@ function SubmitArticle() {
 
             console.log('Sending data:', formData);
 
-            const response = await axios.post('https://sturdy-eureka-6x767q6r4x9f5544-3333.app.github.dev/materials/material', formData, {
+            const response = await axios.post('https://backend-rclimaticas-2.onrender.com/materials/material', formData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
