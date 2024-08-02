@@ -11,6 +11,7 @@ import Article from "./article.jsx";
 import Highlights from './highlights.jsx';
 import ArcGis from './arcgis.jsx';
 import SubmitArticle from "./submitArticle.jsx";
+import ArticleFilter from './articleFilter.jsx'
 export default function Rcdata() {
 
     return (
@@ -18,26 +19,26 @@ export default function Rcdata() {
             <Header />
             <Layout maxW="container.xl">
                 <Grid display="flex" alignItems={"center"} justifyContent={"center"} mt={"5rem"} columns={1} flexDirection={"row"}>
-                            <GridItem colSpan={{ base: 6, md: 2, lg: 2 }} justifyContent="center">
-                                <Center>
-                                    <Image maxW={"100%"} src={i18n.datarc.doodle} />
-                                </Center>
-                            </GridItem>
-                        <GridItem w="58%" colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7}>
-                            <Stack fontFamily={"Alata"} fontSize={"20px"} gap={5} p={10} >
-                                <Heading>
-                                    {i18n.datarc.title}
-                                </Heading>
-                                <Text>
-                                    {i18n.datarc.desc}
+                    <GridItem colSpan={{ base: 6, md: 2, lg: 2 }} justifyContent="center">
+                        <Center>
+                            <Image maxW={"100%"} src={i18n.datarc.doodle} />
+                        </Center>
+                    </GridItem>
+                    <GridItem w="58%" colStart={{ base: 1, md: 4, lg: 4 }} colEnd={7}>
+                        <Stack fontFamily={"Alata"} fontSize={"20px"} gap={5} p={10} >
+                            <Heading>
+                                {i18n.datarc.title}
+                            </Heading>
+                            <Text>
+                                {i18n.datarc.desc}
+                            </Text>
+                            <Button>
+                                <Text fontWeight={"normal"} fontSize={"20px"}>
+                                    Saber Mais
                                 </Text>
-                                <Button>
-                                    <Text fontWeight={"normal"} fontSize={"20px"}>
-                                        Saber Mais
-                                    </Text>
-                                </Button>
-                            </Stack>
-                        </GridItem>
+                            </Button>
+                        </Stack>
+                    </GridItem>
                 </Grid>
             </Layout>
 
@@ -47,13 +48,13 @@ export default function Rcdata() {
 
             <Highlights />
             <ArcGis />
-            
-        
+
+
             {/* mapas */}
             <Maps />
-            <Layout mt={20} color="#7D9270" maxW="full">
-                <Material />
-            </Layout>
+
+            {/* filtro dos artigos */}
+            <ArticleFilter />
 
             {/* footer */}
             <Footer />
