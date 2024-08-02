@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container } from '@chakra-ui/layout'
 import Content from './content/content'
 import Sidebar from './sidebar/sidebar'
 import Cover from './cover'
@@ -9,7 +9,7 @@ export default function Main() {
         <>
             <Header />
             <Cover />
-            <Container display={{ base: 'block', md: 'flex' }} flexDir={"column"} maxW="container.xl">
+            <Container display={{ base: 'block', md: 'flex' }} maxW="container.xl">
                 <Sidebar />
                 <Content />
             </Container>
