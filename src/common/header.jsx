@@ -49,7 +49,7 @@ export default function Header() {
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Início</Text>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="/datarc">
-                                <Text _hover={{ color: "#30806e" }} cursor="pointer">Dados e Informações</Text>
+                                <Text _hover={{ color: "#30806e" }} cursor="pointer">Biblioteca Colaborativa</Text>
                             </a>
                             <a target="_blank" rel="noopener noreferrer" href="/ondefoi">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Registros OndeFoi</Text>

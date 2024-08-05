@@ -9,7 +9,7 @@ export default function AuthProvider({ children }) {
     const savedToken = localStorage.getItem('token');
     const [token, setToken] = useState(savedToken);
 
-    const savedId = localStorage.getItem('id'); // Ler o ID do localStorage
+    const savedId = localStorage.getItem('id'); 
     const [id, setId] = useState(savedId);
 
     const login = (newToken, userId) => {
@@ -27,7 +27,7 @@ export default function AuthProvider({ children }) {
     useEffect(() => {
         localStorage.setItem('auth', JSON.stringify(auth));
         localStorage.setItem('token', token);
-        localStorage.setItem('id', id); // Salvar o ID no localStorage
+        localStorage.setItem('id', id);
     }, [auth, token, id]);
 
     return (

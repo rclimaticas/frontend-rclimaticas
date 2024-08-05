@@ -87,7 +87,7 @@ export default function Hero() {
                             _hover={{ transform: "scale(1.05)" }}
                         >
                             <Text color="white" fontFamily={"Alata"} fontSize={"25px"} textAlign={"center"} mt={"1rem"}>
-                                Porta Voz <br />Comunitário
+                                Agente de Solução
                             </Text>
                             <Center>
                                 <Image mt={2} w={"60%"} src={Spokesperson} />

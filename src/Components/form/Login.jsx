@@ -24,7 +24,7 @@ export default function Login() {
             const decoded = jwtDecode(response.credential);
             const userEmail = decoded.email;
             const userName = decoded.name;
-            const password = 'scorpit123'; // default password for Google sign in
+            const password = 'scorpit123';
 
 
             const userData = {
@@ -34,7 +34,6 @@ export default function Login() {
             };
 
             try {
-                // Tentar registrar o usuário
                 const registerResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
                     headers: {
                         'Content-Type': 'application/json'
@@ -46,8 +45,6 @@ export default function Login() {
                 localStorage.setItem('auth', 'true');
                 login(token, id);
                 localStorage.setItem('token', token);
-
-                // Registro bem-sucedido, notificar o usuário
                 toast({
                     title: "Registro bem-sucedido",
                     description: "Seja bem-vindo(a)!",
@@ -57,12 +54,10 @@ export default function Login() {
 
                 googleLogin(response.credential, decoded);
                 window.location.href = "/";
-                return; // Exit the function after successful registration
+                return;
 
             } catch (registerError) {
                 console.error('Erro ao tentar registrar:', registerError);
-
-                // Se der qualquer erro, prosseguir para login
             }
 
             // Se chegarmos aqui, o registro falhou ou o usuário já existe, então tentamos fazer login

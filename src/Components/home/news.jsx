@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container, Grid, GridItem, Image, SimpleGrid, Box, InputGroup, InputLeftAddon, Input, Stack, Heading, Center, Button, Text, HStack } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Container, Grid, GridItem, Image, SimpleGrid, Box, InputGroup, InputLeftAddon, Input, Stack, Heading, Center, Button, Text, HStack, useDisclosure } from '@chakra-ui/react';
 import Fundo from '../../assets/fundo.png'
 import GoogleNews from '../../assets/news.png'
 import Ekonavi from '../../assets/ekonavi.png'
@@ -8,9 +8,40 @@ import Article1 from '../../assets/article1.png'
 import Article2 from '../../assets/article2.png'
 import Financiadores from '../../assets/financiadores.png'
 import IBGE from './ibge'
-
+import axios from 'axios';
+import GlobalConfirmationModal from '../../common/ConfirmationModal.jsx';
 
 export default function News() {
+    const [formData, setFormData] = useState({ name: '', email: '' });
+    const [isLoading, setIsLoading] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    };
+
+    const handleConfirm = async () => {
+        setIsLoading(true);
+        try {
+            await axios.post('https://backend-rclimaticas-2.onrender.com/newsletter', formData);
+            setFormData({ name: '', email: '' });
+            return "Your information has been submitted successfully.";
+        } catch (error) {
+            return "There was an error submitting your information. Please try again.";
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleSubmit = () => {
+        onOpen();
+    };
+
+
     return (
         <>
             {/* tela desktop com fundo */}
@@ -53,29 +84,35 @@ export default function News() {
 
                                     </a>
                                 </SimpleGrid>
-                                <Text fontSize={{ sm: "20px", md: "15px", lg: "20px", xl: "25px" }}>Receba Atualizações</Text>
-                                <InputGroup mt={2} w={"70%"}>
-                                    <InputLeftAddon>
-                                        🫵
-                                    </InputLeftAddon>
-                                    <Input
-                                        border="1px solid"
-                                        bg={"#eced95"}
-                                        type='tel' placeholder='Digite seu nome' />
-                                </InputGroup>
-                                <InputGroup w={"70%"}>
-                                    <InputLeftAddon>
-                                        📫
-                                    </InputLeftAddon>
-                                    <Input
-                                        border="1px solid"
-                                        bg={"#eced95"}
-                                        type='tel' placeholder='Email' />
-                                </InputGroup>
-                                <Button w={{ sm: "50%", md: "50%", lg: "50%", xl: "30%" }}>
-                                    <Text fontSize={{ sm: "90%", md: "50%", lg: "50%", xl: "18px" }}>
-                                        Enviar
-                                    </Text>
+                                <Stack spacing={4}>
+                                    <Text fontSize={"18px"} fontFamily={"Arial"}>Receba Atualizações</Text>
+                                    <InputGroup>
+                                        <InputLeftAddon>🫵</InputLeftAddon>
+                                        <Input
+                                            border="1px solid"
+                                            bg={"#eced95"}
+                                            type='text'
+                                            placeholder='Digite seu nome'
+                                            name='name'
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                        />
+                                    </InputGroup>
+                                    <InputGroup>
+                                        <InputLeftAddon>📫</InputLeftAddon>
+                                        <Input
+                                            border="1px solid"
+                                            bg={"#eced95"}
+                                            type='email'
+                                            placeholder='Email'
+                                            name='email'
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                    </InputGroup>
+                                </Stack>
+                                <Button mt={5} w={"30%"} onClick={handleSubmit}>
+                                    <Text fontSize={"18px"}>Enviar</Text>
                                 </Button>
                             </Stack>
                         </Box>
@@ -117,7 +154,7 @@ export default function News() {
                                     Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
                                     estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
                                 </Text>
-                                    <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
+                                <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
                                 <Image w={"80%"} src={Financiadores} />
                             </Center>
                         </Box>
@@ -132,6 +169,15 @@ export default function News() {
 
                 </Container>
             </Container>
+            <GlobalConfirmationModal
+                isOpen={isOpen}
+                onClose={onClose}
+                onConfirm={handleConfirm}
+                isLoading={isLoading}
+                description="Tem certeza de que deseja enviar suas informações?"
+                toastMessage="Dados enviados com sucesso"
+                toastStatus="success"
+            />
 
             {/* tela md e sm sem fundo */}
             {/* <Container display={{ base: "none",sm: "none", md: "block", lg: "none", "2xl": "none" }} mt={"20rem"} maxW="full" maxH="container.xs">

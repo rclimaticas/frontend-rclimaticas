@@ -59,19 +59,19 @@ function AccountSettings() {
           <FormLabel>Cidade</FormLabel>
           <Input
             focusBorderColor="brand.blue"
-            type="text"
+            type="city"
             placeholder="Cidade"
             value={userData.city || ''}
             onChange={handleChange}
           />
         </FormControl>
-        <FormControl id="country">
+        <FormControl id="state">
           <FormLabel>Estado</FormLabel>
           <Input
             focusBorderColor="brand.blue"
-            type="text"
+            type="state"
             placeholder="Estado"
-            value={userData.country || ''}
+            value={userData.state || ''}
             onChange={handleChange}
           />
         </FormControl>

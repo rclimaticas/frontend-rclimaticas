@@ -27,9 +27,14 @@ export default function Colaborador() {
         templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
         gap={6}
       >
-        <FormControl>
+        <FormControl id="organization">
           <FormLabel>Faz parte de alguma organização/coletivo?</FormLabel>
-          <Input type='email' />
+          <Input 
+          value={userData.organization || ''}
+          type='organization' 
+          placeholder="Organização"
+          onChange={handleChange}
+          />
         </FormControl>
         <FormControl id="weeklyAvailability">
           <FormLabel>⚡ Qual sua disponibilidade de tempo para colaborar?</FormLabel>
@@ -114,7 +119,7 @@ export default function Colaborador() {
           <FormLabel> Sobre quais povos você tem conhecimento ou tem interesse em contribuir</FormLabel>
           <Stack>
             <Stack>
-              {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiros', 'Cidades'].map(community => (
+              {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiras', 'Cidades'].map(community => (
                 <Checkbox
                   key={community}
                   icon={<CustomIcon />}
@@ -134,7 +139,7 @@ export default function Colaborador() {
             <FormLabel color="white">Sobre quais povos você tem conhecimento ou tem interesse em contribuir?</FormLabel>
             <Stack>
               <Stack>
-                {['Geraizeiros', 'Indígenas', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(biome => (
+                {['Geraizeiros', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(biome => (
                   <Checkbox
                     key={biome}
                     icon={<CustomIcon />}

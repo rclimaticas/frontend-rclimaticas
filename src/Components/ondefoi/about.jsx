@@ -65,7 +65,7 @@ export default function About() {
                         </Box>
                         <Box textAlign={{ base: "center", md: "left" }} zIndex={2} order={{ md: 2 }}>
                             <Stack fontFamily={"Alata"} color="black">
-                                <Heading fontSize={"28px"}>Sobre a plataforma</Heading>
+                                <Heading fontSize={"28px"}>Sobre o aplicativo:</Heading>
                                 <Text opacity={0.7} fontSize={"20px"}>
                                     O OndeFoi surge como uma ferramenta essencial para o registro de
                                     <Text as={"span"} color={"#31BB3E"} boxShadow={"0px 5px 0px #40EC51"}> conflitos socioambientais </Text>e climáticos para direcionamento de <br />
@@ -77,7 +77,8 @@ export default function About() {
                                     <Text opacity={0.7} fontSize={"20px"}>
                                         Nosso processo de registro é estruturado com a finalidade de
                                         <Text as={"span"} color={"#31BB3E"} boxShadow={"0px 5px 0px #40EC51"}> coletar informações </Text>
-                                        abragentes e detalhadas em seções <br /> estratégicas, que incluem:
+                                        abragentes e detalhadas em seções <br /> especificas para direcionar para solução
+                                        efetiva, que incluem:
                                     </Text>
                                 </Stack>
                             </Stack>

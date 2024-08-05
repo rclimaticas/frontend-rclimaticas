@@ -24,6 +24,9 @@ export const AccountSettingsProvider = ({ children }) => {
     themesCommunities: [],
     imageBase64: '',
     rules: [],
+    city: '',
+    state: '',
+    organization: '',
   });
 
   useEffect(() => {
@@ -35,7 +38,9 @@ export const AccountSettingsProvider = ({ children }) => {
           }
         });
 
+
         const data = response.data;
+        console.log("Dados do usuário:", data)
 
         setUserData({
           ...data,
@@ -45,6 +50,9 @@ export const AccountSettingsProvider = ({ children }) => {
           themesCommunities: data.themesCommunities || [],
           imageBase64: data.imageBase64 || '',
           rules: data.rules || [],
+          city: data.city || '',
+          state: data.state || '',
+          organization: data.organization || '',
         });
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);

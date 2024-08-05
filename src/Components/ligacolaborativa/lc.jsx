@@ -45,12 +45,6 @@ export default function LigaColaborativa() {
                             <Image w={"100%"} pos="relative" left={6} src={Roadmap} />
                         </Box>
                     </SimpleGrid>
-
-                    <Box w="70%" h="150px">
-                        <Text fontSize={"25px"} fontFamily={"Alata"}>
-                            {i18n.ligacolaborativa.desc[2]}
-                        </Text>
-                    </Box>
                     <Box w="100%" h="200px"
                         display="flex" justifyContent="center" alignItems="center"
                     >

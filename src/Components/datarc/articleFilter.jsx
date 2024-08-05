@@ -1,96 +1,83 @@
-import { useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
+import axios from 'axios';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
-import { Container } from '@chakra-ui/react'
+import { Container, Link, Heading, Center} from '@chakra-ui/react';
 
-//nested data is ok, see accessorKeys in ColumnDef below
-const data = [
-  {
-    name: {
-      firstName: 'Zachary',
-      lastName: 'Davis',
-    },
-    address: '261 Battle Ford',
-    city: 'Columbus',
-    state: 'Ohio',
-  },
-  {
-    name: {
-      firstName: 'Robert',
-      lastName: 'Smith',
-    },
-    address: '566 Brakus Inlet',
-    city: 'Westerville',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'Kevin',
-      lastName: 'Yan',
-    },
-    address: '7777 Kuhic Knoll',
-    city: 'South Linda',
-    state: 'West Virginia',
-  },
-  {
-    name: {
-      firstName: 'John',
-      lastName: 'Upton',
-    },
-    address: '722 Emie Stream',
-    city: 'Huntington',
-    state: 'Washington',
-  },
-  {
-    name: {
-      firstName: 'Nathan',
-      lastName: 'Harris',
-    },
-    address: '1 Kuhic Knoll',
-    city: 'Ohiowa',
-    state: 'Nebraska',
-  },
-];
+export default function ImpactsTable({ userId }) {
+  const [data, setData] = useState([]);
 
-export default function ArticleFilter() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://backend-rclimaticas-2.onrender.com/materials`);
+        setData(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar dados de impactos:', error);
+      }
+    };
 
-  //should be memoized or stable
+    fetchData();
+  }, [userId]);
+
   const columns = useMemo(
     () => [
       {
-        accessorKey: 'name.firstName', //access nested data with dot notation
-        header: 'First Name',
+        accessorKey: 'publicationType',
+        header: 'Tipo de Publicação',
       },
       {
-        accessorKey: 'name.lastName',
-        header: 'Last Name',
+        accessorKey: 'subjectType',
+        header: 'Tipo de Assunto',
       },
       {
-        accessorKey: 'address', //normal accessorKey
-        header: 'Address',
+        accessorKey: 'date',
+        header: 'Data',
+        Cell: ({ cell }) => new Date(cell.getValue()).toLocaleDateString(),
       },
       {
-        accessorKey: 'city',
-        header: 'City',
-      },
-      {
-        accessorKey: 'state',
-        header: 'State',
+        accessorKey: 'fileUrlOrUpload',
+        header: 'Arquivo',
+        Cell: ({ row }) => {
+          const fileUrl = row.original.fileUrl;
+          const fileUpload = row.original.FileUpload;
+
+          if (fileUrl) {
+            return (
+              <Link href={fileUrl} isExternal>{fileUrl}</Link>
+            );
+          } else if (fileUpload && fileUpload.length > 0) {
+            return (
+              <div>
+                {fileUpload.map(file => (
+                  <div key={file.id}>
+                    <p>
+                      Path: <Link href={file.path} isExternal>{file.path}</Link>
+                    </p>
+                    <p>Date: {new Date(file.date).toLocaleDateString()}</p>
+                  </div>
+                ))}
+              </div>
+            );
+          } else {
+            return <span>Sem arquivo</span>;
+          }
+        }
       },
     ],
     [],
   );
 
-  
-
   const table = useMantineReactTable({
     columns,
-    data, 
+    data,
   });
 
   return (
-    <Container mt={20} maxW="container.xl" >
+    <Container mt={20} maxW="container.xl">
+      <Center>
+        <Heading as="h2" size="lg" mb={4}>Tabela da nossa Biblioteca</Heading>
+      </Center>
       <MantineReactTable table={table} />
     </Container>
-  ) 
-};
-
+  );
+}
