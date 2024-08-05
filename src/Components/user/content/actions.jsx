@@ -38,7 +38,6 @@ function Actions({ selectedTabIndex }) {
               Cancelar
             </Button>
             <Button
-              colorScheme="blue"
               onClick={handleConfirmUpdate}
               isLoading={isLoading}
               ml={3}
