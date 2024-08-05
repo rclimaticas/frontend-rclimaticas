@@ -51,6 +51,9 @@ export default function Header() {
                             <a target="_blank" rel="noopener noreferrer" href="/datarc">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Biblioteca Colaborativa</Text>
                             </a>
+                            <a target="_blank" rel="noopener noreferrer" href="https://ekonavi.com/">
+                                <Text _hover={{ color: "#30806e" }} cursor="pointer">Ekonavi</Text>
+                            </a>
                             <a target="_blank" rel="noopener noreferrer" href="/ondefoi">
                                 <Text _hover={{ color: "#30806e" }} cursor="pointer">Registros OndeFoi</Text>
                             </a>
