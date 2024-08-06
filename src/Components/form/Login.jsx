@@ -6,8 +6,9 @@ import i18n from '../i18n/i18n.json';
 import { GoogleLogin } from '@react-oauth/google';
 import { AuthContext } from '../context/authcontext.jsx';
 import axios from 'axios';
-import { jwtDecode } from "jwt-decode";
+import  { jwtDecode }  from "jwt-decode";
 import { GoogleAuthContext } from '../context/GoogleAuthContext.jsx';
+import { AccountSettingsContext } from '../context/AccountSettingsContext';
 
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +18,7 @@ export default function Login() {
 
     const { setAuth, auth, login } = useContext(AuthContext);
     const { setGoogleAuth, googleAuth, googleLogin } = useContext(GoogleAuthContext);
+    const { updateUserData } = useContext(AccountSettingsContext);
     console.log('auth', auth);
 
     const handleSuccessAuth = async (response) => {
@@ -26,62 +28,100 @@ export default function Login() {
             const userName = decoded.name;
             const password = 'scorpit123';
 
-
-            const userData = {
-                email: userEmail,
-                username: userName,
-                password: password
-            };
-
             try {
-                const registerResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/register', userData, {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-                const { token, user } = registerResponse.data;
-                const id = user.id;
+                const loginResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/login', { email: userEmail, password: password });
 
-                localStorage.setItem('auth', 'true');
-                login(token, id);
-                localStorage.setItem('token', token);
-                toast({
-                    title: "Registro bem-sucedido",
-                    description: "Seja bem-vindo(a)!",
-                    status: "success",
-                    position: "top",
-                });
+                if (loginResponse.status === 200) {
+                    const { token, user } = loginResponse.data;
+                    const id = user.id;
 
-                googleLogin(response.credential, decoded);
-                window.location.href = "/";
-                return;
-
-            } catch (registerError) {
-                console.error('Erro ao tentar registrar:', registerError);
+                    localStorage.setItem('auth', 'true');
+                    login(token, id);
+                    localStorage.setItem('token', token);
+                    toast({
+                        title: "Login bem-sucedido",
+                        description: "Seja bem-vindo(a)!",
+                        status: "success",
+                        position: "top",
+                    });
+                    googleLogin(response.credential, decoded);
+                    window.location.href = "/";
+                    return;
+                }
+            } catch (loginError) {
+                console.error('Erro ao tentar fazer login:', loginError.message);
             }
 
-            // Se chegarmos aqui, o registro falhou ou o usuário já existe, então tentamos fazer login
-            const loginResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/login', { email: userEmail, password: password });
+            try {
+                const registerResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/register', { email: userEmail, password: password, username: userName });
+                googleLogin(response.credential, decoded);
 
-            if (loginResponse.status === 200) {
-                const { token, user } = loginResponse.data;
-                const id = user.id;
-
-
-                localStorage.setItem('auth', 'true');
-                login(token, id);
-                localStorage.setItem('token', token);
+                if (registerResponse.status === 201 || registerResponse.status === 200) {
+                    if (registerResponse.data.error) {
+                        console.error('Erro de registro:', registerResponse.data.error);
+                        toast({
+                            title: "Erro de registro",
+                            description: registerResponse.data.error,
+                            status: "error",
+                            duration: 5000,
+                            isClosable: true,
+                            position: "top",
+                        });
+                    } else {
+                        console.log('Registro bem-sucedido:', registerResponse.data);
+                        toast({
+                            title: "Registro bem-sucedido",
+                            description: "Seja bem-vindo(a)!",
+                            status: "success",
+                            duration: 5000,
+                            isClosable: true,
+                            position: "top",
+                        });
+                        window.location.href = '/login';
+                    }
+                }
+            } catch (registerError) {
+                console.error('Erro ao registrar:', registerError.message);
                 toast({
-                    title: "Login bem-sucedido",
-                    description: "Seja bem-vindo(a)!",
-                    status: "success",
+                    title: "Erro",
+                    description: "Ocorreu um erro ao tentar registrar. Por favor, tente novamente.",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
                     position: "top",
                 });
-                googleLogin(response.credential, decoded);
-                window.location.href = "/";
+            }
 
-            } else {
-                throw new Error('Erro ao tentar fazer login com conta existente.');
+            try {
+                const loginResponse = await axios.post('https://backend-rclimaticas-2.onrender.com/login', { email: userEmail, password: password });
+
+                if (loginResponse.status === 200) {
+                    const { token, user } = loginResponse.data;
+                    const id = user.id;
+
+                    localStorage.setItem('auth', 'true');
+                    login(token, id);
+                    localStorage.setItem('token', token);
+                    toast({
+                        title: "Login bem-sucedido",
+                        description: "Seja bem-vindo(a)!",
+                        status: "success",
+                        position: "top",
+                    });
+                    googleLogin(response.credential, decoded);
+                    window.location.href = "/";
+
+                } else {
+                    throw new Error('Erro ao tentar fazer login com conta existente.');
+                }
+            } catch (loginErrorAfterRegister) {
+                console.error('Erro ao tentar registrar ou logar:', loginErrorAfterRegister);
+                toast({
+                    title: "Falha ao se logar",
+                    description: loginErrorAfterRegister.message || "Ocorreu um erro ao tentar fazer o login!",
+                    status: "error",
+                    position: "top",
+                });
             }
 
         } catch (error) {
@@ -94,8 +134,6 @@ export default function Login() {
             });
         }
     };
-
-
 
     const handleErrorAuth = (error) => {
         console.error('Falha na autenticação:', error);
@@ -128,12 +166,12 @@ export default function Login() {
                         position: "top",
                     });
                 } else {
-                    const { token, user } = response.data
+                    const { token, user } = response.data;
                     const id = user.id;
                     console.log('Login bem-sucedido:', token, id);
                     localStorage.setItem('auth', 'true');
                     login(token, id);
-                    localStorage.setItem('token', token)
+                    localStorage.setItem('token', token);
                     toast({
                         title: "Login bem-sucedido",
                         description: "Seja bem-vindo(a)!",
@@ -141,7 +179,6 @@ export default function Login() {
                         position: "top",
                     });
                     window.location.href = '/';
-
                 }
             }
         } catch (error) {
