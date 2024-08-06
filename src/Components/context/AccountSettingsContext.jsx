@@ -131,8 +131,15 @@ export const AccountSettingsProvider = ({ children }) => {
     });
   };
 
+  const updateUserData = (newData) => {
+    setUserData(prevData => ({
+      ...prevData,
+      ...newData,
+    }));
+  };
+
   return (
-    <AccountSettingsContext.Provider value={{ userData, handleUpdate, handleChange, handleCheckboxChange, handleFileChange }}>
+    <AccountSettingsContext.Provider value={{ userData, handleUpdate, handleChange, handleCheckboxChange, handleFileChange, updateUserData }}>
       {children}
     </AccountSettingsContext.Provider>
   );
