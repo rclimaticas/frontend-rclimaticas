@@ -146,16 +146,13 @@ const ImpactTable = () => {
             </Box>
             <Box p={2}>
               <FormControl variant="floating">
-                <Select
-                  name="locality"
-                  value={formData.locality}
+                <FormLabel>Localidade</FormLabel>
+                <Input
+                  value={formData.locality || ''}
+                  name='locality'
+                  placeholder=''
                   onChange={handleInputChange}
-                  focusBorderColor="brand.blue"
-                >
-                  <option value="estado">Estado</option>
-                  <option value="municipio">Município</option>
-                </Select>
-                <FormLabel>Localidade:</FormLabel>
+                />
               </FormControl>
             </Box>
             <Box p={2}>
