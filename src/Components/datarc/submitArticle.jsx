@@ -100,7 +100,7 @@ function SubmitArticle() {
                         fileData.append('fileUpload', fileUpload);
 
                         try {
-                            const uploadResponse = await axios.post(`https://legendary-space-pancake-q5grgjr97vw39v5g-3333.app.github.dev/upload/${materialId}`, fileData, {
+                            const uploadResponse = await axios.post(`https://backend-rclimaticas-2.onrender.com/upload/${materialId}`, fileData, {
                                 headers: {
                                     'Content-Type': 'multipart/form-data'
                                 }
