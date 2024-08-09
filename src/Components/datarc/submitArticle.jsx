@@ -18,7 +18,8 @@ import {
     FormLabel,
     Input,
     useToast,
-    Checkbox
+    Checkbox,
+    Textarea,
 } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import axios from 'axios';
@@ -30,6 +31,7 @@ function SubmitArticle() {
     const [publicationType, setPublicationType] = useState("");
     const [subjectType, setSubjectType] = useState("")
     const [fileUrl, setFileUrl] = useState("")
+    const [description, setDescription] = useState("")
     const [termsChecked, setTermsChecked] = useState(false)
     const [fileUpload, setFileUpload] = useState(null)
     const toast = useToast();
@@ -60,12 +62,13 @@ function SubmitArticle() {
                 name: name,
                 publicationType: publicationType,
                 subjectType: subjectType,
-                fileUrl: fileUrl
+                fileUrl: fileUrl,
+                description: description,
             };
 
             console.log('Sending data:', formData);
 
-            const response = await axios.post('https://backend-rclimaticas-2.onrender.com/materials/material', formData, {
+            const response = await axios.post('https://backend-rclimaticas-2.onrender.com/materials', formData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -155,55 +158,65 @@ function SubmitArticle() {
                             <Button onClick={onOpen}>Fazer envio de artigos</Button>
                             <Modal isCentered isOpen={isOpen} onClose={onClose}>
                                 <ModalOverlay />
-                                <ModalContent>
+                                <ModalContent maxW="600px" maxH="80vh">
                                     <ModalHeader>Envio do artigo</ModalHeader>
                                     <ModalCloseButton />
-                                    <ModalBody>
+                                    <ModalBody overflowY="auto">
                                         <Stack gap='2'>
                                             <FormControl>
                                                 <FormLabel>Qual seu nome?</FormLabel>
-                                                <Input 
-                                                    type="text" 
+                                                <Input
+                                                    type="text"
                                                     name="name"
-                                                    value={name} 
-                                                    onChange={(e) => setName(e.target.value)} 
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
                                                 />
                                             </FormControl>
                                             <FormControl>
                                                 <FormLabel>Qual seu email?</FormLabel>
-                                                <Input 
+                                                <Input
                                                     type="email"
-                                                    name="email" 
+                                                    name="email"
                                                     value={email}
-                                                    onChange={(e) => setEmail(e.target.value)} 
+                                                    onChange={(e) => setEmail(e.target.value)}
                                                 />
                                             </FormControl>
                                             <FormControl>
                                                 <FormLabel>Qual o tipo de publicação?</FormLabel>
-                                                <Input 
+                                                <Input
                                                     type="text"
-                                                    name="publicationType" 
+                                                    name="publicationType"
                                                     value={publicationType}
-                                                    onChange={(e) => setPublicationType(e.target.value)} 
+                                                    onChange={(e) => setPublicationType(e.target.value)}
                                                 />
                                             </FormControl>
                                             <FormControl>
                                                 <FormLabel>Qual o tipo de assunto?</FormLabel>
-                                                <Input 
-                                                    type="text" 
+                                                <Input
+                                                    type="text"
                                                     name="subjectType"
                                                     value={subjectType}
-                                                    onChange={(e) => setSubjectType(e.target.value)} 
+                                                    onChange={(e) => setSubjectType(e.target.value)}
+                                                />
+                                            </FormControl>
+                                            <FormControl>
+                                                <FormLabel>Escreva uma breve descrição do Artigo</FormLabel>
+                                                <Textarea
+                                                    placeholder=" "
+                                                    name="description"
+                                                    value={description}
+                                                    onChange={(e) => setDescription(e.target.value)}
                                                 />
                                             </FormControl>
                                             <FormControl>
                                                 <FormLabel>Nos envie o link da publicação.</FormLabel>
-                                                <Input 
+                                                <Input
                                                     type="text"
-                                                    name="fileUrl" 
+                                                    name="fileUrl"
                                                     value={fileUrl}
-                                                    onChange={(e) => setFileUrl(e.target.value)} 
+                                                    onChange={(e) => setFileUrl(e.target.value)}
                                                 />
+
                                             </FormControl>
                                             <FormControl>
                                                 <FormLabel>Faça o upload do arquivo, caso ainda não tenha sido publicado</FormLabel>
