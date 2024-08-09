@@ -14,7 +14,8 @@ import {
   Button,
   Flex,
   VStack,
-  Text
+  Text,
+  HStack,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import CustomIcon from '../content/customIcon';
@@ -78,6 +79,7 @@ const ImpactTable = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const onClose = () => setIsOpen(false);
 
   const handleInputChange = (e) => {
@@ -129,6 +131,17 @@ const ImpactTable = () => {
               <FormLabel>Assunto</FormLabel>
             </FormControl>
           </Box>
+          <Box p={2}>
+            <FormControl variant="floating">
+              <Input
+                value={formData.locality || ''}
+                name='locality'
+                placeholder=''
+                onChange={handleInputChange}
+              />
+              <FormLabel>Localidade/Município/Estado</FormLabel>
+            </FormControl>
+          </Box>
           <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}>
             <Box p={2}>
               <FormControl variant="floating">
@@ -142,17 +155,6 @@ const ImpactTable = () => {
                   <option value="baixa">Baixa</option>
                 </Select>
                 <FormLabel>Urgência:</FormLabel>
-              </FormControl>
-            </Box>
-            <Box p={2}>
-              <FormControl variant="floating">
-                <FormLabel>Localidade</FormLabel>
-                <Input
-                  value={formData.locality || ''}
-                  name='locality'
-                  placeholder=''
-                  onChange={handleInputChange}
-                />
               </FormControl>
             </Box>
             <Box p={2}>
@@ -197,33 +199,6 @@ const ImpactTable = () => {
               </FormControl>
             </Box>
             <Box p={2}>
-              <FormControl>
-                <Flex gap={5}>
-                  <Stack>
-                    <FormLabel>Bioma:</FormLabel>
-                    {(userData.themesBiomes && userData.themesBiomes.length > 0) ? (
-                      userData.themesBiomes.map(themesBiomes => (
-                        <Checkbox
-                          key={themesBiomes}
-                          icon={<CustomIcon />}
-                          color='black'
-                          value={themesBiomes}
-                          isChecked={formData.biomes.includes(themesBiomes)}
-                          onChange={handleInputChange}
-                        >
-                          {themesBiomes}
-                        </Checkbox>
-                      ))
-                    ) : (
-                      <Box bg="white" borderColor={'green'}>
-                        <Text color={'red'}>Você não escolheu nenhum tema</Text>
-                      </Box>
-                    )}
-                  </Stack>
-                </Flex>
-              </FormControl>
-            </Box>
-            <Box p={2}>
               <FormControl variant="floating">
                 <Select
                   name="situation"
@@ -250,7 +225,35 @@ const ImpactTable = () => {
                 <FormLabel>Situação a ser resolvida:</FormLabel>
               </FormControl>
             </Box>
+
           </Grid>
+          <Box p={2}>
+            <FormControl>
+              <FormLabel>Bioma:</FormLabel>
+              <Flex gap={5}>
+                <HStack whiteSpace="nowrap">
+                  {(userData.themesBiomes && userData.themesBiomes.length > 0) ? (
+                    userData.themesBiomes.map(themesBiomes => (
+                      <Checkbox
+                        key={themesBiomes}
+                        icon={<CustomIcon />}
+                        color='black'
+                        value={themesBiomes}
+                        isChecked={formData.biomes.includes(themesBiomes)}
+                        onChange={handleInputChange}
+                      >
+                        {themesBiomes}
+                      </Checkbox>
+                    ))
+                  ) : (
+                    <Box bg="white" borderColor={'green'}>
+                      <Text color={'red'}>Você não escolheu nenhum tema</Text>
+                    </Box>
+                  )}
+                </HStack>
+              </Flex>
+            </FormControl>
+          </Box>
           <Box p={2} mt={2} width={'full'}>
             <FormControl variant="floating">
               <Textarea
@@ -285,24 +288,26 @@ const ImpactTable = () => {
         <VStack w={'full'}>
           <Box className="header-container">
             <div className="header-left">
-              <Button
-                bg={selectedTable === 'Gerar Impactos' ? '#CFD249' : '#FAFAFA'}
-                _hover={{ bg: "#bdbf47" }}
-                borderRadius="20px"
-                onClick={() => setSelectedTable('Gerar Impactos')}
-                className={selectedTable === 'Gerar Impactos' ? 'selected' : ''}
-              >
-                Gerar Impactos
-              </Button>
-              <Button
-                bg={selectedTable === 'Impactos que denunciei' ? '#CFD249' : '#FAFAFA'}
-                _hover={{ bg: "#bdbf47" }}
-                borderRadius="20px"
-                onClick={() => setSelectedTable('Impactos que denunciei')}
-                className={selectedTable === 'Impactos que denunciei' ? 'selected' : ''}
-              >
-                Impactos que denunciei
-              </Button>
+              <HStack>
+                <Button
+                  bg={selectedTable === 'Gerar Impactos' ? '#CFD249' : '#FAFAFA'}
+                  _hover={{ bg: "#bdbf47" }}
+                  borderRadius="20px"
+                  onClick={() => setSelectedTable('Gerar Impactos')}
+                  className={selectedTable === 'Gerar Impactos' ? 'selected' : ''}
+                >
+                  Gerar Impactos
+                </Button>
+                <Button
+                  bg={selectedTable === 'Impactos que denunciei' ? '#CFD249' : '#FAFAFA'}
+                  _hover={{ bg: "#bdbf47" }}
+                  borderRadius="20px"
+                  onClick={() => setSelectedTable('Impactos que denunciei')}
+                  className={selectedTable === 'Impactos que denunciei' ? 'selected' : ''}
+                >
+                  Impactos que denunciei
+                </Button>
+              </HStack>
             </div>
           </Box>
           <Box className="content-container" minHeight="60vh" width={'full'}>
