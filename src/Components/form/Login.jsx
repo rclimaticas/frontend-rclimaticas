@@ -77,7 +77,6 @@ export default function Login() {
                             isClosable: true,
                             position: "top",
                         });
-                        window.location.href = '/login';
                     }
                 }
             } catch (registerError) {
