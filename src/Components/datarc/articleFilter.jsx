@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import axios from 'axios';
 import { MantineReactTable, useMantineReactTable } from 'mantine-react-table';
-import { Container, Link, Heading, Center} from '@chakra-ui/react';
+import { Container, Link, Heading, Center, IconButton} from '@chakra-ui/react';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export default function ImpactsTable({ userId }) {
   const [data, setData] = useState([]);
@@ -43,7 +44,13 @@ export default function ImpactsTable({ userId }) {
 
           if (fileUrl) {
             return (
-              <Link href={fileUrl} isExternal>{fileUrl}</Link>
+              <Link href={fileUrl} isExternal>
+                <IconButton
+                  aria-label="External link"
+                  icon={<FaExternalLinkAlt />}
+                  variant="ghost"
+                />
+              </Link>
             );
           } else if (fileUpload && fileUpload.length > 0) {
             return (
@@ -51,7 +58,14 @@ export default function ImpactsTable({ userId }) {
                 {fileUpload.map(file => (
                   <div key={file.id}>
                     <p>
-                      Path: <Link href={file.path} isExternal>{file.path}</Link>
+                      Path: 
+                      <Link href={file.path} isExternal>
+                        <IconButton
+                          aria-label="External link"
+                          icon={<FaExternalLinkAlt />}
+                          variant="ghost"
+                        />
+                      </Link>
                     </p>
                     <p>Date: {new Date(file.date).toLocaleDateString()}</p>
                   </div>

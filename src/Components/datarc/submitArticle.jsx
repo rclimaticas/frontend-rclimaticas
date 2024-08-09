@@ -106,7 +106,7 @@ function SubmitArticle() {
                                 }
                             });
 
-                            console.log('Upload response received:', uploadResponse); // Debugging log
+                            console.log('Upload response received:', uploadResponse);
 
                             if (uploadResponse.status === 200 || uploadResponse.status === 201) {
                                 toast({
@@ -118,7 +118,7 @@ function SubmitArticle() {
                                 });
                             }
                         } catch (uploadError) {
-                            console.error('Erro ao fazer upload do arquivo:', uploadError);
+                            console.error('Erro ao fazer envio do arquivo:', uploadError);
                             toast({
                                 title: "Erro ao enviar o arquivo.",
                                 description: "Ocorreu um erro ao enviar o arquivo. Por favor, tente novamente.",
@@ -132,7 +132,7 @@ function SubmitArticle() {
                 }
             }
         } catch (error) {
-            console.error('Erro ao fazer upload do artigo:', error);
+            console.error('Erro ao fazer envio do artigo:', error);
             toast({
                 title: "Erro ao enviar o artigo.",
                 description: "Ocorreu um erro ao enviar o artigo. Por favor, tente novamente.",
@@ -150,13 +150,13 @@ function SubmitArticle() {
                 <SimpleGrid mt={10} columns={2} spacingX='90px' spacingY='60px' display={"flex"} justifyContent={"center"}>
                     <Stack gap={2} display="flex" justifyContent={"center"}>
                         <Heading textAlign={"center"}>Criar recurso para submissão de artigos</Heading>
-                        <Text textAlign={"center"}> Faça upload dos artigos que você desejar para colaborar com a Liga Colaborativa.</Text>
+                        <Text textAlign={"center"}> Faça o envio dos artigos que você desejar para colaborar com a Liga Colaborativa.</Text>
                         <Center>
-                            <Button onClick={onOpen}>Fazer upload de artigos</Button>
+                            <Button onClick={onOpen}>Fazer envio de artigos</Button>
                             <Modal isCentered isOpen={isOpen} onClose={onClose}>
                                 <ModalOverlay />
                                 <ModalContent>
-                                    <ModalHeader>Faça o upload do seu artigo</ModalHeader>
+                                    <ModalHeader>Envio do artigo</ModalHeader>
                                     <ModalCloseButton />
                                     <ModalBody>
                                         <Stack gap='2'>
