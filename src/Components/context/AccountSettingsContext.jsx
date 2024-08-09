@@ -24,6 +24,7 @@ export const AccountSettingsProvider = ({ children }) => {
     themesCommunities: [],
     imageBase64: '',
     rules: [],
+    peoples: [],
     city: '',
     state: '',
     organization: '',
@@ -53,6 +54,7 @@ export const AccountSettingsProvider = ({ children }) => {
           city: data.city || '',
           state: data.state || '',
           organization: data.organization || '',
+          peoples: data.peoples || [],
         });
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);

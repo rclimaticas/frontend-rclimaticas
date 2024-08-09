@@ -119,16 +119,16 @@ export default function Colaborador() {
           <FormLabel> Sobre quais povos você tem conhecimento ou tem interesse em contribuir</FormLabel>
           <Stack>
             <Stack>
-              {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiras', 'Cidades'].map(community => (
+              {['Agricultor Familiar', 'Indígenas', 'Quilombolas', 'Fundo de Pasto', 'Gerais', 'Pescadores Ribeirinhos', 'Pescadores/Marisqueiras', 'Cidades'].map(peoples => (
                 <Checkbox
-                  key={community}
+                  key={peoples}
                   icon={<CustomIcon />}
                   color='black'
-                  value={community}
-                  isChecked={userData.themesCommunities.includes(community)}
-                  onChange={(e) => handleCheckboxChange(e, 'themesCommunities')}
+                  value={peoples}
+                  isChecked={userData.peoples.includes(peoples)}
+                  onChange={(e) => handleCheckboxChange(e, 'peoples')}
                 >
-                  {community}
+                  {peoples}
                 </Checkbox>
               ))}
             </Stack>
@@ -139,16 +139,16 @@ export default function Colaborador() {
             <FormLabel color="white">Sobre quais povos você tem conhecimento ou tem interesse em contribuir?</FormLabel>
             <Stack>
               <Stack>
-                {['Geraizeiros', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(biome => (
+                {['Geraizeiros', 'Religiosos', 'Ciganos', 'Nômades', 'Outros'].map(peoples => (
                   <Checkbox
-                    key={biome}
+                    key={peoples}
                     icon={<CustomIcon />}
                     color='black'
-                    value={biome}
-                    isChecked={userData.themesBiomes.includes(biome)}
-                    onChange={(e) => handleCheckboxChange(e, 'themesBiomes')}
+                    value={peoples}
+                    isChecked={userData.peoples.includes(peoples)}
+                    onChange={(e) => handleCheckboxChange(e, 'peoples')}
                   >
-                    {biome}
+                    {peoples}
                   </Checkbox>
                 ))}
               </Stack>

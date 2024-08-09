@@ -46,6 +46,11 @@ function Data() {
       name: 'Tema Comunidade',
       value: Array.isArray(userData.themesCommunities) ? userData.themesCommunities.join(', ') : userData.themesCommunities,
     },
+    {
+      id: 9,
+      name: 'Povos que contribuo',
+      value: Array.isArray(userData.peoples) ? userData.peoples.join(', ') : userData.peoples,
+    },
   ];
 
   const filteredList = list.filter(item => item.value && item.value.length > 0);
