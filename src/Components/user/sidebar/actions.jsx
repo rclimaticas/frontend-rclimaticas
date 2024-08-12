@@ -58,7 +58,7 @@ export default function Actions() {
 
   return (
     <VStack py={10} px={5} spacing={3}>
-      <Button as={RouterLink} to="https://chat.whatsapp.com/LCSX1JKQXVFK6cfiwE3nhO" w="full" variant="outline" leftIcon={<FaWhatsapp />}>
+      <Button as="a" target="_blank" rel="noopener noreferrer" href="https://chat.whatsapp.com/LCSX1JKQXVFK6cfiwE3nhO" w="full" variant="outline" leftIcon={<FaWhatsapp />}>
         Acesse a Comunidade
       </Button>
       <Button as={RouterLink} to="/" w="full" variant="outline">
