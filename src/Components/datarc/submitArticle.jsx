@@ -152,7 +152,7 @@ function SubmitArticle() {
             <Container maxW="container.xl">
                 <SimpleGrid mt={10} columns={2} spacingX='90px' spacingY='60px' display={"flex"} justifyContent={"center"}>
                     <Stack gap={2} display="flex" justifyContent={"center"}>
-                        <Heading textAlign={"center"}>Criar recurso para submissão de artigos</Heading>
+                        <Heading textAlign={"center"}>Contribua enviando sabedoria</Heading>
                         <Text textAlign={"center"}> Faça o envio dos artigos que você desejar para colaborar com a Liga Colaborativa.</Text>
                         <Center>
                             <Button onClick={onOpen}>Fazer envio de artigos</Button>
