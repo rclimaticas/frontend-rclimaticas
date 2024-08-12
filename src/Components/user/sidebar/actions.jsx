@@ -17,6 +17,10 @@ import {
 import { Link as RouterLink } from 'react-router-dom';
 import { AuthContext } from '../../context/authcontext';
 import { GoogleAuthContext } from '../../context/GoogleAuthContext';
+import { FaWhatsapp } from "react-icons/fa";
+import { IoIosArrowDropleft } from "react-icons/io";
+import { CiLogout } from "react-icons/ci";
+
 
 export default function Actions() {
   const value = 'https://rclimaticas.com/jvittor';
@@ -54,6 +58,9 @@ export default function Actions() {
 
   return (
     <VStack py={10} px={5} spacing={3}>
+      <Button as={RouterLink} to="/" w="full" variant="outline" leftIcon={<FaWhatsapp />}>
+        Acesse a Comunidade
+      </Button>
       <Button as={RouterLink} to="/" w="full" variant="outline">
         Voltar à página inicial
       </Button>
