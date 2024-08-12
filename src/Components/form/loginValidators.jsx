@@ -250,27 +250,6 @@ export default function LoginValidators() {
                                             <Text color="white" fontWeight={"light"}>Entrar</Text>
                                         </Button>
                                     </Box>
-                                    <Box size="xl" display="flex" justifyContent={"center"} alignItems={"center"}>
-                                        <Text>
-                                            Caso ainda não tenha feito o cadastro,
-                                            <a href="/register">
-                                                <Text as="span" _hover={{ textDecoration: "underline" }} cursor={"pointer"} color={"#1485E8"}> clique aqui.</Text>
-                                            </a>
-                                        </Text>
-                                    </Box>
-                                    <Box size="xl">
-                                        <HStack>
-                                            <Divider opacity={1} />
-                                            <Text fontFamily={"Alata"} fontSize={"14px"} whiteSpace={"nowrap"}>Ou</Text>
-                                            <Divider opacity={1} />
-                                        </HStack>
-                                    </Box>
-                                    <Box size="xl" display="flex" justifyContent={"center"} alignItems={"center"}>
-                                        <GoogleLogin
-                                            onSuccess={handleSuccessAuth}
-                                            onError={handleErrorAuth}
-                                        />
-                                    </Box>
                                 </Stack>
                             </CardBody>
                             <CardFooter>
