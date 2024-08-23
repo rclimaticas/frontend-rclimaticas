@@ -117,7 +117,7 @@ export default function News() {
                                 </Button>
                             </Stack>
                         </Box>
-                        <Box mt={{ sm: "-9.5rem", md: "-16.5rem", lg: "-17.5rem", xl: "-17.5rem" }}>
+                        <Box >
                             <Heading
                                 fontSize={{ sm: "28px", md: "30px", lg: "30px" }}
                                 textAlign={"right"}
@@ -143,29 +143,38 @@ export default function News() {
                         </Box>
                     </SimpleGrid>
 
-                    <SimpleGrid columns={2}>
-                        <Box mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
-                            <Center flexDirection={"column"} gap={5}>
-                                <Heading fontSize={"27px"}>Como você pode contribuir?</Heading>
-                                <Text>
-                                    Nosso projeto não possui financiamento permanente e conta com doações e
-                                    prestações de serviços para seguir contribuindo com os povos, culturas e natureza
-                                </Text>
-                                <Text>
-                                    Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
-                                    estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
-                                </Text>
-                                <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
-                                <Image w={"80%"} src={Financiadores} />
-                            </Center>
-                        </Box>
-                        <Box mt={{ sm: "-10rem", md: "-12rem", lg: "-18rem", xl: "-30rem" }}>
-                            <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
-                            <Center>
-                                <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={TrustedBy} />
-                            </Center>
-                        </Box>
-                    </SimpleGrid>
+                    <HStack>
+                        <SimpleGrid columns={2}>
+                            <Box w="xl" mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
+                                <Center flexDirection={"column"} gap={5}>
+                                    <Heading fontSize={"27px"}>Como você pode contribuir?</Heading>
+                                    <Text>
+                                        Nosso projeto não possui financiamento permanente e conta com doações e
+                                        prestações de serviços para seguir contribuindo com os povos, culturas e natureza
+                                    </Text>
+                                    <Text>
+                                        Inclua em seus projetos uma % para contratar nossos estudos de impacto nos ODS, diagnósticos socioambientais,
+                                        estudos de gênero, vulnerabilidade e resiliência climática, dentre outros.
+                                    </Text>
+                                    <Button as='a' target="_blank" rel="noopener noreferrer" href='https://www.espiralds.com/doe'>Contribua</Button>
+                                    <Image w={"80%"} src={Financiadores} />
+                                </Center>
+                            </Box>
+                            {/* <Box mt={{ sm: "-10rem", md: "-12rem", lg: "-18rem", xl: "-30rem" }}>
+                                <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
+                                <Center>
+                                    <Image w={{ sm: "98%", md: "90%", lg: "90%", xl: "90%" }} src={TrustedBy} />
+                                </Center>
+                            </Box> */}
+                        </SimpleGrid>
+                        <SimpleGrid>
+                            <Box w="xl">
+                                <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
+                                <Image src={TrustedBy} />
+                            </Box>
+
+                        </SimpleGrid>
+                    </HStack>
 
 
                 </Container>
