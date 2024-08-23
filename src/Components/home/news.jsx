@@ -8,6 +8,7 @@ import Article1 from '../../assets/article1.png'
 import Article2 from '../../assets/article2.png'
 import Financiadores from '../../assets/financiadores.png'
 import IBGE from './ibge'
+import MapBiomas from './mapbiomas.jsx'
 import axios from 'axios';
 import GlobalConfirmationModal from '../../common/ConfirmationModal.jsx';
 
@@ -54,7 +55,7 @@ export default function News() {
                 <Container maxW="container.xl" maxH={"container.xs"}>
                     <SimpleGrid columns={2} spacing={2}>
                         <Box mt={{ base: 5, sm: "-14rem", md: "-20rem", lg: "-20rem", xl: "-20rem" }}>
-                            <IBGE />
+                            <MapBiomas />
                             <Stack spacing={5}>
                                 <Heading mt={5} fontSize={{ sm: "25px", md: "35px", lg: "30px", xl: "30px" }}><u>Publicações Recentes</u></Heading>
                                 <SimpleGrid columns={2} w={{ sm: "80%", md: "50%", lg: "50%" }} spacing={5}>
