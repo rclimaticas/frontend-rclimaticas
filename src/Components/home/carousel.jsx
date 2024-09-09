@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useContext } from 'react';
 import { AccountSettingsContext } from '../context/AccountSettingsContext';
+import { Link } from "react-router-dom";
 
 // importações necessárias da Biblioteca do Swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -34,9 +35,9 @@ export default function Carousel() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href={'https://www.espiralds.com/sofia'}
+          to={'https://www.espiralds.com/sofia'}
         >
-          <img src={collaborate1} alt="Collaborate 1" />
+          <img src={"https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/collaborate1.png"} alt="Collaborate 1" />
         </a>
         {/* {auth ? (
           <a
@@ -55,34 +56,34 @@ export default function Carousel() {
             <img src={collaborate1} alt="Collaborate 1" />
           </a>
         )} */}
-      </SwiperSlide> 
-        <SwiperSlide>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/ondefoi"
-          >
-            <img src={collaborate2} alt="Collaborate 2" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/datarc"
-          >
-            <img src={collaborate3} alt="Collaborate 3" />
-          </a>
-        </SwiperSlide>
-        <SwiperSlide>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="/ligacolaborativa"
-          >
-            <img src={collaborate4} alt="Collaborate 4" />
-          </a>
-        </SwiperSlide>
+      </SwiperSlide>
+      <SwiperSlide>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/ondefoi"
+        >
+          <img src={collaborate2} alt="Collaborate 2" />
+        </a>
+      </SwiperSlide>
+      <SwiperSlide>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/datarc"
+        >
+          <img src={collaborate3} alt="Collaborate 3" />
+        </a>
+      </SwiperSlide>
+      <SwiperSlide>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/ligacolaborativa"
+        >
+          <img src={collaborate4} alt="Collaborate 4" />
+        </a>
+      </SwiperSlide>
     </Swiper>
   );
 }

@@ -7,7 +7,10 @@ import TrustedBy from '../../assets/trusted.png'
 export default function Footer() {
     return (
         <>
-            <Container bgImage={Fundo} bgSize={"cover"} mt={"-20rem"} maxW="full" height={"1200px"}>
+            <Container style={{
+                backgroundImage: "url('https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/fundo.png')",
+                backgroundSize: "cover"
+            }} bgSize={"cover"} mt={"-20rem"} maxW="full" height={"1200px"}>
                 <Layout maxW={"container.xl"}>
                     <SimpleGrid mt={"30rem"} columns={2} spacingX='90px' spacingY='60px'>
                         <Box h="380px">

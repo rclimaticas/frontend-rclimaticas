@@ -31,7 +31,7 @@ export default function LigaColaborativa() {
                         <Box h="500px" display={"flex"} justifyContent="center" alignItems="center" >
                             <Image
                                 filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                                src={i18n.ligacolaborativa.image.logo} />
+                                src={"https://iili.io/JPqtFnV.md.png"} />
                         </Box>
                         <Box h="500px" display={"flex"} justifyContent="center" alignItems="center">
                             <Text fontSize={"25px"} fontFamily={"Alata"}>
@@ -61,7 +61,7 @@ export default function LigaColaborativa() {
                         <Box h="400px" display={"flex"} justifyContent="center" alignItems="center">
                             <Image
                                 filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                                src={i18n.ligacolaborativa.image.logo} />
+                                src={"https://iili.io/JPqtFnV.md.png"} />
                         </Box>
                         {/* box para espaço final */}
                         <Box h={"100px"}></Box>

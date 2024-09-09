@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
-  <!-- deixa a tela em tela mobile com tela desktop -->
+  <!-- Configuração para tornar a página responsiva -->
   <meta name="viewport" content="" />
-  <link rel="icon" type="image/x-icon" href="./src/assets/favicon.png" id="favicon" />
-  <link href="./src/App.css" rel="stylesheet">
 
-  <!-- Google fonts -->
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./src/assets/favicon.png" id="favicon" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
@@ -16,25 +18,18 @@
 
   <!-- Primary Meta Tags -->
   <title>Liga Colaborativa</title>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE200X3HVE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-YE200X3HVE');
-  </script>
 </head>
 
 <body>
   <div id="root"></div>
+
   <script>
+    // Verifica a rota e altera o título da página
     if (window.location.pathname === "/ondefoi") {
       document.title = "OndeFoi - Resiliência Climática";
     }
-    // alterando favicon de acordo com a rota atual
+
+    // Alterando o favicon de acordo com a rota atual
     function changeFavicon() {
       var favicon = document.getElementById("favicon");
       if (window.location.pathname === "/ondefoi") {
@@ -44,10 +39,23 @@
       }
     }
 
-    // função chamada inicialmente para definir o favicon correto
+    // Chama a função para definir o favicon correto
     changeFavicon();
   </script>
+
+  <!-- Script principal da aplicação -->
   <script type="module" src="/src/main.jsx"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE200X3HVE"></script>
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-YE200X3HVE');
+  </script> -->
 </body>
 
 </html>
