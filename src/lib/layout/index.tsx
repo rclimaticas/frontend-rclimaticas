@@ -20,7 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <GoogleOAuthProvider clientId={GoogleID}>
-        <div className="flex flex-col">
+        <div className="bg-black flex flex-col px-12">
           {shouldShowHeader && <Header />}
           <main>{children}</main>
         </div>
