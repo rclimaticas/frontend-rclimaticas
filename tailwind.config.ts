@@ -16,7 +16,7 @@ export default {
         100: '#C4C4C4',
         200: '#515255',
       },
-      orange: '#FF5522',
+      orange: '#cfd149',
       white: '#FEFFFE',
     },
 
