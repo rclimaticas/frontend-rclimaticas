@@ -21,7 +21,7 @@ const LoginPage = () => (
         </h3>
         <button
           type="submit"
-          className="text-black w-full rounded-xl bg-orange p-2 shadow-[rgba(0,0,15,0.5)_-3px_10px_4px_0px]"
+          className="text-black relative bottom-3 w-full rounded-xl bg-orange p-2 shadow-[rgba(0,0,15,0.5)_-3px_10px_4px_0px]"
         >
           Saber Mais
         </button>

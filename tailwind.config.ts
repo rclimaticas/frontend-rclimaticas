@@ -18,8 +18,8 @@ export default {
       },
       orange: '#cfd149',
       white: '#FEFFFE',
+      green: '#4caf50',
     },
-
   },
   plugins: [tailwindTypography],
 } satisfies Config;

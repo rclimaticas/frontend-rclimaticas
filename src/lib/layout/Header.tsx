@@ -1,133 +1,299 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+
+'use client';
 
 import Image from 'next/image';
+import type React from 'react';
+import { useState } from 'react';
 
-const Header = () => {
+import NavbarData from '../components/models/Navbar';
+
+const { logo, links, action, action2 } = NavbarData;
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const NavModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  interface LinkProps {
+    parent: string;
+    link?: string;
+    children:
+      | {
+          name: string;
+          desc: string;
+          link: string;
+        }[]
+      | null;
+  }
+
+  const [parent, setParent] = useState<LinkProps | null>(null);
+  const handleClick = (link: LinkProps) => {
+    if (link.link != null) {
+      window.location.href = link.link;
+    } else {
+      setParent(link);
+    }
+  };
+
+  if (!isOpen) return null;
   return (
-    <header className="bg-black sticky top-0 z-10 w-full backdrop-blur-md">
-      <header>
-        <nav className="bg-black border-gray-200 px-4 py-2.5 lg:px-6">
-          <div className="mx-auto flex w-full flex-wrap items-center justify-between px-14">
-            <a href="https://flowbite.com" className="flex items-center">
-              <Image
-                src="https://flowbite.com/docs/images/logo.svg"
-                className="mr-3 h-6 sm:h-9"
-                alt="Flowbite Logo"
-                width={500}
-                height={500}
-              />
-              <span className="self-center whitespace-nowrap text-xl font-semibold text-white">
-                Flowbite
-              </span>
+    <div className="absolute top-0 z-50 block w-full p-5 lg:hidden">
+      <div className="flex h-auto min-h-[600px] w-full flex-col justify-between rounded-lg bg-white p-3 text-black-200">
+        <div className="relative text-xl">
+          <div className="flex items-center justify-between pb-5">
+            <a href={logo.link}>
+              <h1 className="font-head text-indigo-500 text-xl font-bold">
+                {logo.name}
+              </h1>
             </a>
-            <div className="flex items-center lg:order-2">
-              <a
-                href="#"
-                className="text-gray-800 hover:bg-gray-50 focus:ring-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-800 mr-2 rounded-lg px-4 py-2 text-sm font-medium focus:outline-none focus:ring-4 dark:text-white lg:px-5 lg:py-2.5"
-              >
-                Log in
-              </a>
-              <a
-                href="#"
-                className="text-black bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mr-2 rounded-lg px-4 py-2 text-sm font-medium focus:outline-none focus:ring-4 lg:px-5 lg:py-2.5"
-              >
-                Sign up
-              </a>
-              <button
-                data-collapse-toggle="mobile-menu-2"
-                type="button"
-                className="text-gray-500 hover:bg-gray-100 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 ml-1 inline-flex items-center rounded-lg p-2 text-sm focus:outline-none focus:ring-2 lg:hidden"
-                aria-controls="mobile-menu-2"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <svg
-                  className="hidden h-6 w-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              className="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto"
-              id="mobile-menu-2"
+            <button
+              onClick={() => {
+                setParent(null);
+                onClose();
+              }}
             >
-              <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
-                <li>
-                  <a
-                    href="#"
-                    className="bg-primary-700 lg:bg-transparent lg:text-primary-700 block rounded py-2 pl-3 pr-4 text-white dark:text-white lg:p-0"
-                    aria-current="page"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 block border-b py-2 pl-3 pr-4 dark:hover:text-white lg:border-0 lg:p-0 lg:dark:hover:text-white"
-                  >
-                    Company
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 block border-b py-2 pl-3 pr-4 dark:hover:text-white lg:border-0 lg:p-0 lg:dark:hover:text-white"
-                  >
-                    Marketplace
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 block border-b py-2 pl-3 pr-4 dark:hover:text-white lg:border-0 lg:p-0 lg:dark:hover:text-white"
-                  >
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 block border-b py-2 pl-3 pr-4 dark:hover:text-white lg:border-0 lg:p-0 lg:dark:hover:text-white"
-                  >
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-gray-700 border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-primary-700 dark:text-gray-400 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent dark:border-gray-700 block border-b py-2 pl-3 pr-4 dark:hover:text-white lg:border-0 lg:p-0 lg:dark:hover:text-white"
-                  >
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
+              <svg width="40" height="40" viewBox="0 0 40 40">
+                <path
+                  d="M25.6 14.3a1 1 0 0 1 0 1.4l-4.24 4.25 4.25 4.24a1 1 0 1 1-1.42 1.42l-4.24-4.25-4.24 4.25a1 1 0 0 1-1.42-1.42l4.25-4.24-4.25-4.24a1 1 0 0 1 1.42-1.42l4.24 4.25 4.24-4.25a1 1 0 0 1 1.42 0z"
+                  fill="black"
+                />
+              </svg>
+            </button>
           </div>
-        </nav>
-      </header>
-    </header>
+          <div className={`${parent === null ? '' : 'hidden'}`}>
+            {links.map((link, index) => (
+              // eslint-disable-next-line react/button-has-type
+              <button
+                key={link.parent}
+                className="flex w-full flex-col text-xl"
+                onClick={() => handleClick(link)}
+              >
+                <div className="w-full">
+                  <div className="my-2 flex justify-between px-2 py-3">
+                    <h1 className="text-left text-xl font-semibold">
+                      {link.parent}
+                    </h1>
+                    {link.link ? null : (
+                      <svg
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        height="16"
+                      >
+                        <path
+                          className="fill-slate-600"
+                          d="M5.29316 2.9087c-.39088-.39089-.39088-1.02464 0-1.41552.39089-.39089 1.02464-.39089 1.41553 0l6.29971 6.29973c.3905.39052.3905 1.02368 0 1.41421L6.70869 15.5068c-.39089.3909-1.02464.3909-1.41553 0-.39088-.3908-.39088-1.0246 0-1.4155l5.59134-5.59129L5.29316 2.9087Z"
+                        />
+                      </svg>
+                    )}
+                  </div>
+                  {index !== links.length - 1 && (
+                    <hr className="border-dashed" />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+          <div className="px-2 py-3" id="sub-items">
+            <button
+              className={`mb-10 flex items-center justify-center gap-2 ${
+                parent === null ? 'hidden' : ''
+              }`}
+              onClick={() => setParent(null)}
+            >
+              <svg
+                width="7"
+                height="10"
+                viewBox="0 0 7 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="fill-transparent"
+                  d="M5.5 9L1.5 5L5.5 1"
+                  stroke="black"
+                />
+              </svg>
+              <p className="text-indigo-500 font-semibold">Back</p>
+            </button>
+            <h1 className="text-md text-slate-500 mb-3 font-semibold uppercase">
+              {parent?.parent}
+            </h1>
+            {parent?.children?.map((child) => (
+              <a key={child.name} href={child.link} className="group">
+                <div className="w-full rounded-lg py-2">
+                  <p className="text-slate-800 font-semibold">{child.name}</p>
+                  <p className="text-slate-500 group-hover:text-slate-800 animate-short">
+                    {child.desc}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-slate-100 mt-20 flex h-16 w-full items-center justify-center rounded">
+          <a
+            href={action.link}
+            className="bg-indigo-500 text-md animtate-smooth group flex items-center rounded-full px-4 py-2 font-semibold text-white"
+          >
+            <span className="mr-2">{action.name}</span>
+            <svg
+              className="stroke-current"
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              aria-hidden="true"
+            >
+              <g>
+                <path
+                  className="animate-short opacity-0 group-hover:opacity-100"
+                  d="M0 5.5h7"
+                />
+                <path
+                  className="fill-transparent animate-short opacity-100 group-hover:translate-x-1 group-hover:transform"
+                  d="M1 1l3 5-5 5"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default Header;
+const Navbar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  return (
+    <nav>
+      {/* Desktop */}
+      <div className="hidden w-full bg-white text-green lg:block">
+        <div className="flex items-center justify-around p-5">
+          <div>
+            <a href={logo.link}>
+              {/* <h1 className="font-head font-bold text-2xl">{logo.name}</h1> */}
+              <Image
+                alt="Logo"
+                width="50"
+                height="50"
+                src="https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/logoLC-DRqUmzjb.png"
+              />
+            </a>
+          </div>
+          <div>
+            <ul className="flex items-center justify-center gap-10">
+              {links.map((link) => (
+                <li className="group relative" key={link.parent}>
+                  {link.link ? (
+                    <a
+                      href={link.link}
+                      className="cursor-pointer font-semibold hover:opacity-50"
+                    >
+                      {link.parent}
+                    </a>
+                  ) : (
+                    <button className="cursor-default font-semibold hover:opacity-50">
+                      {link.parent}
+                    </button>
+                  )}
+                  {link.children && (
+                    <div className="animate-short invisible absolute left-0 top-0 z-50 min-w-[250px] translate-y-5 transform opacity-0 transition group-hover:visible group-hover:transform group-hover:opacity-100">
+                      <div className="relative top-6 z-50 flex w-full flex-col rounded-xl bg-white p-2 shadow-xl">
+                        <div className="absolute top-0 z-0 h-10 w-10 translate-x-0 rotate-45 transform rounded-sm bg-white" />
+                        {link.children && (
+                          <div
+                            className={`grid ${
+                              link.children.length > 4
+                                ? 'min-w-[500px] grid-cols-2'
+                                : 'grid-cols-1'
+                            }`}
+                          >
+                            {link.children.map((child) => (
+                              <a
+                                key={child.name}
+                                href={child.link}
+                                className="z-50"
+                              >
+                                <div className="hover:bg-slate-100 w-full rounded-lg px-4 py-2">
+                                  <p className="text-slate-800 font-semibold">
+                                    {child.name}
+                                  </p>
+                                  <p className="text-slate-500 text-sm">
+                                    {child.desc}
+                                  </p>
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <a
+              href={action.link}
+              className="hover:bg-blue-700 rounded-full bg-orange px-4 py-2 font-bold text-black-200"
+            >
+              <span>{action.name}</span>
+            </a>
+            <a
+              href={action2.link}
+              className="hover:bg-blue-700 rounded-full bg-white px-4 py-2 font-bold text-black-200"
+            >
+              <span>{action2.name}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile */}
+      <div className="block bg-white text-green lg:hidden">
+        <div className="p-7">
+          <div className="flex items-center justify-between">
+            <a href={logo.link}>
+              {/* <h1 className="font-head font-bold text-2xl">{logo.name}</h1> */}
+              <Image
+                alt="Logo"
+                width="50"
+                height="50"
+                src="https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/logoLC-DRqUmzjb.png"
+              />
+            </a>
+            <button
+              onClick={openModal}
+              className="cursor-pointer rounded-full bg-white bg-opacity-5 px-4 py-3"
+            >
+              <svg width="16" height="10" viewBox="0 0 16 10">
+                <title>Open mobile navigation</title>
+                <g fill="black">
+                  <rect y="8" width="16" height="2" rx="1" />
+                  <rect y="4" width="16" height="2" rx="1" />
+                  <rect width="16" height="2" rx="1" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <NavModal isOpen={isModalOpen} onClose={closeModal} />
+    </nav>
+  );
+};
+
+export default Navbar;

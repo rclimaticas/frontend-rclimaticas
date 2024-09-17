@@ -20,9 +20,11 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <GoogleOAuthProvider clientId={GoogleID}>
-        <div className="bg-black flex flex-col">
+        {/* Adicionando min-h-screen para garantir que ocupe toda a altura da viewport */}
+        <div className="flex h-full flex-col overflow-hidden bg-white md:h-screen">
           {shouldShowHeader && <Header />}
-          <main>{children}</main>
+          <main className="flex flex-col">{children}</main>
+          {/* flex-grow garante que o conteúdo cresça para preencher o espaço */}
         </div>
       </GoogleOAuthProvider>
     </ThemeProvider>

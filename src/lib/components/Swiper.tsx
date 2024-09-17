@@ -2,6 +2,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,12 +12,34 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 export default function Carousel() {
+  const [isMdScreen, setIsMdScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+    // Set initial value
+    setIsMdScreen(mediaQuery.matches);
+
+    // Define a listener for changes in the media query
+    const handleResize = (e: MediaQueryListEvent) => {
+      setIsMdScreen(e.matches);
+    };
+
+    // Add the listener
+    mediaQuery.addEventListener('change', handleResize);
+
+    // Cleanup listener on component unmount
+    return () => {
+      mediaQuery.removeEventListener('change', handleResize);
+    };
+  }, []);
+
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       pagination={{ clickable: true }}
-      navigation
+      navigation={isMdScreen}
       slidesPerView={1}
     >
       <SwiperSlide>
