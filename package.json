@@ -19,7 +19,8 @@
     "up-latest": "pnpm up-interactive -L",
     "release": "cross-env HUSKY=0 standard-version",
     "push-release": "git push --follow-tags origin main",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preinstall": "corepack enable"
   },
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
@@ -62,5 +63,5 @@
     "node": ">=20.14.x",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@9.1.2"
+  "packageManager": "pnpm@8.6.3"
 }
