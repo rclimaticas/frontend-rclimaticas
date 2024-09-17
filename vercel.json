@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm turbo build",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "rewrites": [
+        {
+            "source": "/(.*)*", "destination": "/"
+        }
+    ]
 }
