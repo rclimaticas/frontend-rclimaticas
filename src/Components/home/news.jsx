@@ -150,7 +150,7 @@ export default function News() {
 
                         <HStack>
                             <SimpleGrid columns={2}>
-                                <Box w="xl" mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
+                                <Box  mt={{ sm: "5rem", md: "5rem", lg: "5rem", xl: "3rem" }}>
                                     <Center flexDirection={"column"} gap={5}>
                                         <Heading fontSize={"27px"}>Como você pode contribuir?</Heading>
                                         <Text>
@@ -172,13 +172,12 @@ export default function News() {
                                 </Center>
                             </Box> */}
                             </SimpleGrid>
-                            <SimpleGrid>
-                                <Box w="xl">
+                                <Box w="2000px">
                                     <Heading fontSize={{ sm: "30px", md: "30px", lg: "40px" }} textAlign="right" fontFamily={"Chiller"}>TrustedBy</Heading>
                                     <Image src={TrustedBy} />
                                 </Box>
 
-                            </SimpleGrid>
+                           
                         </HStack>
 
 
