@@ -1,7 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
-
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,19 +15,14 @@ export default function Carousel() {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 768px)');
-
-    // Set initial value
     setIsMdScreen(mediaQuery.matches);
 
-    // Define a listener for changes in the media query
     const handleResize = (e: MediaQueryListEvent) => {
       setIsMdScreen(e.matches);
     };
 
-    // Add the listener
     mediaQuery.addEventListener('change', handleResize);
 
-    // Cleanup listener on component unmount
     return () => {
       mediaQuery.removeEventListener('change', handleResize);
     };
@@ -48,32 +42,15 @@ export default function Carousel() {
           rel="noopener noreferrer"
           href="https://www.espiralds.com/sofia"
         >
-          <img
+          <Image
             src="https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/collaborate1.png"
             alt="Collaborate 1"
           />
         </a>
-        {/* {auth ? (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={'https://www.espiralds.com/sofia'}
-          >
-            <img src={collaborate1} alt="Collaborate 1" />
-          </a>
-        ) : (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={'/sofia'}
-          >
-            <img src={collaborate1} alt="Collaborate 1" />
-          </a>
-        )} */}
       </SwiperSlide>
       <SwiperSlide>
         <a target="_blank" rel="noopener noreferrer" href="/ondefoi">
-          <img
+          <Image
             src="https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/collaborate1.png"
             alt="Collaborate 2"
           />

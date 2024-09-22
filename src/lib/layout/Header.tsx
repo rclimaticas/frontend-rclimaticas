@@ -40,12 +40,12 @@ const NavModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
   return (
-    <div className="absolute top-0 z-50 block w-full p-5 lg:hidden">
+    <div className="absolute top-0 z-50 block w-full lg:hidden">
       <div className="flex h-auto min-h-[600px] w-full flex-col justify-between rounded-lg bg-white p-3 text-black-200">
         <div className="relative text-xl">
           <div className="flex items-center justify-between pb-5">
             <a href={logo.link}>
-              <h1 className="font-head text-indigo-500 text-xl font-bold">
+              <h1 className="text-indigo-500 font-head text-xl font-bold">
                 {logo.name}
               </h1>
             </a>
@@ -178,7 +178,7 @@ const Navbar = () => {
   return (
     <nav>
       {/* Desktop */}
-      <div className="hidden w-full bg-white text-green lg:block">
+      <div className="hidden w-full bg-white text-green-100 lg:block">
         <div className="flex items-center justify-around p-5">
           <div>
             <a href={logo.link}>
@@ -262,7 +262,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile */}
-      <div className="block bg-white text-green lg:hidden">
+      <div className="block bg-white text-green-100 lg:hidden">
         <div className="p-7">
           <div className="flex items-center justify-between">
             <a href={logo.link}>

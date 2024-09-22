@@ -21,7 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <GoogleOAuthProvider clientId={GoogleID}>
         {/* Adicionando min-h-screen para garantir que ocupe toda a altura da viewport */}
-        <div className="flex h-full flex-col overflow-hidden bg-white md:h-screen">
+        <div className="flex h-full h-screen flex-col bg-white md:h-screen">
           {shouldShowHeader && <Header />}
           <main className="flex flex-col">{children}</main>
           {/* flex-grow garante que o conteúdo cresça para preencher o espaço */}
