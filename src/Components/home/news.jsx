@@ -11,6 +11,7 @@ import IBGE from './ibge'
 import MapBiomas from './mapbiomas.jsx'
 import axios from 'axios';
 import GlobalConfirmationModal from '../../common/ConfirmationModal.jsx';
+import Article3 from '../../assets/boas-praticas.pdf'
 import { Link } from "react-router-dom";
 
 export default function News() {
@@ -77,7 +78,7 @@ export default function News() {
 
                                         </a>
                                         <a 
-                                        href="src/assets/Boas-Praticas-miolo-final-digital.pdf"
+                                        href={Article3}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         >

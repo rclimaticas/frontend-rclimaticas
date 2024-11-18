@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, SimpleGrid, Box, Image } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Article3 from '../../assets/boas-praticas.pdf'
 
 // importações necessárias da Biblioteca do Swiper
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
@@ -27,63 +28,64 @@ export default function Article() {
                             }}
                             autoplay={{ delay: 5000, disableOnInteraction: false }}
                         >
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='src/assets/Boas-Praticas-miolo-final-digital.pdf'>
+                            <SwiperSlide>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={Article3}
+                                    >
                                         <Image h={"96%"} src={"https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/articlepng.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='https://repositorio.iica.int/handle/11324/21397'>
-                                        <img src={"https://iili.io/d9CjUnR.md.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='https://observatorio.direitosocioambiental.org/wp-content/uploads/2023/06/Protocolo-de-Consulta-Livre-Previa-e-Informada-dos-Remanescentes-de-Quilombo-da-Serra-dos-Rafaeis.pdf'>
-                                        <img src={"https://iili.io/d9AlFs4.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='https://educacao.cemaden.gov.br/midiateca/cartografia-social-terra-e-territorio/'>
-                                        <img src={"https://iili.io/d9AlTzb.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='https://www.gamba.org.br/wp-content/uploads/2023/06/REABA-DIGITAL-012023.pdf'>
-                                        <img src={"https://iili.io/d9AlGIa.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href='https://books.scielo.org/id/bsx4q/pdf/lobao-9786589524953.pdf'>
-                                        <img src={"https://iili.io/d9A0CCv.png"} />
-                                    </Link>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <Link
+                                </a>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href='https://repositorio.iica.int/handle/11324/21397'>
+                                    <img src={"https://iili.io/d9CjUnR.md.png"} />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href='https://observatorio.direitosocioambiental.org/wp-content/uploads/2023/06/Protocolo-de-Consulta-Livre-Previa-e-Informada-dos-Remanescentes-de-Quilombo-da-Serra-dos-Rafaeis.pdf'>
+                                    <img src={"https://iili.io/d9AlFs4.png"} />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href='https://educacao.cemaden.gov.br/midiateca/cartografia-social-terra-e-territorio/'>
+                                    <img src={"https://iili.io/d9AlTzb.png"} />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href='https://www.gamba.org.br/wp-content/uploads/2023/06/REABA-DIGITAL-012023.pdf'>
+                                    <img src={"https://iili.io/d9AlGIa.png"} />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href='https://books.scielo.org/id/bsx4q/pdf/lobao-9786589524953.pdf'>
+                                    <img src={"https://iili.io/d9A0CCv.png"} />
+                                </Link>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <Link
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     href='https://nordestepotencia.org.br/wp-content/uploads/2024/02/Salvaguardas_Socioambientais_Renovaveis.pdf'
-                                    >
-                                        <img src={'https://iili.io/d9A0PoJ.png'} />
-                                    </Link>
-                                </SwiperSlide>
+                                >
+                                    <img src={'https://iili.io/d9A0PoJ.png'} />
+                                </Link>
+                            </SwiperSlide>
                         </Swiper>
 
                     </Box>
