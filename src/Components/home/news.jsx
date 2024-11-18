@@ -71,22 +71,22 @@ export default function News() {
                                             <Image
                                                 transition="transform 0.3s"
                                                 _hover={{ transform: "scale(1.05)" }}
-                                                src={Article1}
-                                                filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
-                                            />
-                                        </a>
-                                        <a
-                                            href="/datarc"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <Image
-                                                transition="transform 0.3s"
-                                                _hover={{ transform: "scale(1.05)" }}
                                                 w={"97%"} src={Article2}
                                                 filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
                                             />
 
+                                        </a>
+                                        <a 
+                                        href="src/assets/Boas-Praticas-miolo-final-digital.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        >
+                                            <Image 
+                                            transition="transform 0.3s"
+                                            _hover={{ transform: "scale(1.05)" }}
+                                            w={"97%"}
+                                            filter="drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5))"
+                                            src={"https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/articlepng.png"} />
                                         </a>
                                     </SimpleGrid>
                                     <Stack spacing={4}>

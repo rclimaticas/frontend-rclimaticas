@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, SimpleGrid, Box } from '@chakra-ui/react';
+import { Container, SimpleGrid, Box, Image } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // importações necessárias da Biblioteca do Swiper
@@ -27,6 +27,14 @@ export default function Article() {
                             }}
                             autoplay={{ delay: 5000, disableOnInteraction: false }}
                         >
+                                <SwiperSlide>
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        href='src/assets/Boas-Praticas-miolo-final-digital.pdf'>
+                                        <Image h={"96%"} src={"https://rclimaticas-fileupload.s3.sa-east-1.amazonaws.com/articlepng.png"} />
+                                    </Link>
+                                </SwiperSlide>
                                 <SwiperSlide>
                                     <Link
                                         target="_blank"
