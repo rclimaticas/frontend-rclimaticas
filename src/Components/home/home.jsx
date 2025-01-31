@@ -5,6 +5,7 @@ import Occurrences from './occurrences.jsx';
 import News from './news.jsx'
 import Header from '../../common/header.jsx';
 import i18n from '../i18n/i18n.json'
+import './home.css';
 import ConceitoPlataforma from '../../assets/conceitoPlataforma.pdf'
 
 // aqui esta o componente da home
@@ -34,11 +35,23 @@ export default function Test() {
                                 <Text fontSize={{ sm: "20px", md: "15px", lg: "20px", xl: "24px" }}>
                                     {i18n.home.desc}
                                 </Text>
-                                <Button as='a' target="_blank" rel="noopener noreferrer" href={"/ligacolaborativa"} w={{ sm: "40%", md: "60%", lg: "50%" }}>
+                                {/* <Button as='a' target="_blank" rel="noopener noreferrer" href={"/ligacolaborativa"} w={{ sm: "40%", md: "60%", lg: "50%" }}>
                                     <Text fontSize={"20px"} fontWeight={"normal"}>
-                                        Saber Mais
+                                        UMA NOVA ONDA ESTÁ SURGINDO
                                     </Text>
+                                </Button> */}
+                                <Button  as='a' target="_blank" rel="noopener noreferrer" href="https://ligacolaborativa-preview.vercel.app/" borderRadius="full" type="button" className="btn">
+                                    <strong>NOVA ONDA VEM AÍ</strong>
+                                    <div id="container-stars">
+                                        <div id="stars"></div>
+                                    </div>
+
+                                    <div id="glow">
+                                        <div className="circle"></div>
+                                        <div className="circle"></div>
+                                    </div>
                                 </Button>
+
                             </Stack>
                         </GridItem>
                     </Grid>
