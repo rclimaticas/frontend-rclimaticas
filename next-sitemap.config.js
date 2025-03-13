@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const NextSitemapConfig = {
-  siteUrl: "",
+  siteUrl: "https://ligacolaborativa.site",
   generateRobotsTxt: true,
 };
 
